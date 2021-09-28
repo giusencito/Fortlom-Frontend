@@ -30,6 +30,7 @@ import {FormsModule} from '@angular/forms'
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[FanaticForumComponent]
 })
 export class AppModule { }
