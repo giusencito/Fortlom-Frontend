@@ -31,13 +31,13 @@
   "Forum": [
     { "id": 1,
       "ForumName": "MusicalForum",
-      "ForumDescription": "In this forum you can recommend new music for the new ones",
-      "UserCode": 1
+      "ForumDescription": "In this forum you can recommend new music for the new ones"
+
     },
     { "id": 2,
       "ForumName": "AlbumForum",
-      "ForumDescription": "In this forum you can recommend new albums for the new ones",
-      "UserCode": 2
+      "ForumDescription": "In this forum you can recommend new albums for the new ones"
+
     }
   ],
   "Comment":[
