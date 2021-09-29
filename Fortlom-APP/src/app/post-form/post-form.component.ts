@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PublicacionService} from "../../../services/post.service";
+import {PublicacionService} from "../../services/post.service";
 import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
@@ -32,6 +32,7 @@ export class PostFormComponent implements OnInit {
     this.postService.create(this.postData).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+      console.log(this.dataSource);
     });
     txt.value = "";
   }

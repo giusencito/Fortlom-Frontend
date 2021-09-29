@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {CommentService} from "../../services/comment.service";
 import {CommentComponent} from "../comment/comment.component";
-
+import {CommonModule} from "@angular/common";
 
 @Component({
   selector: 'app-post',
@@ -33,9 +33,11 @@ export class PostComponent implements OnInit {
   getComments(): void {
     this.commentService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
-      console.log(this.dataSource);
-      console.log(this.dataSource.data);
+      this.studentData = this.dataSource.data;
       this.haveInfo = true;
     });
+  }
+  talk(): void{
+    console.log("aqui estoy");
   }
 }

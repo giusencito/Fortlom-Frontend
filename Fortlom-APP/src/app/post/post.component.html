@@ -11,6 +11,8 @@
     text-decoration: none;
   }
 </style>
+
+<div>
 <mat-card class="post-mat-card">
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
@@ -34,4 +36,14 @@
   </mat-card-actions>
 </mat-card>
 
-<!--por alguna razon no me esta funcionando el *ngIf ni el *ngFor, pero si logro conseguir los comments -->
+<!--Solucione el problema del ngFor e ngIf agregando al textarea de los forms "matInput"-->
+  <div *ngIf="haveInfo">
+    <div *ngFor="let a of studentData">
+      <app-comment
+        [customText]="a.CommentDescription"
+        [customTitle]="a.UserID"
+      >
+      </app-comment>
+    </div>
+  </div>
+</div>
