@@ -11,15 +11,17 @@ import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { FanaticForumCreateComponent } from './Fanatic-Forum-Create/Fanatic-Forum-Create.component';
+import { FanaticForumcommentComponent } from './Fanatic-Forumcomment/Fanatic-Forumcomment.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     HomeComponent,
     FanaticComponent,
     FanaticForumComponent,
-      FanaticForumCreateComponent
+      FanaticForumCreateComponent,
+      FanaticForumcommentComponent
    ],
   imports: [
     BrowserModule,

@@ -109,12 +109,14 @@
     {
       "id": 1,
       "CommentDescription": "You really going to like it",
+      "UserID": 2,
       "ForumID": 1,
       "Date": "10/9/2020"
     },
     {
       "id": 2,
       "CommentDescription": "Go and see it, it's tremendous",
+      "UserID": 2,
       "Forumid": 2,
       "Date": "20/03/2021"
     }
