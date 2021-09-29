@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableDataSource} from "@angular/material/table";
+import {CommentService} from "../../services/comment.service";
 
 @Component({
   selector: 'app-comment-form',
@@ -7,12 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommentFormComponent implements OnInit {
 
-  constructor() { }
+  commentData: any;
+  dataSource: MatTableDataSource<any>;
+
+  constructor(private commentService : CommentService) {
+    this.commentData = {
+      id: 4,
+      CommentDescription: "",
+      PublicationID: 3,
+      UserID: 1,
+      Date: ""
+    }
+    this.dataSource = new MatTableDataSource<any>();
+  }
 
   ngOnInit(): void {
   }
 
-  postComment(): void {
-    alert("Posting Comment");
+  postComment(txt: HTMLTextAreaElement): void {
+    this.commentData.CommentDescription = txt.value;
+    this.commentService.create(this.commentData).subscribe((response: any) => {
+      this.dataSource.data.push({...response});
+      this.dataSource.data = this.dataSource.data.map((o:any)=>{return o;});
+    });
+    txt.value = "";
   }
 }

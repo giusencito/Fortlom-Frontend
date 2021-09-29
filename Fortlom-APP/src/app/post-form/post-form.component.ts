@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {PublicacionService} from "../../../services/post.service";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-post-form',
@@ -7,12 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostFormComponent implements OnInit {
 
-  constructor() { }
+  postData: any;
+  dataSource: MatTableDataSource<any>;
+
+  constructor(private postService: PublicacionService) {
+    this.postData = {
+      id: 4,
+      PublicationName: "Post Name",
+      PublicationDescription: "",
+      Likes: 0,
+      Date: "",
+      UserID: 2
+    };
+    this.dataSource = new MatTableDataSource<any>();
+  }
 
   ngOnInit(): void {
   }
 
-  postPost(): void{
-    alert("posting post");
+  postPost(txt: HTMLTextAreaElement): void {
+    this.postData.PublicationDescription = txt.value;
+    this.postService.create(this.postData).subscribe((response: any) => {
+      this.dataSource.data.push( {...response});
+      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+    });
+    txt.value = "";
   }
 }

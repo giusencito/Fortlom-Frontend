@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {MatTableDataSource} from "@angular/material/table";
+import {CommentService} from "../../services/comment.service";
+import {CommentComponent} from "../comment/comment.component";
+
 
 @Component({
   selector: 'app-post',
@@ -7,7 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  studentData: any;
+  dataSource: MatTableDataSource<any>;
+  haveInfo = false;
+
+  constructor(private commentService: CommentService) {
+    this.studentData = {}
+    this.dataSource = new MatTableDataSource<any>();
+    this.haveInfo = false;
+  }
 
   ngOnInit(): void {
   }
@@ -18,7 +30,12 @@ export class PostComponent implements OnInit {
   commentPost(): void {
     alert("Posting comment");
   }
-  getPosts(): void {
-    alert("Getting Posts");
+  getComments(): void {
+    this.commentService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      console.log(this.dataSource);
+      console.log(this.dataSource.data);
+      this.haveInfo = true;
+    });
   }
 }
