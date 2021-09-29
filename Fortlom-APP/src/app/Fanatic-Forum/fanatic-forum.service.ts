@@ -59,7 +59,7 @@ export class FanaticForumService {
 
   // Update Student
   update(id: any, item: any): Observable<Forum> {
-    return this.http.post<Forum>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+    return this.http.put<Forum>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(2),
         catchError(this.handleError));

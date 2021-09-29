@@ -9,14 +9,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FanaticComponent } from './Fanatic/Fanatic.component';
 import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 import { MatInputModule } from '@angular/material/input';
-import {FormsModule} from '@angular/forms'
+import {FormsModule,ReactiveFormsModule} from '@angular/forms'
+import { FanaticForumCreateComponent } from './Fanatic-Forum-Create/Fanatic-Forum-Create.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FanaticComponent,
     FanaticForumComponent,
-
+      FanaticForumCreateComponent
    ],
   imports: [
     BrowserModule,
@@ -25,12 +28,13 @@ import {FormsModule} from '@angular/forms'
     BrowserAnimationsModule,
     HttpClientModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
 
 
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[FanaticForumComponent]
+  entryComponents:[FanaticForumCreateComponent]
 })
 export class AppModule { }

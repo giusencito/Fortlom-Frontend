@@ -8,6 +8,9 @@ import {MatPaginator} from "@angular/material/paginator";
 import {ChangeDetectorRef} from '@angular/core'
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { FanaticForumCreateComponent } from '../Fanatic-Forum-Create/Fanatic-Forum-Create.component';
+
+
 @Component({
   selector: 'app-Fanatic-Forum',
   templateUrl: './Fanatic-Forum.component.html',
@@ -17,6 +20,8 @@ export class FanaticForumComponent implements OnInit {
   forumdata !:Forum;
   forums:Forum[]=[];
   dataSource !:MatTableDataSource<any>;
+  @ViewChild('studentForm', {static: false})
+  ForumForm!: NgForm;
   displayedColumns: string[] = ['id', 'ForumName', 'ForumDescription','actions'];
   @ViewChild(MatSort) sort !:MatSort;
   @ViewChild(MatPaginator,{static: false}) paginator !:MatPaginator;
@@ -32,7 +37,7 @@ export class FanaticForumComponent implements OnInit {
     this.getAllStudents()
     console.log(this.forums);
     console.log(this.displayedColumns);
-
+    console.log(this.isEditMode)
   }
   getAllStudents() {
     this.service.getAll().subscribe((response: any) => {
@@ -50,6 +55,15 @@ this.applyfilter();
 
 }
 
+editItem(element: Forum) {
+  this.forumdata = _.cloneDeep(element);
+  this.isEditMode = true;
+  console.log(this.isEditMode)
+}
+cancelEdit() {
+  this.isEditMode = false;
+  this.ForumForm.resetForm();
+}
 applyfilter(){
 
 this.dataSource.filter=this.searchKey.trim().toLowerCase();
@@ -85,8 +99,36 @@ onCreate(){
   dialogconfig.disableClose=true;
   dialogconfig.autoFocus=true;
   dialogconfig.width="60%"
-   this.dialog.open(FanaticForumComponent,dialogconfig);
+   this.dialog.open(FanaticForumCreateComponent,dialogconfig);
 }
+
+onSubmit(){
+  console.log(this.forumdata);
+  if (this.isEditMode) {
+    console.log("se actualiza")
+    this.updateStudent();
+  } else {
+
+    this.addStudent();
+  }
+}
+
+
+updateStudent() {
+  this.service.update(this.forumdata.id, this.forumdata).subscribe((response: any) => {
+    this.dataSource.data = this.dataSource.data.map((o: Forum) => {
+      if (o.id === response.id) {
+        o = response;
+      }
+      return o;
+    });
+    this.cancelEdit();
+  });
+}
+
+
+
+
 
 
 

@@ -1,6 +1,25 @@
 <p>
   Fanatic-Forum works! fff
 </p>
+<h2>{{ isEditMode ? 'Edit Student' : 'Add new Student'}}</h2>
+<form  (submit)="onSubmit()"  #ForumForm='ngForm'>
+  <mat-form-field>
+    <input matInput placeholder="ForumName" name="ForumName" required
+      [(ngModel)]="forumdata.ForumName">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <input matInput placeholder="ForumDescription" name="ForumDescription" required
+      [(ngModel)]="forumdata.ForumDescription">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+    <button type="submit">Aceptar</button>
+    <button (click)="cancelEdit()">Limpiar</button>
+
+</form>
+
 
 <button mat-raised-button (click)="onCreate()">
   <mat-icon>add</mat-icon>Crear
@@ -32,8 +51,8 @@
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef mat-sort-header> #actions</mat-header-cell>
     <mat-cell *matCellDef="let row">
-      <button mat-icon-button><mat-icon>launch</mat-icon></button>
-      <button mat-icon-button><mat-icon>delete_outline</mat-icon></button>
+      <button mat-icon-button (click)="editItem(row)"><mat-icon>launch</mat-icon></button>
+      <button mat-icon-button (click)="deleteItem(row.id)"><mat-icon>delete_outline</mat-icon></button>
     </mat-cell>
   </ng-container>
   <ng-container matColumnDef="loading">
@@ -46,3 +65,12 @@
 
 </mat-table>
 <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
+
+<div *ngFor="let element of dataSource.data">
+<mat-card>
+  <mat-card-title>{{element.ForumName}}</mat-card-title>
+  <mat-card-content>
+    <p>{{element.ForumDescription}}</p>
+  </mat-card-content>
+</mat-card>
+</div>
