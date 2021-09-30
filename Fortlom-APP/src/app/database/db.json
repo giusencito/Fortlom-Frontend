@@ -104,9 +104,9 @@
       "id": 7
     },
     {
-      "ForumName": "Pop",
-      "ForumDescription": "Musica Pop",
-      "id": 8
+      "ForumName": "Classic",
+      "ForumDescription": "Musica Clasica",
+      "id": 9
     }
   ],
   "Comment": [
@@ -149,6 +149,24 @@
       "ForumID": "2",
       "Date": "29/09/2021",
       "id": 4
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "3",
+      "Date": "30/09/2021",
+      "id": 5
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "3",
+      "Date": "30/09/2021",
+      "id": 6
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "2",
+      "Date": "30/09/2021",
+      "id": 7
     }
   ],
   "Publicacion": [
