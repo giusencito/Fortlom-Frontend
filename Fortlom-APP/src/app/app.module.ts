@@ -11,7 +11,8 @@ import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 import { FanaticForumCreateComponent } from './Fanatic-Forum-Create/Fanatic-Forum-Create.component';
-
+import { EventComponent } from './event/event.component';
+import { EventCreateComponent } from './event-create/event-create.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { FanaticForumCreateComponent } from './Fanatic-Forum-Create/Fanatic-Foru
     HomeComponent,
     FanaticComponent,
     FanaticForumComponent,
-      FanaticForumCreateComponent
+    FanaticForumCreateComponent,
+    EventComponent,
+    EventCreateComponent
    ],
   imports: [
     BrowserModule,
@@ -30,7 +33,6 @@ import { FanaticForumCreateComponent } from './Fanatic-Forum-Create/Fanatic-Foru
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-
 
   ],
   providers: [],

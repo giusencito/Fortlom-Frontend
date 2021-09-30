@@ -9,7 +9,7 @@
       "Registration": "12/9/2021"
     },
     {
-      "UserId": 2,
+      "id": 2,
       "Name": "Juan",
       "LastName": "Perez",
       "Email": "PJ@hotmail.com",
