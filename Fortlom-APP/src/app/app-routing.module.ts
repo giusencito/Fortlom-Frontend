@@ -1,3 +1,4 @@
+import { SkeletonComponent } from './skeleton/skeleton.component';
 import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 
 
@@ -7,6 +8,7 @@ import {HomeComponent} from './home/home.component';
 import { EventComponent } from './event/event.component';
 
 const routes: Routes = [
+{path:   '',component:SkeletonComponent},
 {path : 'Home', component: HomeComponent},
 {path:'fanaticforum',component:FanaticForumComponent},
 {path:'Event',component:EventComponent}

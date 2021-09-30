@@ -14,9 +14,11 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 
 import { EventComponent } from './event/event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { SkeletonComponent } from './skeleton/skeleton.component';
 
 @NgModule({
-  declarations: [
+  declarations: [		
     AppComponent,
     HomeComponent,
 
@@ -25,6 +27,8 @@ import { EventCreateComponent } from './event-create/event-create.component';
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
+      NavigationComponent,
+      SkeletonComponent
    ],
   imports: [
     BrowserModule,
