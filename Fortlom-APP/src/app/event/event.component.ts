@@ -20,7 +20,7 @@ export class EventComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
 
-  @ViewChild('eventForm', {static: false})
+  @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
 
   @ViewChild(MatPaginator, {static: true})

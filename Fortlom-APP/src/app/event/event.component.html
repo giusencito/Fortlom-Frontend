@@ -74,11 +74,17 @@
       [(ngModel)]="eventdata.ArtistID">
       <mat-error>Es requerido</mat-error>
   </mat-form-field>
-  <button type="submit">Aceptar</button>
-  <button (click)="cancelEdit()">Limpiar</button>
-  <button (click) = "editItem(eventdata)">Editar</button>
+  <button mat-raised-button color="primary" type="submit">Aceptar</button>
+  <div class="spacer"></div>
+  <button mat-raised-button color="primary" (click) = "editItem(eventdata)">Editar</button>
 </form>
 </div> 
+</td>
+<td>
+  <div class = "center">
+  <h1>Clear Fields</h1>  
+  <button mat-raised-button color="primary" (click)="cancelEdit()">Limpiar</button>
+  </div>
 </td>
 <td>
 <div class="center">
@@ -88,7 +94,7 @@
     [(ngModel)]="eventdata.id">
     <mat-error>Es requerido</mat-error>
   </mat-form-field>
-  <button (click) = "deleteEdit(eventdata.id)">Eliminar</button>
+  <button mat-raised-button color="primary" (click) = "deleteEdit(eventdata.id)">Eliminar</button>
 </div>
 </td>
 </tr>
