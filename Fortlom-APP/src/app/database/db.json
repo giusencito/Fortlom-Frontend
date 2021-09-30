@@ -87,6 +87,26 @@
       "ForumName": "Metal",
       "ForumDescription": "Musica Metalica",
       "id": 4
+    },
+    {
+      "ForumName": "Punk",
+      "ForumDescription": "Musica Punk",
+      "id": 5
+    },
+    {
+      "ForumName": "Jazz",
+      "ForumDescription": "Musica Jazz",
+      "id": 6
+    },
+    {
+      "ForumName": "Pop",
+      "ForumDescription": "Musica Pop",
+      "id": 7
+    },
+    {
+      "ForumName": "Pop",
+      "ForumDescription": "Musica Pop",
+      "id": 8
     }
   ],
   "Comment": [
@@ -115,8 +135,20 @@
     {
       "id": 2,
       "CommentDescription": "Go and see it, it's tremendous",
-      "Forumid": 2,
+      "ForumID": 2,
       "Date": "20/03/2021"
+    },
+    {
+      "CommentDescription": "Fantastic",
+      "ForumID": "2",
+      "Date": "29/09/2021",
+      "id": 3
+    },
+    {
+      "CommentDescription": "Epic",
+      "ForumID": "2",
+      "Date": "29/09/2021",
+      "id": 4
     }
   ],
   "Publicacion": [

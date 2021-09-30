@@ -1,10 +1,10 @@
 <p>
   Fanatic-Forum works! fff
 </p>
-<h2>{{ isEditMode ? 'Edit Student' : 'Add new Student'}}</h2>
-<form  (submit)="onSubmit()"  #ForumForm='ngForm'>
+<h2>{{ isEditMode ? 'Edit Forum' : 'Add new Forum'}}</h2>
+<form    (submit)="onSubmit()"  #ForumForm='ngForm'>
   <mat-form-field>
-    <input matInput placeholder="ForumName" name="ForumName" required
+    <input matInput  placeholder="ForumName" name="ForumName" required
       [(ngModel)]="forumdata.ForumName">
       <mat-error>Es requerido</mat-error>
   </mat-form-field>
@@ -15,15 +15,21 @@
       <mat-error>Es requerido</mat-error>
   </mat-form-field>
   <mat-divider></mat-divider>
-    <button type="submit">Aceptar</button>
-    <button (click)="cancelEdit()">Limpiar</button>
-
+  <div class="button-row">
+    <button mat-raised-button  color="primary" type="submit"> <mat-icon>add</mat-icon>Aceptar</button>
+    <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
+  </div>
 </form>
 
 
-<button mat-raised-button (click)="onCreate()">
-  <mat-icon>add</mat-icon>Crear
-</button>
+
+
+
+
+
+
+
+
 <mat-divider></mat-divider>
 <mat-form-field class="search-form-field" floatLabel="never">
 
@@ -74,3 +80,8 @@
   </mat-card-content>
 </mat-card>
 </div>
+
+<app-Fanatic-Forumcomment></app-Fanatic-Forumcomment>
+
+
+

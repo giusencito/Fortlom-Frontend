@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { FanaticForumCreateComponent } from './Fanatic-Forum-Create.component';
+import { FanaticForumcommentComponent } from './Fanatic-Forumcomment.component';
 
-describe('FanaticForumCreateComponent', () => {
-  let component: FanaticForumCreateComponent;
-  let fixture: ComponentFixture<FanaticForumCreateComponent>;
+describe('FanaticForumcommentComponent', () => {
+  let component: FanaticForumcommentComponent;
+  let fixture: ComponentFixture<FanaticForumcommentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FanaticForumCreateComponent ]
+      declarations: [ FanaticForumcommentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FanaticForumCreateComponent);
+    fixture = TestBed.createComponent(FanaticForumcommentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
