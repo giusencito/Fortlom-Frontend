@@ -1,5 +1,5 @@
 import { MatSort } from '@angular/material/sort';
-import { Forum } from './../Fanatic/Fanatic-Forum';
+import { Forum } from './Fanatic-Forummodel';
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FanaticForumService } from './fanatic-forum.service';
@@ -8,8 +8,8 @@ import {MatPaginator} from "@angular/material/paginator";
 import {ChangeDetectorRef} from '@angular/core'
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { FanaticForumCreateComponent } from '../Fanatic-Forum-Create/Fanatic-Forum-Create.component';
-
+import { FormGroup, Validators } from '@angular/forms';
+import {FormControl} from '@angular/forms'
 
 @Component({
   selector: 'app-Fanatic-Forum',
@@ -18,18 +18,26 @@ import { FanaticForumCreateComponent } from '../Fanatic-Forum-Create/Fanatic-For
 })
 export class FanaticForumComponent implements OnInit {
   forumdata !:Forum;
+  forumdatabyid !:Forum;
   forums:Forum[]=[];
   dataSource !:MatTableDataSource<any>;
-  @ViewChild('studentForm', {static: false})
+  @ViewChild('ForumForm', {static: false})
   ForumForm!: NgForm;
   displayedColumns: string[] = ['id', 'ForumName', 'ForumDescription','actions'];
   @ViewChild(MatSort) sort !:MatSort;
   @ViewChild(MatPaginator,{static: false}) paginator !:MatPaginator;
   searchKey!:string;
   isEditMode = false;
+  form:FormGroup=new FormGroup({
+  ForumName!:new FormControl('',Validators.required),
+  ForumDescription!:new FormControl('',[Validators.required,Validators.maxLength(40)])
+});
+
+
   constructor( private service:FanaticForumService,private dialog:MatDialog) {
     this.forumdata = {} as Forum;
     this.dataSource = new MatTableDataSource<any>();
+    this.forumdatabyid ={} as Forum;
 
   }
   ngOnInit(): void {
@@ -38,6 +46,7 @@ export class FanaticForumComponent implements OnInit {
     console.log(this.forums);
     console.log(this.displayedColumns);
     console.log(this.isEditMode)
+    this.getbyid(1)
   }
   getAllStudents() {
     this.service.getAll().subscribe((response: any) => {
@@ -48,6 +57,23 @@ export class FanaticForumComponent implements OnInit {
       console.log(response)
     });
 }
+
+
+
+
+
+
+
+getbyid(id: number){
+this.service.getById(id).subscribe((response: any)=>{
+this.forumdatabyid=response;
+
+
+});
+
+
+}
+
 OnSearchClear(){
 this.searchKey="";
 this.applyfilter();
@@ -94,15 +120,11 @@ GetForunName($key:string){
 
 
 }
-onCreate(){
-  const dialogconfig=new MatDialogConfig();
-  dialogconfig.disableClose=true;
-  dialogconfig.autoFocus=true;
-  dialogconfig.width="60%"
-   this.dialog.open(FanaticForumCreateComponent,dialogconfig);
-}
+
 
 onSubmit(){
+
+  if (this.ForumForm.form.valid) {
   console.log(this.forumdata);
   if (this.isEditMode) {
     console.log("se actualiza")
@@ -111,6 +133,11 @@ onSubmit(){
 
     this.addStudent();
   }
+  }
+  else{
+    console.log('Invalid data');
+  }
+
 }
 
 

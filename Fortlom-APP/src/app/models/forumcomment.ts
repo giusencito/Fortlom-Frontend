@@ -4,8 +4,7 @@ import { Usuario } from "./usuario";
 export interface Forumcomment {
     id:number;
     CommentDescription:string;
-    usuario:Usuario;
-    forum:Forum;
+    ForumID:Forum;
     Date:string;
 }
 

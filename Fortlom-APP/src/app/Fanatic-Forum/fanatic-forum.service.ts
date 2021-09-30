@@ -1,9 +1,10 @@
-import { Forum } from './../Fanatic/Fanatic-Forum';
+import { Forum } from './Fanatic-Forummodel';
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
-
+import { FormGroup, Validators } from '@angular/forms';
+import {FormControl} from '@angular/forms'
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +18,14 @@ export class FanaticForumService {
     })
   }
   constructor(private http: HttpClient) { }
+
+
+
+
+
+
+
+
 
   // API Error Handling
   handleError(error: HttpErrorResponse) {

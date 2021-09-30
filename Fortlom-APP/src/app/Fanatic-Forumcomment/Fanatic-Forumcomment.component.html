@@ -1,7 +1,7 @@
 <p>
   Fanatic-Forumcomment works!
 </p>
-
+<h2 >{{myDate|date:'d/M/y'}}</h2>
 <mat-table  [dataSource]="dataSource" matSort>
   <ng-container matColumnDef="id">
     <mat-header-cell *matHeaderCellDef mat-sort-header> #id</mat-header-cell>
@@ -11,13 +11,9 @@
     <mat-header-cell *matHeaderCellDef mat-sort-header>  #CommentDescription</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.CommentDescription }}</mat-cell>
   </ng-container>
-  <ng-container matColumnDef="usuario" >
-    <mat-header-cell *matHeaderCellDef mat-sort-header> #usuario</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.usuario }}</mat-cell>
-  </ng-container>
   <ng-container matColumnDef="forum" >
     <mat-header-cell *matHeaderCellDef mat-sort-header> #forum</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{element.forum }}</mat-cell>
+    <mat-cell *matCellDef="let element">{{ element.ForumID }}</mat-cell>
   </ng-container>
   <ng-container matColumnDef="Date" >
     <mat-header-cell *matHeaderCellDef mat-sort-header> #Date</mat-header-cell>
@@ -42,4 +38,23 @@
 <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 15]"  showFirstLastButtons>  </mat-paginator>
 
 <h2>{{ isEditMode ? 'Edit Comment' : 'Add new Comment'}}</h2>
+<form  (submit)="onSubmit()"  #commentdataForm='ngForm' class="normalform">
+  <mat-form-field>
+    <input matInput placeholder="CommentDescription" name="CommentDescription" required
+      [(ngModel)]="commentdata.CommentDescription">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <input matInput placeholder="ForumID" name="ForumID" required
+      [(ngModel)]="commentdata.ForumID">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <div class="button-row">
+    <button mat-raised-button  color="primary" type="submit"> <mat-icon>add</mat-icon>Aceptar</button>
+    <button  mat-raised-button  color="warn" (click)="cancelEdit()"> <mat-icon>close</mat-icon>Limpiar</button>
+  </div>
+</form>
+
 
