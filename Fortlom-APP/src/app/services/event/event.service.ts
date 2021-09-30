@@ -58,7 +58,7 @@ getAll(): Observable<Event> {
 
 // Update Event
 update(id: any, item: any): Observable<Event> {
-  return this.http.post<Event>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Event>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

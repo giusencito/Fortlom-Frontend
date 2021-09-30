@@ -7,19 +7,23 @@ import { HomeComponent } from './home/home.component';
 import {EventComponent} from './event/event.component';
 import { DemoMaterialModule } from './material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    EventComponent
+    EventComponent,
+    EventCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     DemoMaterialModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

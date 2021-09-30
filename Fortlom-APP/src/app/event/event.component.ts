@@ -5,6 +5,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgForm} from "@angular/forms";
 import * as _ from 'lodash';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { EventCreateComponent } from '../event-create/event-create.component';
 
 @Component({
   selector: 'app-event',
@@ -13,19 +15,20 @@ import * as _ from 'lodash';
 })
 export class EventComponent implements OnInit {
 
-  eventdata: Event;
-  dataSource: MatTableDataSource<any>;
+  eventdata!: Event;
+  events:Event[]=[];
+  dataSource!: MatTableDataSource<any>;
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
 
-  @ViewChild('studentForm', {static: false})
-  eventForm!: NgForm;
+  @ViewChild('eventForm', {static: false})
+  EventForm!: NgForm;
 
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
   isEditMode = false;
 
-  constructor(private eventService: EventService) {
+  constructor(private eventService: EventService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.dataSource = new MatTableDataSource<any>();
   }
@@ -33,11 +36,17 @@ export class EventComponent implements OnInit {
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
     this.getAllEvents();
+    console.log(this.events);
+    console.log(this.displayedColumns);
+    console.log(this.isEditMode)
   }
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+
+      console.log(response)
     });
   }
 
@@ -64,7 +73,21 @@ export class EventComponent implements OnInit {
 
   cancelEdit() {
     this.isEditMode = false;
-    this.eventForm.resetForm();
+    this.EventForm.resetForm();
+  }
+  
+  deleteEdit(id:number){
+    console.log(id);
+    this.eventdata.id = _.cloneDeep(id);
+    this.deleteItem(this.eventdata.id);
+  }
+
+  onCreate(){
+    const dialogconfig=new MatDialogConfig();
+    dialogconfig.disableClose=true;
+    dialogconfig.autoFocus=true;
+    dialogconfig.width="60%"
+     this.dialog.open(EventCreateComponent,dialogconfig);
   }
 
   updateEvent() {
@@ -80,15 +103,13 @@ export class EventComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.eventForm.form.valid) {
+      console.log(this.eventdata);
       if (this.isEditMode) {
         this.updateEvent();
+        console.log("se actualizo")
       } else {
         this.addEvent();
       }
-    } else {
-      console.log('Invalid data');
-    }
   }
 
 }

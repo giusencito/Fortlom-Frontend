@@ -37,31 +37,59 @@
 </table>
 <div class="padding"></div>
 
+<table>
+<tr>
+<td>
+<div class= "center">
 <h1>Event Catalogue</h1>
 <h2>{{isEditMode ? 'Edit Event' : 'Add new Event'}}</h2>
 
-<form (submit)="onSubmit()" eventForm='ngForm'>
+<form  (submit)="onSubmit()"  #EventForm='ngForm'>
   <mat-form-field>
-    <input matInput placeholder="EventName" EventName="EventName" required
-      [(ngModel)]="eventdata.EventName">
+    <input matInput placeholder="Id" name="Id" required
+    [(ngModel)]="eventdata.id">
+      <mat-error>Es requerido</mat-error>
   </mat-form-field>
+  <mat-divider></mat-divider>
   <mat-form-field>
-    <input matInput placeholder="description" description="description" required
-           [(ngModel)]="eventdata.EventDescription">
+    <input matInput placeholder="EventName" name="EventName" required
+    [(ngModel)]="eventdata.EventName">
+      <mat-error>Es requerido</mat-error>
   </mat-form-field>
+  <mat-divider></mat-divider>
   <mat-form-field>
-    <input matInput placeholder="likes" likes="likes" required
-           [(ngModel)]="eventdata.Likes" >
+    <input matInput placeholder="EventDescription" name="EventDescription" required
+      [(ngModel)]="eventdata.EventDescription">
+      <mat-error>Es requerido</mat-error>
   </mat-form-field>
+  <mat-divider></mat-divider>
   <mat-form-field>
-    <input matInput placeholder="artistid" artistid="artistid" required
-           [(ngModel)]="eventdata.ArtistID" >
+    <input matInput placeholder="Likes" name="Likes" required
+      [(ngModel)]="eventdata.Likes">
+      <mat-error>Es requerido</mat-error>
   </mat-form-field>
-  <ng-container *ngIf="isEditMode; else elseTemplate">
-    <button mat-button color="primary">Update</button>
-    <button mat-button color="warn" (click)="cancelEdit()">Cancel</button>
-  </ng-container>
-  <ng-template elseTemplate>
-    <button mat-button color="primary">Crear</button>
-  </ng-template>
+  <mat-divider></mat-divider>
+  <mat-form-field>
+    <input matInput placeholder="ArtistId" name="ArtistId" required
+      [(ngModel)]="eventdata.ArtistID">
+      <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <button type="submit">Aceptar</button>
+  <button (click)="cancelEdit()">Limpiar</button>
+  <button (click) = "editItem(eventdata)">Editar</button>
 </form>
+</div> 
+</td>
+<td>
+<div class="center">
+  <h1>Delete Events</h1>
+  <mat-form-field>
+    <input matInput placeholder="Id" name="Id" required
+    [(ngModel)]="eventdata.id">
+    <mat-error>Es requerido</mat-error>
+  </mat-form-field>
+  <button (click) = "deleteEdit(eventdata.id)">Eliminar</button>
+</div>
+</td>
+</tr>
+</table>

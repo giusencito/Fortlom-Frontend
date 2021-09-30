@@ -4,6 +4,6 @@ export interface Event {
     id:number;
     EventName:string;
     EventDescription:string;
-    artist:Artist;
+    ArtistID:Artist;
     Likes:number;
 }
