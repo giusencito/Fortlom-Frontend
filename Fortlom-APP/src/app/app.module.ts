@@ -14,9 +14,15 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 
 import { EventComponent } from './event/event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { PostPageComponent } from './post-page/post-page.component';
+
+import { CommentComponent } from './comment/comment.component';
+import { CommentFormComponent } from './comment-form/comment-form.component';
+import { PostComponent } from './post/post.component';
+import { PostFormComponent } from './post-form/post-form.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     HomeComponent,
 
@@ -25,6 +31,11 @@ import { EventCreateComponent } from './event-create/event-create.component';
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
+    PostPageComponent,
+    CommentComponent,
+    PostComponent,
+    CommentFormComponent,
+    PostFormComponent
    ],
   imports: [
     BrowserModule,

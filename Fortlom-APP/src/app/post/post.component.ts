@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
-import {CommentService} from "../../services/comment.service";
+import {CommentService} from "../services/comment/comment.service";
 import {CommentComponent} from "../comment/comment.component";
 import {CommonModule} from "@angular/common";
 

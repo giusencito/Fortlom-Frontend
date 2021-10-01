@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {PublicacionService} from "../../services/post.service";
+import {PublicacionService} from "../services/publicacion/publicacion.service";
 import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
