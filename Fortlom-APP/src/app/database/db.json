@@ -1,0 +1,218 @@
+{
+  "Usuario": [
+    {
+      "id": 1,
+      "Name": "Guillermo",
+      "LastName": "Maduro",
+      "Email": "Gui@hotmail.com",
+      "Password": "buenas",
+      "Registration": "12/9/2021"
+    },
+    {
+      "id": 2,
+      "Name": "Juan",
+      "LastName": "Perez",
+      "Email": "PJ@hotmail.com",
+      "Password": "noches",
+      "Registration": "15/9/2021"
+    }
+  ],
+  "Artist": [
+    {
+      "id": 1,
+      "Tag": 0,
+      "Followers": 0,
+      "ArtistId": 1
+    }
+  ],
+  "Fanatic": [
+    {
+      "id": 1,
+      "alias": "caminatumbas",
+      "FanaticId": 2
+    }
+  ],
+  "Follow": [
+    {
+      "id": 1,
+      "ArtistId": 1,
+      "FanaticId": 2
+    }
+  ],
+  "Rate": [
+    {
+      "id": 1,
+      "rate": 3,
+      "ArtistId": 1,
+      "FanaticId": 2
+    }
+  ],
+  "Report": [
+    {
+      "id": 1,
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain:": 1,
+      "UserReported": 2
+    }
+  ],
+  "Multimedia": [
+    {
+      "id": 1,
+      "MultimediaLink": "http://mimultimedia.com/",
+      "PublicationCode": 1
+    },
+    {
+      "id": 2,
+      "MultimediaLink": "http://mimultimedia2.com/",
+      "PublicationCode": 2
+    }
+  ],
+  "Forum": [
+    {
+      "id": 2,
+      "ForumName": "AlbumForum",
+      "ForumDescription": "you can recommend new albums for the new ones"
+    },
+    {
+      "ForumName": "Metal",
+      "ForumDescription": "Musica Metalica",
+      "id": 4
+    },
+    {
+      "ForumName": "Punk",
+      "ForumDescription": "Musica Punk",
+      "id": 5
+    },
+    {
+      "ForumName": "Jazz",
+      "ForumDescription": "Musica Jazz",
+      "id": 6
+    },
+    {
+      "ForumName": "Pop",
+      "ForumDescription": "Musica Pop",
+      "id": 7
+    },
+    {
+      "ForumName": "Classic",
+      "ForumDescription": "Musica Clasica",
+      "id": 9
+    },
+    {
+      "ForumName": "asd",
+      "ForumDescription": "asd",
+      "id": 10
+    },
+    {
+      "ForumName": "asd2",
+      "ForumDescription": "asd2",
+      "id": 11
+    }
+  ],
+  "Comment": [
+    {
+      "id": 1,
+      "CommentDescription": "You really going to like it",
+      "PublicationID": 1,
+      "UserID": 1,
+      "Date": "10/9/2020"
+    },
+    {
+      "id": 2,
+      "CommentDescription": "Go and see it, it's tremendous",
+      "PublicationID": 2,
+      "UserID": 2,
+      "Date": "20/03/2021"
+    }
+  ],
+  "ForumComment": [
+    {
+      "id": 1,
+      "CommentDescription": "You really going to like it",
+      "ForumID": 1,
+      "Date": "10/9/2020"
+    },
+    {
+      "id": 2,
+      "CommentDescription": "Go and see it, it's tremendous",
+      "ForumID": 2,
+      "Date": "20/03/2021"
+    },
+    {
+      "CommentDescription": "Fantastic",
+      "ForumID": "2",
+      "Date": "29/09/2021",
+      "id": 3
+    },
+    {
+      "CommentDescription": "Epic",
+      "ForumID": "2",
+      "Date": "29/09/2021",
+      "id": 4
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "3",
+      "Date": "30/09/2021",
+      "id": 5
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "3",
+      "Date": "30/09/2021",
+      "id": 6
+    },
+    {
+      "CommentDescription": "Genius",
+      "ForumID": "2",
+      "Date": "30/09/2021",
+      "id": 7
+    }
+  ],
+  "Publicacion": [
+    {
+      "id": 1,
+      "PublicationName": "New Music",
+      "PublicationDescription": "my new music is out",
+      "Likes": 20,
+      "Date": "30/8/2020",
+      "UserID": 1
+    },
+    {
+      "id": 2,
+      "PublicationName": "New Album",
+      "PublicationDescription": "my new album is out",
+      "Likes": 10,
+      "Date": "25/11/2020",
+      "UserID": 2
+    }
+  ],
+  "Event": [
+    {
+      "id": 1,
+      "EventName": "RockMusicEvent",
+      "EventDescription": "An incredible event for those who likes rock music",
+      "ArtistID": 1,
+      "Likes": 30
+    },
+    {
+      "id": 2,
+      "EventName": "PopMusicEvent",
+      "EventDescription": "An incredible event for those who likes pop music",
+      "ArtistID": 2,
+      "Likes": 25
+    }
+  ],
+  "Event_Fanatic": [
+    {
+      "id": 1,
+      "FanaticID": 1,
+      "EventID": 1
+    },
+    {
+      "id": 2,
+      "FanaticID": 2,
+      "EventID": 2
+    }
+  ]
+}
