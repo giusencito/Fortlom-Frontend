@@ -1,10 +1,11 @@
+
 <form  (submit)="onSubmit()"  #EventForm='ngForm'>
   <mat-form-field>
     <input matInput placeholder="EventName" name="EventName" required
     [(ngModel)]="event_data.EventName">
       <mat-error>Es requerido</mat-error>
   </mat-form-field>
- <!-- 
+ <!--
   <mat-divider></mat-divider>
   <mat-form-field>
     <input matInput placeholder="EventDescription" name="EventDescription" required
