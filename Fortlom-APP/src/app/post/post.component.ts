@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {CommentService} from "../services/comment/comment.service";
 import {CommentComponent} from "../comment/comment.component";
@@ -14,6 +14,10 @@ export class PostComponent implements OnInit {
   studentData: any;
   dataSource: MatTableDataSource<any>;
   haveInfo = false;
+  @Input()
+  textPart = "..."
+  @Input()
+  titlePart = "..."
 
   constructor(private commentService: CommentService) {
     this.studentData = {}

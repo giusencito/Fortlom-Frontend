@@ -20,9 +20,10 @@ import { CommentComponent } from './comment/comment.component';
 import { CommentFormComponent } from './comment-form/comment-form.component';
 import { PostComponent } from './post/post.component';
 import { PostFormComponent } from './post-form/post-form.component';
+import { PostListComponent } from './post-list/post-list.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [		
     AppComponent,
     HomeComponent,
 
@@ -35,7 +36,8 @@ import { PostFormComponent } from './post-form/post-form.component';
     CommentComponent,
     PostComponent,
     CommentFormComponent,
-    PostFormComponent
+    PostFormComponent,
+    PostListComponent
    ],
   imports: [
     BrowserModule,
