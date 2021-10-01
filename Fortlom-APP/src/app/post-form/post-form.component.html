@@ -1,14 +1,16 @@
 <style>
   .post-form-mat-card {
     width: calc(90%);
-    font-size: 0;
     margin: auto;
   }
+  .example-full-width {
+    width: 100%;
+  }
 </style>
+
 <mat-card class="post-form-mat-card">
-  <mat-form-field appearance="fill">
-    <mat-label>Write something</mat-label>
-    <textarea #txt matInput></textarea>
+  <mat-form-field appearance="fill" class="example-full-width">
+    <textarea #txt matInput placeholder="Ex. It makes me feel..."></textarea>
   </mat-form-field>
   <mat-card-actions align="end">
     <button mat-raised-button color="primary" (click)="postPost(txt)">Post</button>
