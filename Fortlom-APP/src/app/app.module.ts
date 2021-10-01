@@ -24,6 +24,8 @@ import { PostListComponent } from './post-list/post-list.component';
 import { ArtistForumComponent } from './artist-forum/artist-forum.component';
 import { TableComponent } from './artist-forum/table/table.component';
 import { NavbarComponent } from './artist-forum/navbar/navbar.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { SkeletonComponent } from './skeleton/skeleton.component';
 
 @NgModule({
   declarations: [		
@@ -43,7 +45,9 @@ import { NavbarComponent } from './artist-forum/navbar/navbar.component';
     PostListComponent,
     ArtistForumComponent,
     TableComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavigationComponent,
+    SkeletonComponent
    ],
   imports: [
     BrowserModule,
