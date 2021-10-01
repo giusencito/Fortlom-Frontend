@@ -21,6 +21,9 @@ import { CommentFormComponent } from './comment-form/comment-form.component';
 import { PostComponent } from './post/post.component';
 import { PostFormComponent } from './post-form/post-form.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { ArtistForumComponent } from './artist-forum/artist-forum.component';
+import { TableComponent } from './artist-forum/table/table.component';
+import { NavbarComponent } from './artist-forum/navbar/navbar.component';
 
 @NgModule({
   declarations: [		
@@ -37,7 +40,10 @@ import { PostListComponent } from './post-list/post-list.component';
     PostComponent,
     CommentFormComponent,
     PostFormComponent,
-    PostListComponent
+    PostListComponent,
+    ArtistForumComponent,
+    TableComponent,
+    NavbarComponent
    ],
   imports: [
     BrowserModule,

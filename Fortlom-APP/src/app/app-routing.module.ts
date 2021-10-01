@@ -6,13 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import { EventComponent } from './event/event.component';
 import { PostPageComponent } from './post-page/post-page.component';
+import { ArtistForumComponent } from './artist-forum/artist-forum.component';
 
 const routes: Routes = [
 {path : 'Home', component: HomeComponent},
 {path:'fanaticforum',component:FanaticForumComponent},
 {path:'Event',component:EventComponent},
-{path:'Posts',component:PostPageComponent}
-
+{path:'Posts',component:PostPageComponent},
+{path:'artistforum',component:ArtistForumComponent}
 ];
 
 @NgModule({
