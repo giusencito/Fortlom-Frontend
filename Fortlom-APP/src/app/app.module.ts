@@ -14,6 +14,9 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms'
 
 import { EventComponent } from './event/event.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { ArtistForumComponent } from './artist-forum/artist-forum.component';
+import { TableComponent } from './artist-forum/table/table.component';
+import { NavbarComponent } from './artist-forum/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { EventCreateComponent } from './event-create/event-create.component';
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
+    ArtistForumComponent,
+    TableComponent,
+    NavbarComponent,
    ],
   imports: [
     BrowserModule,

@@ -69,19 +69,9 @@
   ],
   "Forum": [
     {
-      "id": 1,
-      "ForumName": "Rock",
-      "ForumDescription": "new music"
-    },
-    {
       "id": 2,
       "ForumName": "AlbumForum",
-      "ForumDescription": "In this forum you can recommend new albums for the new ones"
-    },
-    {
-      "ForumName": "Country",
-      "ForumDescription": "Musica Country",
-      "id": 3
+      "ForumDescription": "you can recommend new albums for the new ones"
     },
     {
       "ForumName": "Metal",
@@ -107,6 +97,16 @@
       "ForumName": "Classic",
       "ForumDescription": "Musica Clasica",
       "id": 9
+    },
+    {
+      "ForumName": "asd",
+      "ForumDescription": "asd",
+      "id": 10
+    },
+    {
+      "ForumName": "asd2",
+      "ForumDescription": "asd2",
+      "id": 11
     }
   ],
   "Comment": [
