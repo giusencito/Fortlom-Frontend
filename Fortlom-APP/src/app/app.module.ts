@@ -26,9 +26,13 @@ import { TableComponent } from './artist-forum/table/table.component';
 import { NavbarComponent } from './artist-forum/navbar/navbar.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { SkeletonComponent } from './skeleton/skeleton.component';
+import { LoginComponent } from './Login/Login.component';
+import { ArtistRegisterComponent } from './ArtistRegister/ArtistRegister.component';
+import { ArtistNavegationComponent } from './ArtistNavegation/ArtistNavegation.component';
+import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
 
 @NgModule({
-  declarations: [		
+  declarations: [						
     AppComponent,
     HomeComponent,
 
@@ -47,7 +51,11 @@ import { SkeletonComponent } from './skeleton/skeleton.component';
     TableComponent,
     NavbarComponent,
     NavigationComponent,
-    SkeletonComponent
+    SkeletonComponent,
+      LoginComponent,
+      ArtistRegisterComponent,
+      ArtistNavegationComponent,
+      HomeArtistComponent
    ],
   imports: [
     BrowserModule,

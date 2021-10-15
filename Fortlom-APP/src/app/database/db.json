@@ -15,21 +15,41 @@
       "Email": "PJ@hotmail.com",
       "Password": "noches",
       "Registration": "15/9/2021"
+    },
+    {
+      "Email": "giusencito@hotmail.com",
+      "Password": "contraseña",
+      "Name": "Giusen",
+      "LastName": "Rebaza",
+      "Registration": "2021-10-14T23:45:20.723Z",
+      "id": 3
     }
+
   ],
   "Artist": [
     {
       "id": 1,
       "Tag": 0,
+      "Followers": 0
+    },
+    {
+      "Email": "giusencito@hotmail.com",
+      "Password": "contraseña",
+      "Name": "Giusen",
+      "LastName": "Rebaza",
+      "Registration": "2021-10-14T23:45:20.723Z",
+      "id": 2
+    },
+    {
       "Followers": 0,
-      "ArtistId": 1
+      "Tag": 0,
+      "id": 3
     }
   ],
   "Fanatic": [
     {
-      "id": 1,
-      "alias": "caminatumbas",
-      "FanaticId": 2
+      "id": 2,
+      "alias": "caminatumbas"
     }
   ],
   "Follow": [
@@ -123,6 +143,13 @@
       "PublicationID": 2,
       "UserID": 2,
       "Date": "20/03/2021"
+    },
+    {
+      "id": 4,
+      "CommentDescription": "",
+      "PublicationID": 3,
+      "UserID": 1,
+      "Date": ""
     }
   ],
   "ForumComment": [
