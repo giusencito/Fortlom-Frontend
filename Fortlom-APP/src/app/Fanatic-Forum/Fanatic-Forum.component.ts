@@ -10,6 +10,7 @@ import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { FormGroup, Validators } from '@angular/forms';
 import {FormControl} from '@angular/forms'
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-Fanatic-Forum',
@@ -32,15 +33,18 @@ export class FanaticForumComponent implements OnInit {
   ForumName!:new FormControl('',Validators.required),
   ForumDescription!:new FormControl('',[Validators.required,Validators.maxLength(40)])
 });
+idnumber!:number;
 
-
-  constructor( private service:FanaticForumService,private dialog:MatDialog) {
+  constructor( private service:FanaticForumService,private dialog:MatDialog,private cd:Router,private route:ActivatedRoute ) {
     this.forumdata = {} as Forum;
     this.dataSource = new MatTableDataSource<any>();
     this.forumdatabyid ={} as Forum;
 
   }
   ngOnInit(): void {
+    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let id= pod;
+    this.idnumber=id;
 
     this.getAllStudents()
     console.log(this.forums);
@@ -156,7 +160,14 @@ updateStudent() {
 
 
 
+insertforum(){
 
+
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum','CreateForum'])
+
+
+
+}
 
 
 

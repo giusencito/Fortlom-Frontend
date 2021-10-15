@@ -1,3 +1,4 @@
+import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
 import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
 import { ArtistRegisterComponent } from './ArtistRegister/ArtistRegister.component';
@@ -18,14 +19,15 @@ const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'login',component:LoginComponent},
 {path : 'Home', component: HomeComponent},
-{path:'fanaticforum',component:FanaticForumComponent},
 {path:'Event',component:EventComponent},
 {path:'Posts',component:PostPageComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
 {path:'registerfanatic',component:FanaticRegisterComponent},
 {path:'HomeArtist/:artistid',component:HomeArtistComponent},
-{path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent}
+{path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
+{path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
+{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent}
 ];
 
 @NgModule({

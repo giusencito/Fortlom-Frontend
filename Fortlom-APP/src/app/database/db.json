@@ -138,6 +138,18 @@
       "ForumName": "Classic",
       "ForumDescription": "Musica Clasica",
       "id": 9
+    },
+    {
+      "ForumName": "Musica Rock",
+      "ForumDescription": "Es la Musica Rock",
+      "usuario": 4,
+      "id": 10
+    },
+    {
+      "ForumName": "Esto es un Foro",
+      "ForumDescription": "Musica de Foro",
+      "usuario": 4,
+      "id": 11
     }
   ],
   "Comment": [

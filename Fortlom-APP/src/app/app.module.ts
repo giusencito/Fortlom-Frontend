@@ -32,9 +32,10 @@ import { ArtistNavegationComponent } from './ArtistNavegation/ArtistNavegation.c
 import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
 import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
+import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 
 @NgModule({
-  declarations: [								
+  declarations: [									
     AppComponent,
     HomeComponent,
 
@@ -59,7 +60,8 @@ import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
       ArtistNavegationComponent,
       HomeArtistComponent,
       FanaticRegisterComponent,
-      HomeFanaticComponent
+      HomeFanaticComponent,
+      FanaticForumCreateComponent
    ],
   imports: [
     BrowserModule,
