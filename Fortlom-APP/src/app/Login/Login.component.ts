@@ -54,7 +54,7 @@ this.getUser()
         if(ap){
         alert("Login successfully");
         this.getartist()
-
+        this.getfanatic()
 
 
 
@@ -70,6 +70,7 @@ this.getUser()
 
 
   }
+
 
   getartist(){
   console.log('busqueda de artista')
@@ -102,6 +103,37 @@ this.getUser()
 
 
   }
+  getfanatic(){
+    console.log('busqueda de fanatico')
+     this.servicefana.getAll().subscribe((response: any)=>{
+
+      const ap=response.find((a:any)=>{
+        console.log('idactual')
+          console.log(a.id)
+          console.log('requerido')
+          console.log(this.iddepaso)
+          return  a.id === this.iddepaso
+
+
+
+      })
+
+      if(ap){
+        alert("Login successfully");
+        this.route.navigate(['/HomeFanatic',this.iddepaso])
+
+      }
+
+
+
+
+
+
+     })
+
+
+
+    }
 
   getidArtist(id:Number){
 

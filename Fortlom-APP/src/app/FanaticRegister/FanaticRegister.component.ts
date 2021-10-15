@@ -1,43 +1,44 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { UsuarioService } from './../services/usuario/usuario.service';
+import { FanaticService } from './../services/fanatic/fanatic.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { ArtistService } from '../services/artist/artist.service';
-import { Artist } from '../models/artist';
+import { Fanatic } from './../models/fanatic';
+import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
-import { UsuarioService } from '../services/usuario/usuario.service';
+
 @Component({
-  selector: 'app-ArtistRegister',
-  templateUrl: './ArtistRegister.component.html',
-  styleUrls: ['./ArtistRegister.component.css']
+  selector: 'app-FanaticRegister',
+  templateUrl: './FanaticRegister.component.html',
+  styleUrls: ['./FanaticRegister.component.css']
 })
-export class ArtistRegisterComponent implements OnInit {
+export class FanaticRegisterComponent implements OnInit {
   public signupform!:FormGroup;
   dataSource !:MatTableDataSource<any>;
   dataSource2 !:MatTableDataSource<any>;
   user!:Usuario;
-  artist!:Artist
+  Fanatic!:Fanatic
   date!:Date;
-  constructor(private formBuilder:FormBuilder,private route:Router,private service:ArtistService,private service2:UsuarioService) {
+  constructor(private formBuilder:FormBuilder,private route:Router,private service:FanaticService,private service2:UsuarioService) {
     this.user={}as Usuario;
     this.dataSource = new MatTableDataSource<any>();
     this.dataSource2 = new MatTableDataSource<any>();
-    this.artist={} as Artist
+    this.Fanatic={} as Fanatic
     this.date=new Date()
    }
 
-  ngOnInit() {
-    console.log(this.date)
+
+  ngOnInit() {console.log(this.date)
     this.signupform=this.formBuilder.group({
       name:['',Validators.required],
       lastname:['',Validators.required],
       email:['',Validators.required],
       password:['',Validators.required],
+      alias:['',Validators.required],
 
      })
      this.getAllUsers()
   }
-
   registerUser(){
 
     this.service2.create(this.user).subscribe((response: any) => {
@@ -55,27 +56,27 @@ export class ArtistRegisterComponent implements OnInit {
 
 
   }
-  registerArtist(){
+  registerFanatic(){
 
-    this.service.create(this.artist).subscribe((response: any) => {
+    this.service.create(this.Fanatic).subscribe((response: any) => {
       this.dataSource2.data.push( {...response});
       this.dataSource2.data = this.dataSource2.data.map((o: any) => { return o; });
     });
 
 
   }
-  onSubmit(){
-   this.user.Registration=this.date
-   this.artist.Followers=0
-   this.artist.Tag=0
-   let artistid=this.dataSource.data.length+1
-   this.artist.id=artistid
-   this.registerUser()
-   this.registerArtist()
-   this.signupform.reset();
-   this.route.navigate(['/login'])
 
+  onSubmit(){
+    this.user.Registration=this.date
+    let fanaticid=this.dataSource.data.length+1
+    this.Fanatic.id=fanaticid
+    this.registerUser()
+    this.registerFanatic()
+    this.signupform.reset();
+    this.route.navigate(['/login'])
   }
+
+
 
 
 

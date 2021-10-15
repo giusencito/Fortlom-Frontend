@@ -30,9 +30,11 @@ import { LoginComponent } from './Login/Login.component';
 import { ArtistRegisterComponent } from './ArtistRegister/ArtistRegister.component';
 import { ArtistNavegationComponent } from './ArtistNavegation/ArtistNavegation.component';
 import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
+import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
+import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 
 @NgModule({
-  declarations: [						
+  declarations: [								
     AppComponent,
     HomeComponent,
 
@@ -55,7 +57,9 @@ import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
       LoginComponent,
       ArtistRegisterComponent,
       ArtistNavegationComponent,
-      HomeArtistComponent
+      HomeArtistComponent,
+      FanaticRegisterComponent,
+      HomeFanaticComponent
    ],
   imports: [
     BrowserModule,
