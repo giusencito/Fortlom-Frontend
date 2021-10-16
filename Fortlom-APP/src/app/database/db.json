@@ -142,13 +142,13 @@
     {
       "ForumName": "Musica Rock",
       "ForumDescription": "Es la Musica Rock",
-      "usuario": 4,
+      "UsuarioId": 4,
       "id": 10
     },
     {
       "ForumName": "Esto es un Foro",
       "ForumDescription": "Musica de Foro",
-      "usuario": 4,
+      "UsuarioId": 4,
       "id": 11
     }
   ],
@@ -157,21 +157,21 @@
       "id": 1,
       "CommentDescription": "You really going to like it",
       "PublicationID": 1,
-      "UserID": 1,
+      "UsuarioId": 1,
       "Date": "10/9/2020"
     },
     {
       "id": 2,
       "CommentDescription": "Go and see it, it's tremendous",
       "PublicationID": 2,
-      "UserID": 2,
+      "UsuarioId": 2,
       "Date": "20/03/2021"
     },
     {
       "id": 4,
       "CommentDescription": "",
       "PublicationID": 3,
-      "UserID": 1,
+      "UsuarioId": 1,
       "Date": ""
     }
   ],
@@ -179,43 +179,50 @@
     {
       "id": 1,
       "CommentDescription": "You really going to like it",
-      "ForumID": 1,
-      "Date": "10/9/2020"
+      "ForumId": 1,
+      "Date": "10/9/2020",
+      "UsuarioId": 1
     },
     {
       "id": 2,
       "CommentDescription": "Go and see it, it's tremendous",
-      "ForumID": 2,
-      "Date": "20/03/2021"
+      "ForumId": 2,
+      "Date": "20/03/2021",
+      "UsuarioId": 1
     },
     {
       "CommentDescription": "Fantastic",
-      "ForumID": "2",
+      "ForumId": 2,
       "Date": "29/09/2021",
+      "UsuarioId": 1,
       "id": 3
     },
     {
       "CommentDescription": "Epic",
-      "ForumID": "2",
+      "ForumId": 2,
       "Date": "29/09/2021",
+      "UsuarioId": 1,
       "id": 4
     },
     {
       "CommentDescription": "Genius",
-      "ForumID": "3",
+      "ForumId": "3",
       "Date": "30/09/2021",
+      "UsuarioId": 4,
       "id": 5
     },
     {
       "CommentDescription": "Genius",
-      "ForumID": "3",
+      "ForumId": 3,
       "Date": "30/09/2021",
+      "UsuarioId": 4,
       "id": 6
     },
     {
       "CommentDescription": "Genius",
-      "ForumID": "2",
+      "ForumId": "2",
       "Date": "30/09/2021",
+      "UsuarioId": 4,
       "id": 7
     }
   ],
