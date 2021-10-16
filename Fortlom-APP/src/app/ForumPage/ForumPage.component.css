@@ -6,7 +6,7 @@
 .card
 {
   background-color:#C8C8C8;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .head{
 
@@ -26,4 +26,23 @@ background-color:#9CC7EF;
 .color
 {
   color: black;
+}
+.seconcard{
+
+  background-color:#C8C8C8;
+  margin-bottom: 20px;
+  margin-left: 30%;
+
+
+}
+.area
+{
+
+width: 100%;
+
+}
+.button-row button{
+  width: 40%;
+  margin:25px;
+
 }

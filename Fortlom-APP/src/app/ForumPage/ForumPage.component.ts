@@ -1,3 +1,7 @@
+import { MatTableDataSource } from '@angular/material/table';
+import { ForumcommentService } from './../services/forumcomment/forumcomment.service';
+import { Forumcomment } from './../models/forumcomment';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ForumService } from './../services/forum/forum.service';
 import { Forum } from '../models/forum';
@@ -16,12 +20,18 @@ export class ForumPageComponent implements OnInit {
   username!:string;
   userlastname!:string
   forumdescription!:string
-  idforum!:number
-  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService) {
+  newcommentform!:FormGroup
+  public idforum!:number
+  Forumcomment!:Forumcomment
+  dataSource1 !:MatTableDataSource<any>;
+  idactualuser!:number
+  date!:Date
+  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService,private formBuilder:FormBuilder,private servecommen:ForumcommentService) {
    this.forum={}as Forum
    this.usuario={}as Usuario
-
-
+   this.Forumcomment={}as Forumcomment
+   this.dataSource1 = new MatTableDataSource<any>();
+   this.date=new Date()
    }
 
   ngOnInit() {
@@ -29,6 +39,17 @@ export class ForumPageComponent implements OnInit {
     let id= pod;
     this.idforum=id;
     this.getidforum(this.idforum)
+    let pad=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let id2= pad;
+    this.idactualuser=id2;
+    this.newcommentform=this.formBuilder.group({
+
+      comment:['',Validators.required]
+
+
+
+
+    })
 
   }
   getidforum(id:number){
@@ -59,6 +80,39 @@ export class ForumPageComponent implements OnInit {
 
 
   }
+
+  NewForumComment(){
+
+    this.servecommen.create(this.Forumcomment).subscribe((response: any) => {
+      this.dataSource1.data.push( {...response});
+      this.dataSource1.data = this.dataSource1.data.map((o: any) => { return o; });
+      alert("se agrego un comentario")
+
+    });
+
+
+  }
+
+crearcomentariodeforo(){
+
+this.Forumcomment.UsuarioId=this.idactualuser
+this.Forumcomment.Date=this.date
+this.Forumcomment.ForumId=this.idforum
+this.NewForumComment()
+this.newcommentform.reset();
+
+
+
+}
+
+
+Limpiar(){
+
+this.newcommentform.reset();
+
+
+
+}
 
 
 }

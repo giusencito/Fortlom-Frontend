@@ -1,6 +1,6 @@
 import { ForumService } from './../services/forum/forum.service';
 import { Forum } from './../models/forum';
-import { Component, OnInit ,ViewChild} from '@angular/core';
+import { Component, Input, OnInit ,ViewChild} from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import {MatPaginator} from "@angular/material/paginator";
 import { ForumcommentService } from '../services/forumcomment/forumcomment.service';
@@ -10,6 +10,7 @@ import * as _ from 'lodash';
 import {NgForm} from "@angular/forms";
 import { DatePipe } from '@angular/common';
 import {formatDate} from '@angular/common';
+import { ForumPageComponent } from '../ForumPage/ForumPage.component';
 @Component({
   selector: 'app-Fanatic-Forumcomment',
   templateUrl: './Fanatic-Forumcomment.component.html',
@@ -24,29 +25,31 @@ export class FanaticForumcommentComponent implements OnInit {
   commentdataForm !: NgForm;
   forumbyid!:Forum;
   fecha!:string;
+
   displayedColumns: string[] = ['id', 'CommentDescription','forum','Date','actions'];
+   @Input() comentarios!:number;
   @ViewChild(MatSort) sort !:MatSort;
   @ViewChild(MatPaginator,{static: false}) paginator !:MatPaginator;
   searchKey!:string;
   isEditMode = false;
   paso:string="vacio";
   myDate : Date;
-
+  proDate = new Date();
+  proDatevalue!:string;
   constructor(private service:ForumcommentService,private serviceext:ForumService,private datePipe: DatePipe) {
      this.commentdata={} as Forumcomment;
      this.commentdatabyid={} as Forumcomment;
      this.forumbyid={}as Forum;
      this.dataSource=new MatTableDataSource<any>();
      this.myDate=new Date();
+
   }
 
   ngOnInit(): void {
-    this.getAllComments()
-    console.log(this.displayedColumns);
-    console.log(this.isEditMode)
-    console.log("aa")
-    console.log("aqui esta el nombre ");
-    this.getidForum(1)
+
+
+    console.log(this.comentarios)
+    this.getAllcommentsperaforum()
     console.log(this.paso)
 
 
@@ -64,6 +67,14 @@ export class FanaticForumcommentComponent implements OnInit {
 
 
   }
+  getAllcommentsperaforum(){
+    this.service.getallcommentsperforum(this.comentarios).subscribe((response: any) => {
+      this.dataSource.data = response;
+      console.log(response)
+    });
+
+
+  }
 
 getname(){
 
@@ -75,7 +86,7 @@ getidComment(id:number){
 this.service.getById(id).subscribe((response:any)=>{
 
   this.commentdatabyid=response;
-  console.log(this.commentdatabyid.ForumID);
+  console.log(this.commentdatabyid.ForumId);
 
 });
 
@@ -141,28 +152,6 @@ addcomment(){
 
 }
 
-onSubmit(){
-  if (this.commentdataForm.form.valid) {
-var d=formatDate(this.myDate, 'dd/MM/yyyy', 'en-US');
-
-this.commentdata.Date=d;
-  console.log(this.commentdata);
-  if (this.isEditMode) {
-    console.log("se actualiza")
-    this.updatecomment();
-  } else {
-
-    this.addcomment();
-  }
-  }
-else{
-
-
-  console.log('Invalid data');
-}
-
-
-}
 
 
 updatecomment() {
@@ -178,7 +167,20 @@ updatecomment() {
 }
 
 
+getfechacomment(fecha:Date){
 
+console.log("fecha")
+console.log(fecha)
+
+
+this.proDate=fecha
+console.log(this.proDate)
+this.proDatevalue = this.datePipe.transform(fecha, 'yyyy-MM-dd')!;
+
+
+return this.proDatevalue
+
+}
 
 
 

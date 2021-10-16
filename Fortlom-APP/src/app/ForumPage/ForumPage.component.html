@@ -1,6 +1,4 @@
-<p>
-  ForumPage works!
-</p>
+<app-navigation></app-navigation>
 
 <mat-card class="card">
   <mat-card-header class="head">
@@ -17,3 +15,16 @@
 
 </mat-card>
 
+<app-Fanatic-Forumcomment [comentarios]="idforum"></app-Fanatic-Forumcomment>
+
+<mat-card class="seconcard">
+  <mat-card-title class="title">Escriba un comentario</mat-card-title>
+  <mat-form-field appearance="fill" class="area" [formGroup]="newcommentform">
+    <mat-label>Nuevo Comentario </mat-label>
+    <textarea formControlName="comment" matInput type="comment" [(ngModel)]="Forumcomment.CommentDescription"></textarea>
+  </mat-form-field>
+  <div class="button-row">
+    <button mat-raised-button  color="primary" [disabled]="!newcommentform.valid" (click)="crearcomentariodeforo()"> <mat-icon>add</mat-icon>Aceptar</button>
+    <button  mat-raised-button  color="warn" (click)="Limpiar()"> <mat-icon>close</mat-icon>Limpiar</button>
+  </div>
+</mat-card>
