@@ -12,7 +12,7 @@
 <mat-card class="card">
   <mat-card-title class="title">{{element.ForumName}}</mat-card-title>
   <mat-card-actions align="end">
-    <button mat-button><mat-icon>flag</mat-icon></button>
+    <button mat-button (click)="enterforumpage(element.id)"><mat-icon>flag</mat-icon></button>
   </mat-card-actions>
 </mat-card>
 

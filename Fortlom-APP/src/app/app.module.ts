@@ -33,9 +33,10 @@ import { HomeArtistComponent } from './HomeArtist/HomeArtist.component';
 import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
+import { ForumPageComponent } from './ForumPage/ForumPage.component';
 
 @NgModule({
-  declarations: [									
+  declarations: [										
     AppComponent,
     HomeComponent,
 
@@ -61,7 +62,8 @@ import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCr
       HomeArtistComponent,
       FanaticRegisterComponent,
       HomeFanaticComponent,
-      FanaticForumCreateComponent
+      FanaticForumCreateComponent,
+      ForumPageComponent
    ],
   imports: [
     BrowserModule,

@@ -99,57 +99,12 @@
     }
   ],
   "Forum": [
+
     {
-      "id": 1,
-      "ForumName": "Rock",
-      "ForumDescription": "new music"
-    },
-    {
-      "id": 2,
-      "ForumName": "AlbumForum",
-      "ForumDescription": "In this forum you can recommend new albums for the new ones"
-    },
-    {
-      "ForumName": "Country",
-      "ForumDescription": "Musica Country",
-      "id": 3
-    },
-    {
-      "ForumName": "Metal",
-      "ForumDescription": "Musica Metalica",
-      "id": 4
-    },
-    {
-      "ForumName": "Punk",
-      "ForumDescription": "Musica Punk",
-      "id": 5
-    },
-    {
-      "ForumName": "Jazz",
-      "ForumDescription": "Musica Jazz",
-      "id": 6
-    },
-    {
-      "ForumName": "Pop",
-      "ForumDescription": "Musica Pop",
-      "id": 7
-    },
-    {
-      "ForumName": "Classic",
-      "ForumDescription": "Musica Clasica",
-      "id": 9
-    },
-    {
-      "ForumName": "Musica Rock",
-      "ForumDescription": "Es la Musica Rock",
-      "UsuarioId": 4,
-      "id": 10
-    },
-    {
-      "ForumName": "Esto es un Foro",
-      "ForumDescription": "Musica de Foro",
-      "UsuarioId": 4,
-      "id": 11
+      "ForumName": "Ejemplo",
+      "ForumDescription": "Ejemplo de descripcion",
+      "usuario": 4,
+      "id": 12
     }
   ],
   "Comment": [

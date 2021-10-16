@@ -10,6 +10,7 @@ import {Forumcomment} from "../../models/forumcomment";
 export class ForumcommentService {
 
 basePath = 'http://localhost:3000/ForumComment';
+basepathcomentsforforoum='http://localhost:3000/Forum'
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -71,5 +72,25 @@ delete(id: any) {
       retry(2),
       catchError(this.handleError));
 }
+
+
+getallcommentsperforum(id:number){
+
+  return this.http.get<Forumcomment>(`${this.basepathcomentsforforoum}/${id}/ForumComment`, this.httpOptions)
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
+
+
+}
+
+
+
+
+
+
+
+
+
 
 }

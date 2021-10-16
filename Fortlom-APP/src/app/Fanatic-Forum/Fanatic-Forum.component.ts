@@ -171,7 +171,15 @@ insertforum(){
 
 
 
+enterforumpage(id:number){
 
+
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum','ForumPage',id])
+
+
+
+
+}
 
 
 
