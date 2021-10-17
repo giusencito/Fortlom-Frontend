@@ -135,16 +135,13 @@
       "PublicationID": 2,
       "UserID": 2,
       "Date": "20/03/2021"
-<<<<<<< Updated upstream
-=======
     },
     {
-      "CommentDescription": "This is Awsome!!",
+      "CommentDescription": "This is Awesome!!",
       "PublicationID": 1,
       "UserID": 1,
       "Date": "",
       "id": 3
->>>>>>> Stashed changes
     }
   ],
   "ForumComment": [
