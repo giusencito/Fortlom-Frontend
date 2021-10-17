@@ -28,9 +28,13 @@
     </p>
   </mat-card-content> <!-- Cambiar Shiba Inu por el post real -->
   <mat-card-actions align="end">
-    <button mat-button color="primary" (click)="likePost()">Like</button>
-    <button mat-button color="primary" (click)="commentPost()">Comment</button>
-    <button mat-button (click)="getComments()">See</button>
+    <button mat-button color="primary" (click)="likePost()">Like ({{fullPost.Likes}})</button>
+    <button mat-button (click)="getComments(titlePart)">See</button>
+
+    <button mat-button (click)="flagPost()">
+      <mat-icon>flag</mat-icon>
+    </button>
+
   </mat-card-actions>
 </mat-card>
 
@@ -39,7 +43,7 @@
     <div *ngFor="let a of studentData">
       <app-comment
         [customText]="a.CommentDescription"
-        [customTitle]="a.UserID"
+        [customTitle]="a.UsuarioID"
       >
       </app-comment>
     </div>

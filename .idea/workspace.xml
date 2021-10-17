@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="93b0a686-1493-49c3-b2ba-73b82dcab191" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/comment-form/comment-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/comment-form/comment-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/comment/comment.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/comment/comment.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/database/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/database/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/models/report.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/models/report.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post-list/post-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post-list/post-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/services/comment/comment.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/services/comment/comment.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/services/publicacion/publicacion.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/services/publicacion/publicacion.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1zbvClwjVcuaAprARlP600MvmVN" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Users\Gabriel\Documents\MIO___\UNIVERSIDAD\Open Source\Front-end\Fortlom-Frontend\Fortlom-APP\node_modules\typescript\lib" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93b0a686-1493-49c3-b2ba-73b82dcab191" name="Changes" comment="" />
+      <created>1634429476928</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1634429476928</updated>
+      <workItem from="1634429478087" duration="48000" />
+      <workItem from="1634429536372" duration="6000" />
+      <workItem from="1634429544726" duration="7939000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

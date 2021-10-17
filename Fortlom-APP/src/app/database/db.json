@@ -51,8 +51,20 @@
     {
       "id": 1,
       "ReportDescription": "Insultos frecuentes",
-      "UserMain:": 1,
-      "UserReported": 2
+      "UserMain": 1,
+      "PostReported": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 1,
+      "id": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 2,
+      "id": 3
     }
   ],
   "Multimedia": [
@@ -123,6 +135,16 @@
       "PublicationID": 2,
       "UserID": 2,
       "Date": "20/03/2021"
+<<<<<<< Updated upstream
+=======
+    },
+    {
+      "CommentDescription": "This is Awsome!!",
+      "PublicationID": 1,
+      "UserID": 1,
+      "Date": "",
+      "id": 3
+>>>>>>> Stashed changes
     }
   ],
   "ForumComment": [
@@ -174,7 +196,7 @@
       "id": 1,
       "PublicationName": "New Music",
       "PublicationDescription": "my new music is out",
-      "Likes": 20,
+      "Likes": 21,
       "Date": "30/8/2020",
       "UserID": 1
     },
@@ -182,7 +204,7 @@
       "id": 2,
       "PublicationName": "New Album",
       "PublicationDescription": "my new album is out",
-      "Likes": 10,
+      "Likes": 22,
       "Date": "25/11/2020",
       "UserID": 2
     }
