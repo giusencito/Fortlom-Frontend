@@ -112,4 +112,12 @@ export class EventComponent implements OnInit {
       }
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(EventCreateComponent);
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 }

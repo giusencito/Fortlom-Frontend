@@ -1,8 +1,10 @@
-import { Event } from '../models/event'; 
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { EventService } from '../services/event/event.service';
-import { EventComponent } from '../event/event.component';
+import {Component , OnInit, ViewChild} from '@angular/core';
+import {Event} from '../models/event';
+import {EventService} from '../services/event/event.service';
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {NgForm} from "@angular/forms";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-event-create',
@@ -10,17 +12,45 @@ import { EventComponent } from '../event/event.component';
   styleUrls: ['./event-create.component.css']
 })
 export class EventCreateComponent implements OnInit {
-  event_data !: Event;
+  eventdata!: Event;
+  dataSource!: MatTableDataSource<any>;
+
+  @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
 
-  constructor() { 
-    this.event_data = {} as Event
+  @ViewChild(MatPaginator, {static: true})
+  paginator!: MatPaginator;
+
+  constructor(private eventService: EventService,private dialog:MatDialog) { 
+    this.eventdata = {} as Event;
+    this.dataSource = new MatTableDataSource<any>();  
   }
 
-  ngOnInit() {
+
+  ngOnInit():void {
+    this.dataSource.paginator = this.paginator;
+    this.getAllEvents();
   }
 
-  onSubmit(){
-    console.log(this.event_data) 
+
+  getAllEvents() {
+    this.eventService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+
+      console.log(response)
+    });
   }
+
+  addEvent() {
+    this.eventService.create(this.eventdata).subscribe((response: any) => {
+      this.dataSource.data.push( {...response});
+      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+    });
+  }
+
+  ClearForm(){
+    this.EventForm.resetForm();
+  }
+
 }

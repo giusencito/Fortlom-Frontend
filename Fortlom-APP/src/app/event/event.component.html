@@ -1,6 +1,20 @@
 
 <app-navigation></app-navigation>
 
+<div class ="padding"></div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Make a Event</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="image" src="https://www.eventindustryshow.com/img/blog/Trabalhar-em-Eventos-11.jpg" alt="Photo of a Event">
+  <mat-card-actions>
+    <div class ="buttonspacer">
+    <button mat-raised-button class ="button" (click)="openDialog()">Post Event</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+<div class ="padding"></div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
@@ -48,12 +62,6 @@
 <h2>{{isEditMode ? 'Edit Event' : 'Add new Event'}}</h2>
 
 <form  (submit)="onSubmit()"  #EventForm='ngForm'>
-  <mat-form-field>
-    <input matInput placeholder="Id" name="Id" required
-    [(ngModel)]="eventdata.id">
-      <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
   <mat-form-field>
     <input matInput placeholder="EventName" name="EventName" required
     [(ngModel)]="eventdata.EventName">
