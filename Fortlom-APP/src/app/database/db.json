@@ -248,16 +248,23 @@
     {
       "id": 1,
       "EventName": "RockMusicEvent",
-      "EventDescription": "An incredible event for those who likes rock music",
+      "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 1,
-      "Likes": 30
+      "Likes": 34
     },
     {
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 2,
-      "Likes": 25
+      "Likes": 29
+    },
+    {
+      "EventName": "Musical",
+      "EventDescription": "a description 3",
+      "Likes": 17,
+      "ArtistID": 1,
+      "id": 3
     }
   ],
   "Event_Fanatic": [

@@ -6,6 +6,10 @@ table {
   padding-bottom: 100pt;
 }
 
+.minipadding{
+  padding-bottom: 10pt;
+}
+
 .center{
   margin: auto;
   width: 50%;
@@ -24,12 +28,12 @@ table {
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('https://i.pinimg.com/236x/37/c8/51/37c851a36c42af61f36f1201222e6b7b.jpg');
   background-size: cover;
 }
 
 .buttonspacer{
-  width: 110px; 
+  width: 100px; 
   margin-left: 100%;
   transform: translateX(-100%);
 }
@@ -43,4 +47,12 @@ table {
   border-radius: 25pt;
   width: 100%;
   margin: auto;
+}
+
+.spaceshort{
+  padding-right: 100px;   
+}
+.example-card-event{
+  max-width: 1000px;
+  width: 50%;
 }

@@ -18,6 +18,9 @@ export class EventComponent implements OnInit {
   eventdata!: Event;
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
+  arrayevents!: any;
+  eventbyid!:any;
+  conditionaltype : string = "Test";
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
 
   @ViewChild('EventForm', {static: false})
@@ -45,8 +48,8 @@ export class EventComponent implements OnInit {
     this.eventService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
-
-      console.log(response)
+      this.arrayevents = response;
+      console.log(this.arrayevents)
     });
   }
 
@@ -118,6 +121,44 @@ export class EventComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  getEventsById(id:number){
+    this.eventService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      
+      console.log(response)
+    });
+  }
+
+  Increasinglikes(id:number){
+    this.eventService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      this.eventdata = response
+
+      console.log(this.eventdata)
+      
+      console.log(typeof(this.eventdata.Likes))
+
+      var presentlikes = this.eventdata.Likes;
+      var finalLikes = presentlikes + 1;
+      this.eventdata.Likes = finalLikes
+      
+      console.log(this.eventdata)
+
+      this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
+        this.dataSource.data = this.dataSource.data.map((o: Event) => {
+          if (o.id === response.id) {
+            o = response;
+          }
+          return o;
+        });
+      });
+
+    });
+    
   }
 
 }

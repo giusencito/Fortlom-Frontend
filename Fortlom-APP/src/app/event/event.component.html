@@ -1,4 +1,3 @@
-
 <app-navigation></app-navigation>
 
 <div class ="padding"></div>
@@ -13,100 +12,36 @@
     </div>
   </mat-card-actions>
 </mat-card>
-
 <div class ="padding"></div>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-
-      <!-- Position Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> id </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
-
-      <!-- Name Column -->
-      <ng-container matColumnDef="EventName">
-        <th mat-header-cell *matHeaderCellDef> EventName </th>
-        <td mat-cell *matCellDef="let element"> {{element.EventName}} </td>
-      </ng-container>
-
-      <!-- Weight Column -->
-      <ng-container matColumnDef="EventDescription">
-        <th mat-header-cell *matHeaderCellDef> EventDescription </th>
-        <td mat-cell *matCellDef="let element"> {{element.EventDescription}} </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="ArtistID">
-        <th mat-header-cell *matHeaderCellDef> ArtistID </th>
-        <td mat-cell *matCellDef="let element"> {{element.ArtistID}} </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Likes">
-        <th mat-header-cell *matHeaderCellDef> Likes </th>
-        <td mat-cell *matCellDef="let element"> {{element.Likes}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-<div class="padding"></div>
-
-<table>
-<tr>
-<td>
-<div class= "center">
-<h1>Event Catalogue</h1>
-<h2>{{isEditMode ? 'Edit Event' : 'Add new Event'}}</h2>
-
-<form  (submit)="onSubmit()"  #EventForm='ngForm'>
-  <mat-form-field>
-    <input matInput placeholder="EventName" name="EventName" required
-    [(ngModel)]="eventdata.EventName">
-      <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <mat-form-field>
-    <input matInput placeholder="EventDescription" name="EventDescription" required
-      [(ngModel)]="eventdata.EventDescription">
-      <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <mat-form-field>
-    <input matInput placeholder="Likes" name="Likes" required
-      [(ngModel)]="eventdata.Likes">
-      <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <mat-form-field>
-    <input matInput placeholder="ArtistId" name="ArtistId" required
-      [(ngModel)]="eventdata.ArtistID">
-      <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <button mat-raised-button color="primary" type="submit">Aceptar</button>
-  <div class="spacer"></div>
-  <button mat-raised-button color="primary" (click) = "editItem(eventdata)">Editar</button>
-</form>
-</div>
-</td>
-<td>
-  <div class = "center">
-  <h1>Clear Fields</h1>
-  <button mat-raised-button color="primary" (click)="cancelEdit()">Limpiar</button>
-  </div>
-</td>
-<td>
-<div class="center">
-  <h1>Delete Events</h1>
-  <mat-form-field>
-    <input matInput placeholder="Id" name="Id" required
-    [(ngModel)]="eventdata.id">
-    <mat-error>Es requerido</mat-error>
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click) = "deleteEdit(eventdata.id)">Eliminar</button>
-</div>
-</td>
-</tr>
-</table>
+<mat-grid-list cols="1" rowHeight="1:0.5">
+  <mat-grid-tile *ngFor ="let arr of arrayevents" class="spaceshort">
+      <mat-card class="example-card-event">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <h1>{{arr.ArtistID}}</h1>
+        </mat-card-header>
+        <mat-card-content> 
+          <mat-card-title><h1>{{arr.EventName}}</h1></mat-card-title>
+          <p>{{arr.EventDescription}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <table>
+            <tr>
+              <td>
+              <div class = "buttonspacer">              
+              <button mat-button (click) = "Increasinglikes(arr.id)"><mat-icon aria-label="Example thumb_up icon">
+                  thumb_up
+              </mat-icon></button>
+              </div>
+              </td>
+              <td>
+                <div class = "minipadding"></div>
+                <p>{{arr.Likes}}</p>
+              </td>
+            </tr>
+          </table>
+        </mat-card-actions>
+      </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
