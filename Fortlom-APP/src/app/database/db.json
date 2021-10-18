@@ -70,12 +70,12 @@
   "Multimedia": [
     {
       "id": 1,
-      "MultimediaLink": "http://mimultimedia.com/",
+      "MultimediaLink": "https://i.blogs.es/4f0662/consejos-foto-movil-01/1366_2000.jpg",
       "PublicationCode": 1
     },
     {
       "id": 2,
-      "MultimediaLink": "http://mimultimedia2.com/",
+      "MultimediaLink": "https://ichef.bbci.co.uk/news/640/cpsprodpb/35F4/production/_116221831_mediaitem116221830.jpg",
       "PublicationCode": 2
     }
   ],
@@ -201,7 +201,7 @@
       "id": 2,
       "PublicationName": "New Album",
       "PublicationDescription": "my new album is out",
-      "Likes": 22,
+      "Likes": 23,
       "Date": "25/11/2020",
       "UserID": 2
     }

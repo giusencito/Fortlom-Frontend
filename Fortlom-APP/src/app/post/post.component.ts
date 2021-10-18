@@ -5,6 +5,7 @@ import {CommentComponent} from "../comment/comment.component";
 import {CommonModule} from "@angular/common";
 import {PublicacionService} from "../services/publicacion/publicacion.service";
 import {ReportService} from "../services/report/report.service";
+import {MultimediaService} from "../services/multimedia/multimedia.service";
 
 @Component({
   selector: 'app-post',
@@ -17,6 +18,9 @@ export class PostComponent implements OnInit {
   studentData: any;
   dataSource: MatTableDataSource<any>;
   haveInfo = false;
+  havePosts = false;
+  orderedMultimedia:any = [];
+
   @Input()
   textPart = "...";
   @Input()
@@ -26,13 +30,21 @@ export class PostComponent implements OnInit {
 
   constructor(private commentService: CommentService,
               private postService: PublicacionService,
-              private reportService: ReportService) {
+              private reportService: ReportService,
+              private multimediaService: MultimediaService) {
     this.studentData = {}
     this.dataSource = new MatTableDataSource<any>();
     this.haveInfo = false;
+    this.havePosts = false;
   }
 
   ngOnInit(): void {
+    this.multimediaService.getByPostId(Number(this.titlePart))
+      .subscribe((response: any) => {
+        this.orderedMultimedia = response;
+        console.log(this.orderedMultimedia);
+        this.haveInfo = true;
+      })
   }
 
   likePost(): void {
@@ -42,14 +54,17 @@ export class PostComponent implements OnInit {
         console.log(response);
       });
   }
+
   getComments(id:any): void {
     id = Number(id);
     this.commentService.getByPostId(id).subscribe((response: any) => {
       this.dataSource.data = response;
       this.studentData = this.dataSource.data;
-      this.haveInfo = true;
+      //this.haveInfo = true;
+      this.havePosts = true;
     });
   }
+
   flagPost(): void {
     this.aux = {
       ReportDescription: "Insultos frecuentes",

@@ -4,8 +4,9 @@
     <list default="true" id="93b0a686-1493-49c3-b2ba-73b82dcab191" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/database/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/database/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post-form/post-form.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post-form/post-form.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post-form/post-form.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post-form/post-form.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/post/post.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fortlom-APP/src/app/services/multimedia/multimedia.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Fortlom-APP/src/app/services/multimedia/multimedia.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,8 @@
       <workItem from="1634429536372" duration="6000" />
       <workItem from="1634429544726" duration="7939000" />
       <workItem from="1634491707561" duration="317000" />
+      <workItem from="1634493623714" duration="346000" />
+      <workItem from="1634524338991" duration="3002000" />
     </task>
     <servers />
   </component>
