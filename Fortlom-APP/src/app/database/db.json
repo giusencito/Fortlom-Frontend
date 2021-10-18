@@ -31,6 +31,14 @@
       "LastName": "bustamante",
       "Registration": "2021-10-15T03:55:35.808Z",
       "id": 4
+    },
+    {
+      "Email": "artistcarmelo@hotmail.com",
+      "Password": "12345678",
+      "Name": "Carmelo",
+      "LastName": "Valencia",
+      "Registration": "2021-10-18T21:10:26.322Z",
+      "id": 5
     }
   ],
   "Artist": [
@@ -51,6 +59,11 @@
       "Followers": 0,
       "Tag": 0,
       "id": 3
+    },
+    {
+      "Followers": 0,
+      "Tag": 0,
+      "id": 5
     }
   ],
   "Fanatic": [
@@ -250,7 +263,7 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 1,
-      "Likes": 34
+      "Likes": 35
     },
     {
       "id": 2,
@@ -262,9 +275,16 @@
     {
       "EventName": "Musical",
       "EventDescription": "a description 3",
-      "Likes": 17,
+      "Likes": 18,
       "ArtistID": 1,
       "id": 3
+    },
+    {
+      "EventName": "Musical 2",
+      "EventDescription": "a description 5",
+      "Likes": 2,
+      "ArtistID": 1,
+      "id": 4
     }
   ],
   "Event_Fanatic": [
