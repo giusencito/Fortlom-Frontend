@@ -3,7 +3,7 @@
 <div class ="padding"></div>
 <mat-card class="example-card">
   <mat-card-header>
-    <mat-card-title>Make a Event</mat-card-title>
+    <mat-card-title>Make a Event!</mat-card-title>
   </mat-card-header>
   <img mat-card-image class="image" src="https://www.eventindustryshow.com/img/blog/Trabalhar-em-Eventos-11.jpg" alt="Photo of a Event">
   <mat-card-actions>
@@ -13,35 +13,51 @@
   </mat-card-actions>
 </mat-card>
 <div class ="padding"></div>
-
-<mat-grid-list cols="1" rowHeight="1:0.5">
-  <mat-grid-tile *ngFor ="let arr of arrayevents" class="spaceshort">
-      <mat-card class="example-card-event">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <h1>{{arr.ArtistID}}</h1>
-        </mat-card-header>
-        <mat-card-content> 
-          <mat-card-title><h1>{{arr.EventName}}</h1></mat-card-title>
-          <p>{{arr.EventDescription}}</p>
-        </mat-card-content>
-        <mat-card-actions>
-          <table>
-            <tr>
-              <td>
-              <div class = "buttonspacer">              
-              <button mat-button (click) = "Increasinglikes(arr.id)"><mat-icon aria-label="Example thumb_up icon">
-                  thumb_up
-              </mat-icon></button>
-              </div>
-              </td>
-              <td>
-                <div class = "minipadding"></div>
-                <p>{{arr.Likes}}</p>
-              </td>
-            </tr>
-          </table>
-        </mat-card-actions>
-      </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+  <table>
+    <tr>
+    <td>
+    <div class = "centerbuttons">
+    <button mat-raised-button class = "buttonShow" (click) = "ShowEventsArtist()">Show All Events</button>
+    </div>
+    </td>
+    <td>
+    <div class = "centerbuttons">
+      <button mat-raised-button class = "buttonShow" (click) = "NotShowEventsArtist()">Not Show Events</button>
+    </div>
+    </td>
+    </tr>
+  </table>
+<div class ="padding"></div>
+<div *ngIf = "showeventartist">
+  <mat-grid-list cols="1" rowHeight="1:0.5">
+    <mat-grid-tile *ngFor ="let arr of arrayevents" class="spaceshort">
+        <mat-card class="example-card-event">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <h1>{{arr.ArtistID}}</h1>
+          </mat-card-header>
+          <mat-card-content> 
+            <mat-card-title><h1>{{arr.EventName}}</h1></mat-card-title>
+            <p>{{arr.EventDescription}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <table>
+              <tr>
+                <td>
+                <div class = "buttonspacer">              
+                <button mat-button (click) = "Increasinglikes(arr.id)"><mat-icon aria-label="Example thumb_up icon">
+                    thumb_up
+                </mat-icon></button>
+                </div>
+                </td>
+                <td>
+                  <div class = "minipadding"></div>
+                  <p>{{arr.Likes}}</p>
+                </td>
+              </tr>
+            </table>
+          </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

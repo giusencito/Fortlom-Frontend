@@ -282,9 +282,16 @@
     {
       "EventName": "Musical 2",
       "EventDescription": "a description 5",
-      "Likes": 2,
+      "Likes": 5,
       "ArtistID": 1,
       "id": 4
+    },
+    {
+      "EventName": "faefae",
+      "EventDescription": "a description 6",
+      "Likes": 12,
+      "ArtistID": 1,
+      "id": 5
     }
   ],
   "Event_Fanatic": [

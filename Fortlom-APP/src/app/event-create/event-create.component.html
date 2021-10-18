@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Create a Event</h2>
+<h2 mat-dialog-title>Create your Event!</h2>
 <mat-dialog-content class="mat-typography">
   <form #EventForm='ngForm'>
     <mat-form-field>
@@ -29,5 +29,5 @@
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button (click) = "ClearForm()">Clean</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) = "addEvent()">Create</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click) = "addEvent()">Create and Post</button>
 </mat-dialog-actions>

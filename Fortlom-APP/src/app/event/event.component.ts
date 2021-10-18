@@ -31,6 +31,8 @@ export class EventComponent implements OnInit {
 
   isEditMode = false;
 
+  showeventartist = false;
+
   constructor(private eventService: EventService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.dataSource = new MatTableDataSource<any>();
@@ -159,6 +161,16 @@ export class EventComponent implements OnInit {
 
     });
     
+  }
+
+  ShowEventsArtist(){
+    this.showeventartist = true;
+    console.log(this.showeventartist)
+  }
+
+  NotShowEventsArtist(){
+    this.showeventartist = false;
+    console.log(this.showeventartist)
   }
 
 }

@@ -56,3 +56,13 @@ table {
   max-width: 1000px;
   width: 50%;
 }
+
+.centerbuttons{
+  text-align: center;
+}
+
+.buttonShow{
+  background-color: #9CC7EF;
+  color: #000000;
+  width: 50%;
+}
