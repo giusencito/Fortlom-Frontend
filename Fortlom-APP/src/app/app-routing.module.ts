@@ -14,6 +14,7 @@ import { EventComponent } from './event/event.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { ArtistForumComponent } from './artist-forum/artist-forum.component';
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
 {path:'HomeArtist/:artistid',component:HomeArtistComponent},
 {path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent}
+{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
+{path: 'Configure',component:ConfigurationComponent}
 ];
 
 @NgModule({
