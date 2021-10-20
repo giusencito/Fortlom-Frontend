@@ -58,7 +58,7 @@ getAll(): Observable<Fanatic> {
 
 // Update Fanatic
 update(id: any, item: any): Observable<Fanatic> {
-  return this.http.post<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

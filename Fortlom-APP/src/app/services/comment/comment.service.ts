@@ -58,7 +58,7 @@ getAll(): Observable<Comment> {
 
 // Update Comment
 update(id: any, item: any): Observable<Comment> {
-  return this.http.post<Comment>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Comment>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

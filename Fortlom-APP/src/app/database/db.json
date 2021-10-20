@@ -5,7 +5,7 @@
       "Name": "Guillermo",
       "LastName": "Maduro",
       "Email": "Gui@hotmail.com",
-      "Password": "buenas",
+      "Password": "buenas noches",
       "Registration": "12/9/2021"
     },
     {
@@ -31,13 +31,22 @@
       "LastName": "bustamante",
       "Registration": "2021-10-15T03:55:35.808Z",
       "id": 4
+    },
+    {
+      "Email": "artistcarmelo@hotmail.com",
+      "Password": "123456",
+      "Name": "Carmelo",
+      "LastName": "Valencia",
+      "Registration": "2021-10-20T02:05:57.649Z",
+      "id": 5
     }
   ],
   "Artist": [
     {
       "id": 1,
       "Tag": 0,
-      "Followers": 0
+      "Followers": 0,
+      "description": "a description 1"
     },
     {
       "Email": "giusencito@hotmail.com",
@@ -50,7 +59,8 @@
     {
       "Followers": 0,
       "Tag": 0,
-      "id": 3
+      "id": 3,
+      "description": "a description 2"
     }
   ],
   "Fanatic": [
@@ -61,6 +71,10 @@
     {
       "alias": "Fas_Fas",
       "id": 4
+    },
+    {
+      "alias": "VCalias",
+      "id": 5
     }
   ],
   "Follow": [

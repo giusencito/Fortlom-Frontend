@@ -5,4 +5,5 @@ export interface Artist {
     Tag: number;
     Followers: number;
     artist: Usuario ;
+    description:string;
 }

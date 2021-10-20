@@ -58,7 +58,7 @@ getAll(): Observable<Follow> {
 
 // Update Follow
 update(id: any, item: any): Observable<Follow> {
-  return this.http.post<Follow>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Follow>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
