@@ -49,9 +49,9 @@ export class FanaticForumcommentComponent implements OnInit {
 
 
     console.log(this.comentarios)
-    this.getAllcommentsperaforum()
+    //this.getAllcommentsperaforum() cambiar despues de la tb3
     console.log(this.paso)
-
+    this.getAllComments()//cambiar despues de exponer
 
   }
 
@@ -186,7 +186,28 @@ return this.proDatevalue
 
 
 
+onSubmit(){
+this.commentdata.Date=this.myDate
+  if (this.commentdataForm.form.valid) {
+    console.log(this.commentdata );
+    if (this.isEditMode) {
+      console.log("se actualiza")
+      this.updatecomment();
+    } else {
 
+      this.addcomment();
+    }
+    }
+    else{
+      console.log('Invalid data');
+    }
+
+
+
+
+
+
+}
 
 
 

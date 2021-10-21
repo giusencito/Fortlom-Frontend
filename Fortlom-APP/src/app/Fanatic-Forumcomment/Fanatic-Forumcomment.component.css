@@ -45,3 +45,16 @@ background-color:#9CC7EF;
 {
   color: black;
 }
+.table-card{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 30%;
+}
+.mats
+{
+
+  margin-top: 20%;
+
+}

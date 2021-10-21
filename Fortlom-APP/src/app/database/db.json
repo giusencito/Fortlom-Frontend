@@ -100,8 +100,74 @@
   ],
   "Forum": [
     {
-      "ForumName": "Ejemplo",
-      "ForumDescription": "Ejemplo de descripcion",
+      "ForumName": "Ejemplo 1",
+      "ForumDescription": "Ejemplo de descripcion 1",
+      "usuario": 4,
+      "id": 1
+    },
+    {
+      "ForumName": "Ejemplo 2",
+      "ForumDescription": "Ejemplo de descripcion 2",
+      "usuario": 4,
+      "id": 2
+    },
+    {
+      "ForumName": "Ejemplo 3",
+      "ForumDescription": "Ejemplo de descripcion 3",
+      "usuario": 4,
+      "id": 3
+    },
+    {
+      "ForumName": "Ejemplo 4",
+      "ForumDescription": "Ejemplo de descripcion 4",
+      "usuario": 4,
+      "id": 4
+    },
+    {
+      "ForumName": "Ejemplo 5",
+      "ForumDescription": "Ejemplo de descripcion 5",
+      "usuario": 4,
+      "id": 5
+    },
+    {
+      "ForumName": "Ejemplo 6",
+      "ForumDescription": "Ejemplo de descripcion 6",
+      "usuario": 4,
+      "id": 6
+    },
+    {
+      "ForumName": "Ejemplo 7",
+      "ForumDescription": "Ejemplo de descripcion 7",
+      "usuario": 4,
+      "id": 7
+    },
+    {
+      "ForumName": "Ejemplo 8",
+      "ForumDescription": "Ejemplo de descripcion 8",
+      "usuario": 4,
+      "id": 8
+    },
+    {
+      "ForumName": "Ejemplo 9",
+      "ForumDescription": "Ejemplo de descripcion 9",
+      "usuario": 4,
+      "id": 9
+    },
+    {
+      "ForumName": "Ejemplo 10",
+      "ForumDescription": "Ejemplo de descripcion 10",
+      "usuario": 4,
+      "id": 10
+    },
+    {
+      "ForumName": "Ejemplo 11",
+      "ForumDescription": "Ejemplo de descripcion 11",
+      "usuario": 4,
+      "id": 11
+    },
+    {
+      "ForumName": "Ejemplo 12",
+      "ForumDescription": "Ejemplo de descripcion 12",
       "usuario": 4,
       "id": 12
     }
@@ -208,11 +274,17 @@
       "id": 11
     },
     {
-      "CommentDescription": "ss",
+      "CommentDescription": "comentario 12",
       "UsuarioId": 4,
-      "Date": "2021-10-16T23:31:54.213Z",
+      "Date": "2021-10-20T22:36:09.586Z",
       "ForumId": 12,
       "id": 12
+    },
+    {
+      "CommentDescription": "comentario 13",
+      "ForumId": "4",
+      "Date": "2021-10-20T22:36:09.586Z",
+      "id": 13
     }
   ],
   "Publicacion": [
