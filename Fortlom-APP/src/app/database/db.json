@@ -297,12 +297,11 @@
       "UserID": 1
     },
     {
-      "id": 2,
-      "PublicationName": "New Album",
-      "PublicationDescription": "my new album is out",
-      "Likes": 10,
-      "Date": "25/11/2020",
-      "UserID": 2
+      "PublicationName": "Nadin",
+      "PublicationDescription": "My new albumns name",
+      "usuario": "3",
+      "Likes": "12700",
+      "id": 2
     }
   ],
   "Event": [
@@ -317,7 +316,7 @@
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
-      "ArtistID": 2,
+      "ArtistID": "3",
       "Likes": 25
     }
   ],

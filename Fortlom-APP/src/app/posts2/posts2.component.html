@@ -14,7 +14,7 @@
 
           <mat-form-field style="padding-right: 15px">
             <input matInput placeholder="Insert post description" name="EventDescription" required
-                   [(ngModel)]="postdata.PublicationName">
+                   [(ngModel)]="postdata.PublicationDescription">
             <mat-error>Es requerido</mat-error>
           </mat-form-field>
 
@@ -47,11 +47,11 @@
           <mat-cell *matCellDef="let element">{{ element.id }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="EventName">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>  #EventName</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header>  #PostName</mat-header-cell>
           <mat-cell *matCellDef="let element">{{ element.PublicationName }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="EventDescription" >
-          <mat-header-cell *matHeaderCellDef mat-sort-header> #EventDescription</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef mat-sort-header> #PostDescription</mat-header-cell>
           <mat-cell *matCellDef="let element">{{ element.PublicationDescription }}</mat-cell>
         </ng-container>
         <ng-container matColumnDef="ArtistID" >
