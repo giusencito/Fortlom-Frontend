@@ -16,6 +16,7 @@ import { PostPageComponent } from './post-page/post-page.component';
 import { ArtistForumComponent } from './artist-forum/artist-forum.component';
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { Posts2Component } from "./posts2/posts2.component";
+import {CommentTableComponent} from "./comment-table/comment-table.component";
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
 {path : 'Home', component: HomeComponent},
 {path:'Event',component:EventComponent},
 {path:'Posts',component:Posts2Component},
+  {path:'Comments',component:CommentTableComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
 {path:'registerfanatic',component:FanaticRegisterComponent},

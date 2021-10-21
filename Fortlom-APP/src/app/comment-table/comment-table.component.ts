@@ -1,6 +1,6 @@
-import {Component , OnInit, ViewChild} from '@angular/core';
-import {Publicacion} from "../models/publicacion";
-import {PublicacionService} from "../services/publicacion/publicacion.service";
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {Comment} from "../models/comment";
+import {CommentService} from "../services/comment/comment.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgForm} from "@angular/forms";
@@ -9,16 +9,16 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EventCreateComponent } from '../event-create/event-create.component';
 
 @Component({
-  selector: 'app-posts2',
-  templateUrl: './posts2.component.html',
-  styleUrls: ['./posts2.component.css']
+  selector: 'app-comment-table',
+  templateUrl: './comment-table.component.html',
+  styleUrls: ['./comment-table.component.css']
 })
-export class Posts2Component implements OnInit {
+export class CommentTableComponent implements OnInit {
 
-  postdata!: Publicacion;
-  posts:Publicacion[]=[];
+  commentdata!: Comment;
+  comments:Comment[]=[];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id','PostName','PostDescription','ArtistID','Likes','actions'];
+  displayedColumns: string[] = ['id', 'CommentDescription','PublicationID','UsuarioId','actions'];
 
   @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
@@ -28,15 +28,15 @@ export class Posts2Component implements OnInit {
 
   isEditMode = false;
 
-  constructor(private eventService: PublicacionService,private dialog:MatDialog) {
-    this.postdata = {} as Publicacion;
+  constructor(private eventService: CommentService,private dialog:MatDialog) {
+    this.commentdata = {} as Comment;
     this.dataSource = new MatTableDataSource<any>();
   }
 
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
     this.getAllEvents();
-    console.log(this.posts);
+    console.log(this.comments);
     console.log(this.displayedColumns);
     console.log(this.isEditMode)
   }
@@ -52,7 +52,7 @@ export class Posts2Component implements OnInit {
 
   deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.filter((o: Publicacion) => {
+      this.dataSource.data = this.dataSource.data.filter((o: Comment) => {
         return o.id !== id ? o : false;
       });
     });
@@ -60,14 +60,14 @@ export class Posts2Component implements OnInit {
   }
 
   addEvent() {
-    this.eventService.create(this.postdata).subscribe((response: any) => {
+    this.eventService.create(this.commentdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
   }
 
-  editItem(element: Publicacion) {
-    this.postdata = _.cloneDeep(element);
+  editItem(element: Comment) {
+    this.commentdata = _.cloneDeep(element);
     this.isEditMode = true;
   }
 
@@ -78,8 +78,8 @@ export class Posts2Component implements OnInit {
 
   deleteEdit(id:number){
     console.log(id);
-    this.postdata.id = _.cloneDeep(id);
-    this.deleteItem(this.postdata.id);
+    this.commentdata.id = _.cloneDeep(id);
+    this.deleteItem(this.commentdata.id);
   }
 
   onCreate(){
@@ -91,8 +91,8 @@ export class Posts2Component implements OnInit {
   }
 
   updateEvent() {
-    this.eventService.update(this.postdata.id, this.postdata).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.map((o: Publicacion) => {
+    this.eventService.update(this.commentdata.id, this.commentdata).subscribe((response: any) => {
+      this.dataSource.data = this.dataSource.data.map((o: Comment) => {
         if (o.id === response.id) {
           o = response;
         }
@@ -104,7 +104,7 @@ export class Posts2Component implements OnInit {
 
   onSubmit() {
     if(this.EventForm.form.valid){
-      console.log(this.postdata);
+      console.log(this.commentdata);
       if (this.isEditMode) {
         this.updateEvent();
         console.log("se actualizo")
@@ -115,5 +115,4 @@ export class Posts2Component implements OnInit {
       console.log('Invalid data');
     }
   }
-
 }

@@ -188,11 +188,10 @@
       "Date": "20/03/2021"
     },
     {
-      "id": 4,
-      "CommentDescription": "",
-      "PublicationID": 3,
-      "UsuarioId": 1,
-      "Date": ""
+      "CommentDescription": "Estoy realizando un comentario en esta publicación ",
+      "UsuarioId": "6",
+      "PublicationID": "3",
+      "id": 3
     }
   ],
   "ForumComment": [
@@ -297,10 +296,10 @@
       "UserID": 1
     },
     {
-      "PublicationName": "Nadin",
-      "PublicationDescription": "My new albumns name",
-      "usuario": "3",
-      "Likes": "12700",
+      "PublicationName": "Viaje a Miami",
+      "PublicationDescription": "Se fue a Miami",
+      "UserID": "4",
+      "Likes": "14",
       "id": 2
     }
   ],

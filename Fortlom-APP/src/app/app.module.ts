@@ -36,6 +36,7 @@ import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCr
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
 import { Posts2Component } from './posts2/posts2.component';
+import { CommentTableComponent } from './comment-table/comment-table.component';
 
 @NgModule({
   declarations: [											
@@ -67,7 +68,8 @@ import { Posts2Component } from './posts2/posts2.component';
       FanaticForumCreateComponent,
       ForumPageComponent,
       UserInformationforForumComponent,
-      Posts2Component
+      Posts2Component,
+      CommentTableComponent
    ],
   imports: [
     BrowserModule,

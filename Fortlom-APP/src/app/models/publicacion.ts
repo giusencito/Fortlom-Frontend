@@ -6,5 +6,5 @@ export interface Publicacion {
     PublicationDescription:string;
     Likes:number;
     Date: string;
-    usuario: Usuario;
+    UserID: Usuario;
 }
