@@ -35,6 +35,7 @@ import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
+import { Posts2Component } from './posts2/posts2.component';
 
 @NgModule({
   declarations: [											
@@ -65,7 +66,8 @@ import { UserInformationforForumComponent } from './UserInformationforForum/User
       HomeFanaticComponent,
       FanaticForumCreateComponent,
       ForumPageComponent,
-      UserInformationforForumComponent
+      UserInformationforForumComponent,
+      Posts2Component
    ],
   imports: [
     BrowserModule,
