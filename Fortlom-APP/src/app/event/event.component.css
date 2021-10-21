@@ -14,3 +14,21 @@ table {
 .spacer{
  padding-right: 20pt; 
 }
+
+.button-row button{
+
+  margin:10px;
+
+}
+.search-form-field
+{
+
+  margin:20px;
+}
+
+.table-card{
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

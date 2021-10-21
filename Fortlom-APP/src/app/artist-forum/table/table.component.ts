@@ -97,12 +97,16 @@ export class TableComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.forumdata);
-    if (this.isEditMode) {
-      this.updateForum();
-      console.log("se actualizo")
-    } else {
-      this.addForum();
+    if(this.ForumForm.form.valid){
+      console.log(this.forumdata);
+      if (this.isEditMode) {
+        this.updateForum();
+        console.log("se actualizo")
+      } else {
+        this.addForum();
+        }
+    }else{
+        console.log('Invalid data');
     }
   }
 

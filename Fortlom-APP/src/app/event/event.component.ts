@@ -18,7 +18,7 @@ export class EventComponent implements OnInit {
   eventdata!: Event;
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
+  displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes','actions'];
 
   @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
@@ -103,6 +103,7 @@ export class EventComponent implements OnInit {
   }
 
   onSubmit() {
+    if(this.EventForm.form.valid){
       console.log(this.eventdata);
       if (this.isEditMode) {
         this.updateEvent();
@@ -110,6 +111,9 @@ export class EventComponent implements OnInit {
       } else {
         this.addEvent();
       }
+    }else{
+      console.log('Invalid data');
+    }
   }
 
 }
