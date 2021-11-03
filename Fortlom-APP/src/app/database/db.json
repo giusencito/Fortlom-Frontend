@@ -31,6 +31,22 @@
       "LastName": "bustamante",
       "Registration": "2021-10-15T03:55:35.808Z",
       "id": 4
+    },
+    {
+      "Email": "fanatico@hotmail.com",
+      "Password": "contraseña",
+      "Name": "fanatico",
+      "LastName": "fanaticoapellido",
+      "Registration": "2021-10-22T01:48:53.953Z",
+      "id": 5
+    },
+    {
+      "Email": "artista@hotmail.com",
+      "Password": "contraseña",
+      "Name": "artista",
+      "LastName": "artistaapellido",
+      "Registration": "2021-10-22T01:49:49.702Z",
+      "id": 6
     }
   ],
   "Artist": [
@@ -40,17 +56,14 @@
       "Followers": 0
     },
     {
-      "Email": "giusencito@hotmail.com",
-      "Password": "contraseña",
-      "Name": "Giusen",
-      "LastName": "Rebaza",
-      "Registration": "2021-10-14T23:45:20.723Z",
-      "id": 2
+      "Followers": 0,
+      "Tag": 0,
+      "id": 3
     },
     {
       "Followers": 0,
       "Tag": 0,
-      "id": 3
+      "id": 6
     }
   ],
   "Fanatic": [
@@ -61,6 +74,10 @@
     {
       "alias": "Fas_Fas",
       "id": 4
+    },
+    {
+      "alias": "elfanatico",
+      "id": 5
     }
   ],
   "Follow": [
@@ -166,8 +183,8 @@
       "id": 11
     },
     {
-      "ForumName": "Ejemplo 12",
-      "ForumDescription": "Ejemplo de descripcion 12",
+      "ForumName": "Ejemplos 12",
+      "ForumDescription": "Ejemplo 12",
       "usuario": 4,
       "id": 12
     }
@@ -188,7 +205,7 @@
       "Date": "20/03/2021"
     },
     {
-      "CommentDescription": "Estoy realizando un comentario en esta publicación ",
+      "CommentDescription": "Estoy realizando un comentarios en esta publicación ",
       "UsuarioId": "6",
       "PublicationID": "3",
       "id": 3
@@ -280,9 +297,9 @@
       "id": 12
     },
     {
-      "CommentDescription": "comentario 13",
+      "CommentDescription": "comentarios 13",
       "ForumId": "4",
-      "Date": "2021-10-20T22:36:09.586Z",
+      "Date": "2021-10-22T01:45:54.035Z",
       "id": 13
     }
   ],
@@ -299,7 +316,7 @@
       "PublicationName": "Viaje a Miami",
       "PublicationDescription": "Se fue a Miami",
       "UserID": "4",
-      "Likes": "14",
+      "Likes": "15",
       "id": 2
     }
   ],
@@ -316,7 +333,7 @@
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": "3",
-      "Likes": 25
+      "Likes": "24"
     }
   ],
   "Event_Fanatic": [
