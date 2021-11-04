@@ -9,7 +9,7 @@ import {Artist} from "../../models/artist";
 })
 export class ArtistService {
 
-basePath = 'http://localhost:3000/Artist';
+basePath = 'http://localhost:8080/api/v1/artists';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -21,13 +21,13 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
