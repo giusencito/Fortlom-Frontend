@@ -83,7 +83,7 @@ export class ForumPageComponent implements OnInit {
 
   NewForumComment(){
 
-    this.servecommen.create(this.Forumcomment).subscribe((response: any) => {
+    this.servecommen.create(this.Forumcomment,1,1).subscribe((response: any) => {
       this.dataSource1.data.push( {...response});
       this.dataSource1.data = this.dataSource1.data.map((o: any) => { return o; });
       alert("se agrego un comentario")
@@ -95,9 +95,9 @@ export class ForumPageComponent implements OnInit {
 
 crearcomentariodeforo(){
 
-this.Forumcomment.UsuarioId=this.idactualuser
-this.Forumcomment.Date=this.date
-this.Forumcomment.ForumId=this.idforum
+//this.Forumcomment.user=this.idactualuser
+//this.Forumcomment.Date=this.date
+//this.Forumcomment.forum=this.idforum
 this.NewForumComment()
 this.newcommentform.reset();
 
