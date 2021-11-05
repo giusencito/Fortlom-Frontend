@@ -55,7 +55,7 @@ export class EventComponent implements OnInit {
 
    getArtistId(id :number){
 
-
+    
    return this.dataSource.data[id-1].artist.id
 
 

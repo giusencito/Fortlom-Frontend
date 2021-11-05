@@ -28,7 +28,7 @@ export class CommentFormComponent implements OnInit {
 
   postComment(txt: HTMLTextAreaElement): void {
     this.commentData.CommentDescription = txt.value;
-    this.commentService.create(this.commentData).subscribe((response: any) => {
+    this.commentService.create(this.commentData,1,1).subscribe((response: any) => {//unos pormientras
       this.dataSource.data.push({...response});
       this.dataSource.data = this.dataSource.data.map((o:any)=>{return o;});
     });

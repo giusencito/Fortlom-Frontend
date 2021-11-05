@@ -29,7 +29,7 @@ export class PostFormComponent implements OnInit {
 
   postPost(txt: HTMLTextAreaElement): void {
     this.postData.PublicationDescription = txt.value;
-    this.postService.create(this.postData).subscribe((response: any) => {
+    this.postService.create(this.postData,1).subscribe((response: any) => { //pongo ese uno por mientras
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
       console.log(this.dataSource);

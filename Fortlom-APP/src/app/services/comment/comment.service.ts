@@ -9,8 +9,8 @@ import {Comment} from "../../models/comment";
 })
 export class CommentService {
 
-basePath = 'http://localhost:3000/Comment';
-
+basePath = 'http://localhost:8080/api/v1/comments';
+basePath2=' http://localhost:8080/api/v1/users'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ handleError(error: HttpErrorResponse) {
 }
 
 // Create Comment
-create(item: any): Observable<Comment> {
-  return this.http.post<Comment>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(item: any,userId:number,publicationId:number): Observable<Comment> {
+  return this.http.post<Comment>(`${this.basePath2}/${userId}/publications/${publicationId}/comments`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

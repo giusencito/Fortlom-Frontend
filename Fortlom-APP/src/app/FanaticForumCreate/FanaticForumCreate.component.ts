@@ -31,19 +31,19 @@ this.dataSource = new MatTableDataSource<any>();
     this.idnumber=id;
   }
 
-crearforo(){
+crearforo(id:number){
 this.Forum.usuario=this.idnumber
 
-this.AddForum()
+this.AddForum(id)
 
 this.cd.navigate(['/HomeFanatic',this.idnumber])
 
 }
 
 
-AddForum(){
+AddForum(id:number){
 
-  this.service.create(this.Forum).subscribe((response: any) => {
+  this.service.create(this.Forum,id).subscribe((response: any) => {
     this.dataSource.data.push( {...response});
     this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
   });
