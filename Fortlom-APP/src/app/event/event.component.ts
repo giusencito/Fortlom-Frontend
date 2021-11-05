@@ -1,5 +1,5 @@
+import { Event } from './../models/event';
 import {Component , OnInit, ViewChild} from '@angular/core';
-import {Event} from '../models/event';
 import {EventService} from '../services/event/event.service';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
@@ -21,34 +21,53 @@ export class EventComponent implements OnInit {
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes','actions'];
 
   @ViewChild('EventForm', {static: false})
-  EventForm!: NgForm;
-
+  EventForm!: NgForm
+  Eventprueba!:Event
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
-
+  idartists!:number
   isEditMode = false;
 
   constructor(private eventService: EventService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.dataSource = new MatTableDataSource<any>();
+    this.Eventprueba={}as Event;
   }
 
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
-    this.getAllEvents();
     console.log(this.events);
     console.log(this.displayedColumns);
     console.log(this.isEditMode)
+    this.getAllEvents();
+
   }
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.paginator=this.paginator;
 
-      console.log(response)
+      console.log(this.dataSource.data)
+      this.getArtistId(1)
     });
   }
+
+   getArtistId(id :number){
+
+
+   return this.dataSource.data[id-1].artist.id
+
+
+   }
+
+
+
+
+
+
+
+
 
   deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
@@ -59,8 +78,9 @@ export class EventComponent implements OnInit {
     console.log(this.dataSource.data);
   }
 
-  addEvent() {
-    this.eventService.create(this.eventdata).subscribe((response: any) => {
+  addEvent(id:number) {
+    //this.eventdata.ArtistID=id
+    this.eventService.create(this.eventdata,id).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
@@ -75,20 +95,13 @@ export class EventComponent implements OnInit {
     this.isEditMode = false;
     this.EventForm.resetForm();
   }
-  
+
   deleteEdit(id:number){
     console.log(id);
     this.eventdata.id = _.cloneDeep(id);
     this.deleteItem(this.eventdata.id);
   }
 
-  onCreate(){
-    const dialogconfig=new MatDialogConfig();
-    dialogconfig.disableClose=true;
-    dialogconfig.autoFocus=true;
-    dialogconfig.width="60%"
-     this.dialog.open(EventCreateComponent,dialogconfig);
-  }
 
   updateEvent() {
     this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
@@ -109,7 +122,8 @@ export class EventComponent implements OnInit {
         this.updateEvent();
         console.log("se actualizo")
       } else {
-        this.addEvent();
+         console.log(this.idartists);
+        this.addEvent(this.idartists);
       }
     }else{
       console.log('Invalid data');

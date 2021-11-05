@@ -9,7 +9,7 @@ import {Fanatic} from "../../models/fanatic";
 })
 export class FanaticService {
 
-basePath = 'http://localhost:3000/Fanatic';
+basePath = 'http://localhost:8080/api/v1/fanatics';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,13 +22,13 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 

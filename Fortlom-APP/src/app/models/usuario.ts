@@ -1,8 +1,6 @@
 export interface Usuario {
-    id: number;
-    Name: string;
-    LastName: string;
-    Email: string;
-    Password: string;
-    Registration: Date;
+  name: string;
+  lastName: string;
+    email: string;
+    password: string;
 }

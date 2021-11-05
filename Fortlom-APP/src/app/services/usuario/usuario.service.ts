@@ -9,7 +9,7 @@ import {Usuario} from "../../models/usuario";
 })
 export class UsuarioService {
 
-basePath = 'http://localhost:3000/Usuario';
+basePath = 'http://localhost:8080/api/v1/users';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,18 +22,19 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 
 // Create Usuario
 create(item: any): Observable<Usuario> {
+  console.log(JSON.stringify(item))
   return this.http.post<Usuario>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
@@ -49,19 +50,19 @@ getById(id: any): Observable<Usuario> {
 }
 
 // Get All Usuarios
-getAll(): Observable<Usuario> {
+ getAll(): Observable<Usuario> {
   return this.http.get<Usuario>(this.basePath, this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError));
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
 }
 
 // Update Usuario
 update(id: any, item: any): Observable<Usuario> {
   return this.http.post<Usuario>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
-    .pipe(
-      retry(2),
-      catchError(this.handleError));
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
 }
 
 // Delete Usuario
