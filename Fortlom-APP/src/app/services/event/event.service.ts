@@ -66,7 +66,7 @@ update(id: any, item: any): Observable<Event> {
 
 // Delete Event
 delete(id: any) {
-  return this.http.delete(`${this.basePath3}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
