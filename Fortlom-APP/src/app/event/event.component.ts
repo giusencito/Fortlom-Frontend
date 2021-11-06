@@ -1,5 +1,5 @@
-import { Event } from './../models/event';
 import {Component , OnInit, ViewChild} from '@angular/core';
+import {Event} from '../models/event';
 import {EventService} from '../services/event/event.service';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
@@ -21,38 +21,36 @@ export class EventComponent implements OnInit {
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes','actions'];
 
   @ViewChild('EventForm', {static: false})
-  EventForm!: NgForm
-  Eventprueba!:Event
+  EventForm!: NgForm;
+
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
-  idartists!:number
+
   isEditMode = false;
 
   constructor(private eventService: EventService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.dataSource = new MatTableDataSource<any>();
-    this.Eventprueba={}as Event;
   }
 
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
+    this.getAllEvents();
     console.log(this.events);
     console.log(this.displayedColumns);
     console.log(this.isEditMode)
-    this.getAllEvents();
-
   }
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response.content;
+      this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
 
-      console.log(this.dataSource.data)
-      this.getArtistId(1)
+      console.log(response)
     });
   }
 
+<<<<<<< HEAD
    getArtistId(id :number){
 
     
@@ -69,6 +67,8 @@ export class EventComponent implements OnInit {
 
 
 
+=======
+>>>>>>> parent of dd126e0 (cambios de evento)
   deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
       this.dataSource.data = this.dataSource.data.filter((o: Event) => {
@@ -78,9 +78,8 @@ export class EventComponent implements OnInit {
     console.log(this.dataSource.data);
   }
 
-  addEvent(id:number) {
-    //this.eventdata.ArtistID=id
-    this.eventService.create(this.eventdata,id).subscribe((response: any) => {
+  addEvent() {
+    this.eventService.create(this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });
@@ -95,13 +94,20 @@ export class EventComponent implements OnInit {
     this.isEditMode = false;
     this.EventForm.resetForm();
   }
-
+  
   deleteEdit(id:number){
     console.log(id);
     this.eventdata.id = _.cloneDeep(id);
     this.deleteItem(this.eventdata.id);
   }
 
+  onCreate(){
+    const dialogconfig=new MatDialogConfig();
+    dialogconfig.disableClose=true;
+    dialogconfig.autoFocus=true;
+    dialogconfig.width="60%"
+     this.dialog.open(EventCreateComponent,dialogconfig);
+  }
 
   updateEvent() {
     this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
@@ -122,8 +128,7 @@ export class EventComponent implements OnInit {
         this.updateEvent();
         console.log("se actualizo")
       } else {
-         console.log(this.idartists);
-        this.addEvent(this.idartists);
+        this.addEvent();
       }
     }else{
       console.log('Invalid data');
