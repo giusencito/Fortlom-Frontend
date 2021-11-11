@@ -50,8 +50,9 @@ export class FanaticForumcommentComponent implements OnInit {
 
     console.log(this.comentarios)
     //this.getAllcommentsperaforum() cambiar despues de la tb3
-    console.log(this.paso)
-    this.getAllComments()//cambiar despues de exponer
+    //console.log(this.paso)
+    //this.getAllComments()//cambiar despues de exponer
+    this.getAllcommentsperaforum()
 
   }
 
@@ -169,12 +170,11 @@ updatecomment() {
 
 getfechacomment(fecha:Date){
 
-console.log("fecha")
-console.log(fecha)
+
 
 
 this.proDate=fecha
-console.log(this.proDate)
+
 this.proDatevalue = this.datePipe.transform(fecha, 'yyyy-MM-dd')!;
 
 

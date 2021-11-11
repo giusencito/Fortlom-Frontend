@@ -25,5 +25,11 @@ enterfanaticforum(){
 
 
 }
+enterPublication(){
+
+}
+enterHome(){
+  this.cd.navigate(['/HomeFanatic',this.idnumber])
+}
 
 }
