@@ -1,3 +1,4 @@
+import { PostComponent } from './post/post.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
 import { FanaticRegisterComponent } from './FanaticRegister/FanaticRegister.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
 {path:'login',component:LoginComponent},
 {path : 'Home', component: HomeComponent},
 {path:'Event',component:EventComponent},
-{path:'Posts',component:Posts2Component},
+{path:'Posts',component:PostPageComponent},
   {path:'Comments',component:CommentTableComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
