@@ -50,27 +50,15 @@ export class EventComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
-   getArtistId(id :number){
 
 
-   return this.dataSource.data[id-1].artist.id
+  getArtistId(id :number){
 
 
-   }
+    return this.dataSource.data[id-1].artist.id
 
 
-
-
-
-
-
-
-
-=======
->>>>>>> parent of dd126e0 (cambios de evento)
-
-
+    }
 
 deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
