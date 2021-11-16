@@ -53,7 +53,7 @@ export class EventComponent implements OnInit {
 <<<<<<< HEAD
    getArtistId(id :number){
 
-    
+
    return this.dataSource.data[id-1].artist.id
 
 
@@ -69,7 +69,10 @@ export class EventComponent implements OnInit {
 
 =======
 >>>>>>> parent of dd126e0 (cambios de evento)
-  deleteItem(id: number) {
+
+
+
+deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
       this.dataSource.data = this.dataSource.data.filter((o: Event) => {
         return o.id !== id ? o : false;
@@ -94,7 +97,7 @@ export class EventComponent implements OnInit {
     this.isEditMode = false;
     this.EventForm.resetForm();
   }
-  
+
   deleteEdit(id:number){
     console.log(id);
     this.eventdata.id = _.cloneDeep(id);
