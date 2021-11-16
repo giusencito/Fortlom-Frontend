@@ -38,6 +38,7 @@ export class FanaticForumcommentComponent implements OnInit {
   proDatevalue!:string;
   userid!:number
   forumid!:number
+  latest_date!:string
   constructor(private service:ForumcommentService,private serviceext:ForumService,private datePipe: DatePipe) {
      this.commentdata={} as Forumcomment;
      this.commentdatabyid={} as Forumcomment;
@@ -71,9 +72,10 @@ export class FanaticForumcommentComponent implements OnInit {
 
   }
   getAllcommentsperaforum(){
+    console.log(this.comentarios)
     this.service.getallcommentsperforum(this.comentarios).subscribe((response: any) => {
-      this.dataSource.data = response;
-      console.log(response)
+      this.dataSource.data = response.content;
+      console.log(this.dataSource.data)
     });
 
 
@@ -81,7 +83,7 @@ export class FanaticForumcommentComponent implements OnInit {
 
 getname(){
 
- this.paso=this.forumbyid.ForumName;
+ this.paso=this.forumbyid.forumName;
   return this.paso;
 }
 getidComment(id:number){
@@ -196,7 +198,8 @@ getUserId(id :number){
 
 onSubmit(){
 this.myDate=new Date();
-this.commentdata.date=this.myDate
+this.latest_date =this.datePipe.transform(this.myDate, 'yyyy-MM-dd')!;
+this.commentdata.date=this.latest_date
   if (this.commentdataForm.form.valid) {
     console.log(this.commentdata );
     if (this.isEditMode) {

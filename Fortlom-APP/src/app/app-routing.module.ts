@@ -25,7 +25,7 @@ const routes: Routes = [
 {path : 'Home', component: HomeComponent},
 {path:'Event',component:EventComponent},
 {path:'Posts',component:PostPageComponent},
-  {path:'Comments',component:CommentTableComponent},
+{path:'Comments',component:CommentTableComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
 {path:'registerfanatic',component:FanaticRegisterComponent},
@@ -33,7 +33,8 @@ const routes: Routes = [
 {path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/ForumPage/:forumid',component:ForumPageComponent}
+{path:'HomeFanatic/:fanaticid/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
+{path:'HomeFanatic/:fanaticid/Event',component:EventComponent}
 ];
 
 @NgModule({

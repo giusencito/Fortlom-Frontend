@@ -19,6 +19,15 @@ export class NavigationComponent implements OnInit {
 
   }
 
+
+
+enterevent(){
+
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'Event'])
+
+
+}
+
 enterfanaticforum(){
 
   this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
@@ -27,9 +36,14 @@ enterfanaticforum(){
 }
 enterPublication(){
 
+
+this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
+
+
 }
 enterHome(){
   this.cd.navigate(['/HomeFanatic',this.idnumber])
 }
+
 
 }

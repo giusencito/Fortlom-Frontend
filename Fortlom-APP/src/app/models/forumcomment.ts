@@ -5,7 +5,7 @@ export interface Forumcomment {
     id:number;
     forumCommentDescription:string;
     forum:Forum;
-    date:Date;
+    date:string;
     user:Usuario
 }
 

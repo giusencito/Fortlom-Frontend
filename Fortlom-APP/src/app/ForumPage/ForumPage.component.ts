@@ -8,10 +8,12 @@ import { Forum } from '../models/forum';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario/usuario.service';
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-ForumPage',
   templateUrl: './ForumPage.component.html',
-  styleUrls: ['./ForumPage.component.css']
+  styleUrls: ['./ForumPage.component.css'],
+  providers: [DatePipe]
 })
 export class ForumPageComponent implements OnInit {
   forum!:Forum
@@ -26,12 +28,12 @@ export class ForumPageComponent implements OnInit {
   dataSource1 !:MatTableDataSource<any>;
   idactualuser!:number
   date!:Date
-  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService,private formBuilder:FormBuilder,private servecommen:ForumcommentService) {
+  constructor(private service:ForumService,private route:ActivatedRoute,private service2:UsuarioService,private formBuilder:FormBuilder,private servecommen:ForumcommentService,public datepipe: DatePipe) {
    this.forum={}as Forum
    this.usuario={}as Usuario
    this.Forumcomment={}as Forumcomment
    this.dataSource1 = new MatTableDataSource<any>();
-   this.date=new Date()
+
    }
 
   ngOnInit() {
@@ -57,11 +59,12 @@ export class ForumPageComponent implements OnInit {
     this.service.getById(id).subscribe((response:any)=>{
 
      this.forum=response;
-      console.log(this.forum);
-      this.forumname=this.forum.ForumName;
-      this.forumdescription=this.forum.ForumDescription
-      console.log(this.forum.usuario)
-      this.getidUser(this.forum.usuario)
+     console.log("inicio");
+      //console.log(this.forum);
+      this.forumname=this.forum.forumName;
+      this.forumdescription=this.forum.forumDescription
+      //console.log(this.forum.user)
+      this.getidUser(this.forum.user.id)
 
     });
 
@@ -72,7 +75,7 @@ export class ForumPageComponent implements OnInit {
     this.service2.getById(id).subscribe((response:any)=>{
 
       this.usuario=response;
-       console.log(this.usuario);
+       //console.log(this.usuario);
        this.username=this.usuario.name
        this.userlastname=this.usuario.lastName;
 
@@ -81,9 +84,9 @@ export class ForumPageComponent implements OnInit {
 
   }
 
-  NewForumComment(){
+  NewForumComment(userid:number,forumid:number){
 
-    this.servecommen.create(this.Forumcomment,1,1).subscribe((response: any) => {
+    this.servecommen.create(this.Forumcomment,userid,forumid).subscribe((response: any) => {
       this.dataSource1.data.push( {...response});
       this.dataSource1.data = this.dataSource1.data.map((o: any) => { return o; });
       alert("se agrego un comentario")
@@ -94,11 +97,12 @@ export class ForumPageComponent implements OnInit {
   }
 
 crearcomentariodeforo(){
-
+  this.date=new Date();
 //this.Forumcomment.user=this.idactualuser
-//this.Forumcomment.Date=this.date
+let latest_date =this.datepipe.transform(this.date, 'yyyy-MM-dd')!;
+this.Forumcomment.date=latest_date
 //this.Forumcomment.forum=this.idforum
-this.NewForumComment()
+this.NewForumComment(this.idactualuser,this.idforum)
 this.newcommentform.reset();
 
 

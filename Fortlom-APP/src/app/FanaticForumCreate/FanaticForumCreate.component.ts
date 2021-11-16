@@ -17,7 +17,8 @@ export class FanaticForumCreateComponent implements OnInit {
   dataSource !:MatTableDataSource<any>;
   constructor(private formBuilder:FormBuilder,private service:ForumService,private route:ActivatedRoute,private cd:Router) {
 this.Forum={}as Forum;
-this.Forum.ForumName
+this.Forum.forumName;
+
 this.dataSource = new MatTableDataSource<any>();
    }
 
@@ -31,10 +32,11 @@ this.dataSource = new MatTableDataSource<any>();
     this.idnumber=id;
   }
 
-crearforo(id:number){
-this.Forum.usuario=this.idnumber
+crearforo(){
 
-this.AddForum(id)
+//this.Forum.user.id=this.idnumber
+
+this.AddForum(this.idnumber)
 
 this.cd.navigate(['/HomeFanatic',this.idnumber])
 
@@ -42,6 +44,7 @@ this.cd.navigate(['/HomeFanatic',this.idnumber])
 
 
 AddForum(id:number){
+
 
   this.service.create(this.Forum,id).subscribe((response: any) => {
     this.dataSource.data.push( {...response});
