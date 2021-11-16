@@ -9,7 +9,7 @@ import {Multimedia} from "../../models/multimedia";
 })
 export class MultimediaService {
 
-basePath = 'http://localhost:3000/Multimedia';
+basePath = 'http://localhost:8080/api/v1/Multimedia';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,13 +22,13 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 

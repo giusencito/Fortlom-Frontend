@@ -39,7 +39,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.multimediaService.getByPostId(Number(this.titlePart))
+    this.multimediaService.getAll()
       .subscribe((response: any) => {
         this.orderedMultimedia = response;
         console.log(this.orderedMultimedia);
@@ -57,7 +57,7 @@ export class PostComponent implements OnInit {
 
   getComments(id:any): void {
     id = Number(id);
-    this.commentService.getByPostId(id).subscribe((response: any) => {
+    this.commentService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
       this.studentData = this.dataSource.data;
       //this.haveInfo = true;

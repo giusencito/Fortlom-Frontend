@@ -101,6 +101,13 @@
       "ReportDescription": "Insultos frecuentes",
       "UserMain:": 1,
       "UserReported": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 1,
+      "apiId": "v1",
+      "id": 2
     }
   ],
   "Multimedia": [
@@ -308,7 +315,7 @@
       "id": 1,
       "PublicationName": "New Music",
       "PublicationDescription": "my new music is out",
-      "Likes": 20,
+      "Likes": 23,
       "Date": "30/8/2020",
       "UserID": 1
     },
