@@ -10,10 +10,14 @@
   a {
     text-decoration: none;
   }
+  .limited-size {
+    max-width: calc(100%);
+  }
 </style>
 
 <div>
 <mat-card class="post-mat-card">
+
   <mat-card-header>
     <div mat-card-avatar class="header-image"></div>
     <mat-card-title>
@@ -22,24 +26,36 @@
       </a>
     </mat-card-title> <!-- Cambiar Shiba Inu por el nombre del usuario y el link por su homepage-->
   </mat-card-header>
+
   <mat-card-content>
     <p>
       {{textPart}}
     </p>
+    <div *ngIf="haveInfo">
+      <div *ngFor="let mul of orderedMultimedia">
+        <img [src]="mul.MultimediaLink" alt="Image from post" class="limited-size">
+      </div>
+    </div>
   </mat-card-content> <!-- Cambiar Shiba Inu por el post real -->
+
   <mat-card-actions align="end">
-    <button mat-button color="primary" (click)="likePost()">Like</button>
-    <button mat-button color="primary" (click)="commentPost()">Comment</button>
-    <button mat-button (click)="getComments()">See</button>
+    <button mat-button color="primary" (click)="likePost()">Like ({{fullPost.Likes}})</button>
+    <button mat-button (click)="getComments(titlePart)">See</button>
+
+    <button mat-button (click)="flagPost()">
+      <mat-icon>flag</mat-icon>
+    </button>
+
   </mat-card-actions>
+
 </mat-card>
 
 <!--Solucione el problema del ngFor e ngIf agregando al textarea de los forms "matInput"-->
-  <div *ngIf="haveInfo">
+  <div *ngIf="havePosts">
     <div *ngFor="let a of studentData">
       <app-comment
         [customText]="a.CommentDescription"
-        [customTitle]="a.UserID"
+        [customTitle]="a.UsuarioID"
       >
       </app-comment>
     </div>

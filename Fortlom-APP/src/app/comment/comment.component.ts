@@ -10,7 +10,7 @@ export class CommentComponent implements OnInit {
   @Input()
   customTitle: string;
   @Input()
-  customText: String;
+  customText: string;
 
   constructor() {
     this.customTitle = "...";
