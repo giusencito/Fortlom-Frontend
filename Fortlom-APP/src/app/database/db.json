@@ -49,18 +49,11 @@
       "description": "a description 1"
     },
     {
-      "Email": "giusencito@hotmail.com",
-      "Password": "contraseña",
-      "Name": "Giusen",
-      "LastName": "Rebaza",
-      "Registration": "2021-10-14T23:45:20.723Z",
-      "id": 2
-    },
-    {
-      "Followers": 0,
-      "Tag": 0,
       "id": 3,
-      "description": "a description 2"
+      "Tag": 0,
+      "Followers": 0,
+      "description": "a description 3"
+      
     }
   ],
   "Fanatic": [

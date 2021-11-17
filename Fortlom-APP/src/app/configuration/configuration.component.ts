@@ -17,7 +17,7 @@ export class ConfigurationComponent implements OnInit {
 
   artistdata!: Artist;
   userdata!: Usuario;
-  numberuser : number = 1;
+  numberuser : number = 3;
   dataSource!: MatTableDataSource<any>;
   arraygenders : string[] = [];
   aleatorygender: string[] = ["Progresive Rock","Sound Engineering","2000 Wave","Complex","2010 Wave","Hard Rock","Classic Metal"]
@@ -42,7 +42,6 @@ export class ConfigurationComponent implements OnInit {
     console.log(this.arraygenders);
     this.getAllArtists();
     this.getAllUsers();
-    this.getByIdUser(this.numberuser);
     this.getArtistByUserId();
   }
 
@@ -118,18 +117,19 @@ export class ConfigurationComponent implements OnInit {
   }
 
   getArtistByUserId(){
-    this.userService.getById(this.numberuser).subscribe((response: any) => {
-      this.dataSource.data = response;
-      this.dataSource.paginator=this.paginator;
-      this.userdata = response;
-      console.log(this.userdata.id)
-      
-      this.artistService.getById(this.userdata.id).subscribe((response: any) => {
+      this.artistService.getById(this.numberuser).subscribe((response: any) => {
         this.dataSource.data = response;
         this.dataSource.paginator=this.paginator;
         this.artistdata = response;
         console.log(this.artistdata);
-      });
+        
+        this.userService.getById(this.artistdata.id).subscribe((response: any) => {
+          this.dataSource.data = response;
+          this.dataSource.paginator=this.paginator;
+          this.userdata = response;
+          console.log(this.userdata)
+
+        });
     });
   }
 
