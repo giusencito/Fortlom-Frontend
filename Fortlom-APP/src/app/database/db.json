@@ -269,7 +269,7 @@
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
-      "ArtistID": 2,
+      "ArtistID": 1,
       "Likes": 29
     },
     {

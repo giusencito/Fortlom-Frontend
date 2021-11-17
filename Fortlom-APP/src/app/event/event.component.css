@@ -66,3 +66,7 @@ table {
   color: #000000;
   width: 50%;
 }
+
+.withoutborder{
+  border:0;
+}

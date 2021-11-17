@@ -18,6 +18,12 @@
         [(ngModel)]="eventdata.Likes">
         <mat-error>Es requerido</mat-error>
     </mat-form-field>
+    <mat-divider></mat-divider>
+    <mat-form-field>
+      <input type = "number" matInput placeholder="Artist Id" name="ArtistID" required
+        [(ngModel)]="eventdata.ArtistID">
+        <mat-error>Es requerido</mat-error>
+    </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">

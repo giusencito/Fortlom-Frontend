@@ -8,6 +8,8 @@ import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EventCreateComponent } from '../event-create/event-create.component';
 import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../models/usuario';
+import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-event',
@@ -17,9 +19,13 @@ import { ActivatedRoute } from '@angular/router';
 export class EventComponent implements OnInit {
 
   eventdata!: Event;
-  idevent!:number;
+  idevent !:number;
+  userdata!: Usuario;
+  cont : number = 0;
+  listusers : Usuario[] = [];
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
+  dataSource2!: MatTableDataSource<any>;
   arrayevents!: any;
   eventbyid!:any;
   conditionaltype : string = "Test";
@@ -35,9 +41,11 @@ export class EventComponent implements OnInit {
 
   showeventartist = false;
 
-  constructor(private eventService: EventService,private dialog:MatDialog, private route:ActivatedRoute) {
+  constructor(private eventService: EventService,private userService: UsuarioService,private dialog:MatDialog, private route:ActivatedRoute) {
     this.eventdata = {} as Event;
+    this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
+    this.dataSource2 = new MatTableDataSource<any>();
   }
 
   ngOnInit():void{
@@ -46,7 +54,8 @@ export class EventComponent implements OnInit {
     let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
     let id = pod;
     this.idevent=id;
-    console.log(this.idevent)
+    console.log(this.idevent);
+    this.getListArtist();
   }
 
   getAllEvents() {
@@ -55,6 +64,28 @@ export class EventComponent implements OnInit {
       this.dataSource.paginator=this.paginator;
       this.arrayevents = response;
       console.log(this.arrayevents)
+    });
+  }
+
+  getListArtist(){
+    this.eventService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      this.arrayevents = response;
+      
+      let n = this.arrayevents.length;
+      
+        for(let i = 0; i<n;i++){
+            
+          this.userService.getById(this.arrayevents[i].ArtistID).subscribe((response: any) => {
+            this.dataSource2.data = response;
+            this.dataSource.paginator=this.paginator;
+            if(i == 0)this.listusers.push(response);
+            if(this.arrayevents[i].ArtistID != this.arrayevents[i+1].ArtistID && i+1<n) this.listusers.push(response);
+          });
+        }
+      
+      console.log(this.listusers)
     });
   }
 

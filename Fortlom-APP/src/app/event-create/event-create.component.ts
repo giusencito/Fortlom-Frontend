@@ -48,7 +48,6 @@ export class EventCreateComponent implements OnInit {
   }
 
   addEvent() {
-    this.eventdata.ArtistID = this.idevent;
     console.log(this.eventdata)
     this.eventService.create(this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
