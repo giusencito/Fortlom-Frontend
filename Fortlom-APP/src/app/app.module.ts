@@ -37,9 +37,10 @@ import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { UserInformationforForumComponent } from './UserInformationforForum/UserInformationforForum.component';
 import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
 
 @NgModule({
-  declarations: [											
+  declarations: [												
     AppComponent,
     HomeComponent,
 
@@ -69,7 +70,8 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
       ForumPageComponent,
       UserInformationforForumComponent,
       Posts2Component,
-      CommentTableComponent
+      CommentTableComponent,
+      ConfigurationFanaticComponent
    ],
   imports: [
     BrowserModule,
