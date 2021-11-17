@@ -6,6 +6,8 @@ import {CommonModule} from "@angular/common";
 import {PublicacionService} from "../services/publicacion/publicacion.service";
 import {ReportService} from "../services/report/report.service";
 import {MultimediaService} from "../services/multimedia/multimedia.service";
+import {ActivatedRoute} from "@angular/router";
+import  {UsuarioService} from "../services/usuario/usuario.service";
 
 @Component({
   selector: 'app-post',
@@ -20,6 +22,7 @@ export class PostComponent implements OnInit {
   haveInfo = false;
   havePosts = false;
   orderedMultimedia:any = [];
+  relatedUser: any;
 
   @Input()
   textPart = "...";
@@ -31,7 +34,9 @@ export class PostComponent implements OnInit {
   constructor(private commentService: CommentService,
               private postService: PublicacionService,
               private reportService: ReportService,
-              private multimediaService: MultimediaService) {
+              private multimediaService: MultimediaService,
+              private artistService: UsuarioService,
+              private $route: ActivatedRoute) {
     this.studentData = {}
     this.dataSource = new MatTableDataSource<any>();
     this.haveInfo = false;
@@ -39,11 +44,16 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.multimediaService.getAll()
+    this.multimediaService.getById(this.fullPost.id) //changed
       .subscribe((response: any) => {
         this.orderedMultimedia = response;
         console.log(this.orderedMultimedia);
         this.haveInfo = true;
+      })
+    this.artistService.getById(this.fullPost.UserID)
+      .subscribe((response: any) => {
+        this.relatedUser = response;
+        console.log(this.relatedUser);
       })
   }
 
@@ -68,7 +78,7 @@ export class PostComponent implements OnInit {
   flagPost(): void {
     this.aux = {
       ReportDescription: "Insultos frecuentes",
-      UserMain: 1,
+      UserMain: +this.$route.snapshot.params['artistid'],
       PostReported: this.fullPost.id
     }
     this.reportService.create(this.aux)

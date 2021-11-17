@@ -24,6 +24,7 @@ const routes: Routes = [
 {path : 'Home', component: HomeComponent},
 {path:'Event',component:EventComponent},
 {path:'Posts',component:PostPageComponent},
+  {path: 'artist/:artistid/posts', component:PostPageComponent},
   {path:'Comments',component:CommentTableComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},

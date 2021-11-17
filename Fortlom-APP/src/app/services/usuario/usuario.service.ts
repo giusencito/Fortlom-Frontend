@@ -9,7 +9,7 @@ import {Usuario} from "../../models/usuario";
 })
 export class UsuarioService {
 
-basePath = 'http://localhost:8080/api/v1/users';
+basePath = 'http://localhost:8080/api/v1/usuario';
 
 httpOptions = {
   headers: new HttpHeaders({

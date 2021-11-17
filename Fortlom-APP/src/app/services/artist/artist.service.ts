@@ -9,7 +9,7 @@ import {Artist} from "../../models/artist";
 })
 export class ArtistService {
 
-basePath = 'http://localhost:8080/api/v1/artists';
+basePath = 'http://localhost:8080/api/v1/artist';
 
 httpOptions = {
   headers: new HttpHeaders({

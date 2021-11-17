@@ -5,7 +5,8 @@
     margin: auto;
   }
   .header-image { /*agregar el url del avatar del usuario*/
-
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
   }
   a {
     text-decoration: none;
@@ -22,7 +23,7 @@
     <div mat-card-avatar class="header-image"></div>
     <mat-card-title>
       <a href="https://www.shutterstock.com/es/search/example+stamp?image_type=illustration">
-        {{titlePart}}
+        {{relatedUser.Name}} {{relatedUser.LastName}}
       </a>
     </mat-card-title> <!-- Cambiar Shiba Inu por el nombre del usuario y el link por su homepage-->
   </mat-card-header>
@@ -32,9 +33,8 @@
       {{textPart}}
     </p>
     <div *ngIf="haveInfo">
-      <div *ngFor="let mul of orderedMultimedia">
-        <img [src]="mul.MultimediaLink" alt="Image from post" class="limited-size">
-      </div>
+      <!-- Debería ir un for cuando se tengan multiples multimedias -->
+        <img [src]="orderedMultimedia.MultimediaLink" alt="Image from post" class="limited-size">
     </div>
   </mat-card-content> <!-- Cambiar Shiba Inu por el post real -->
 
@@ -55,7 +55,8 @@
     <div *ngFor="let a of studentData">
       <app-comment
         [customText]="a.CommentDescription"
-        [customTitle]="a.UsuarioID"
+        [customTitle]="a.id"
+        [userId]="a.UsuarioId"
       >
       </app-comment>
     </div>

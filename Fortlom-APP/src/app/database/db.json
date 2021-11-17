@@ -108,6 +108,27 @@
       "PostReported": 1,
       "apiId": "v1",
       "id": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 1,
+      "apiId": "v1",
+      "id": 3
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 2,
+      "apiId": "v1",
+      "id": 4
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 2,
+      "apiId": "v1",
+      "id": 5
     }
   ],
   "Multimedia": [
@@ -315,7 +336,7 @@
       "id": 1,
       "PublicationName": "New Music",
       "PublicationDescription": "my new music is out",
-      "Likes": 23,
+      "Likes": 26,
       "Date": "30/8/2020",
       "UserID": 1
     },
@@ -323,7 +344,7 @@
       "PublicationName": "Viaje a Miami",
       "PublicationDescription": "Se fue a Miami",
       "UserID": "4",
-      "Likes": "15",
+      "Likes": 151112,
       "id": 2
     }
   ],
