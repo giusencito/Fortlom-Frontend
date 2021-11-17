@@ -43,7 +43,7 @@ idnumber!:number;
 
   }
   ngOnInit(): void {
-    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
 

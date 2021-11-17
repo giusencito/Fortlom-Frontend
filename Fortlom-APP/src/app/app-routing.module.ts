@@ -1,3 +1,4 @@
+import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { PostComponent } from './post/post.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
 import { FanaticForumCreateComponent } from './FanaticForumCreate/FanaticForumCreate.component';
@@ -29,12 +30,15 @@ const routes: Routes = [
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
 {path:'registerfanatic',component:FanaticRegisterComponent},
-{path:'HomeArtist/:artistid',component:HomeArtistComponent},
-{path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
-{path:'HomeFanatic/:fanaticid/Event',component:EventComponent}
+{path:'HomeArtist/:id',component:HomeArtistComponent},
+{path:'HomeArtist/:id/ArtistForum',component:ArtistForumsComponent},
+{path:'HomeArtist/:id/ArtistForum/CreateForum',component:FanaticForumCreateComponent},
+{path:'HomeArtist/:id/ArtistForum/ForumPage/:forumid',component:ForumPageComponent},
+{path:'HomeFanatic/:id',component:HomeFanaticComponent},
+{path:'HomeFanatic/:id/FanaticForum',component:FanaticForumComponent},
+{path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
+{path:'HomeFanatic/:id/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
+{path:'HomeFanatic/:id/Event',component:EventComponent}
 ];
 
 @NgModule({

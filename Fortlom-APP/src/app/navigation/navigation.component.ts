@@ -12,36 +12,37 @@ export class NavigationComponent implements OnInit {
   constructor(private cd:Router,private route:ActivatedRoute) { }
 
   ngOnInit() {
-    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
-
+    console.log(this.idnumber)
 
   }
 
 
 
 enterevent(){
-
+  console.log(this.idnumber)
   this.cd.navigate(['/HomeFanatic',this.idnumber,'Event'])
 
 
 }
 
 enterfanaticforum(){
-
+  console.log(this.idnumber)
   this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
 
 
 }
 enterPublication(){
 
-
+ console.log(this.idnumber)
 this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
 
 
 }
 enterHome(){
+  console.log(this.idnumber)
   this.cd.navigate(['/HomeFanatic',this.idnumber])
 }
 
