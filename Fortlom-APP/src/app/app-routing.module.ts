@@ -29,7 +29,7 @@ const routes: Routes = [
 {path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
-{path: 'Configure',component:ConfigurationComponent}
+{path: 'HomeArtist/:artistid/ConfigureArtist',component:ConfigurationComponent}
 ];
 
 @NgModule({

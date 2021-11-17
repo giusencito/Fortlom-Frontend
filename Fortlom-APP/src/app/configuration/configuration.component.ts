@@ -7,6 +7,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgForm} from "@angular/forms";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-configuration',
@@ -17,6 +18,7 @@ export class ConfigurationComponent implements OnInit {
 
   artistdata!: Artist;
   userdata!: Usuario;
+  idnumber!:number
   numberuser : number = 3;
   dataSource!: MatTableDataSource<any>;
   arraygenders : string[] = [];
@@ -31,7 +33,7 @@ export class ConfigurationComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private artistService: ArtistService,private userService: UsuarioService,private dialog:MatDialog) { 
+  constructor(private artistService: ArtistService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) { 
     this.artistdata = {} as Artist;
     this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -42,6 +44,11 @@ export class ConfigurationComponent implements OnInit {
     console.log(this.arraygenders);
     this.getAllArtists();
     this.getAllUsers();
+
+    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let id= pod;
+    this.idnumber=id;
+
     this.getArtistByUserId();
   }
 
@@ -117,7 +124,8 @@ export class ConfigurationComponent implements OnInit {
   }
 
   getArtistByUserId(){
-      this.artistService.getById(this.numberuser).subscribe((response: any) => {
+      console.log(this.idnumber)
+      this.artistService.getById(this.idnumber).subscribe((response: any) => {
         this.dataSource.data = response;
         this.dataSource.paginator=this.paginator;
         this.artistdata = response;
