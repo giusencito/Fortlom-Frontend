@@ -19,7 +19,7 @@ const routes: Routes = [
 {path:'',component:LoginComponent},
 {path:'login',component:LoginComponent},
 {path : 'Home', component: HomeComponent},
-{path:'Event',component:EventComponent},
+//{path:'Event',component:EventComponent},
 {path:'Posts',component:PostPageComponent},
 {path:'artistforum',component:ArtistForumComponent},
 {path:'registerartist',component:ArtistRegisterComponent},
@@ -27,7 +27,8 @@ const routes: Routes = [
 {path:'HomeArtist/:artistid',component:HomeArtistComponent},
 {path:'HomeFanatic/:fanaticid',component:HomeFanaticComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
-{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent}
+{path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
+{path:'HomeArtist/:artistid/Event',component:EventComponent}
 ];
 
 @NgModule({

@@ -292,6 +292,13 @@
       "Likes": 12,
       "ArtistID": 1,
       "id": 5
+    },
+    {
+      "EventName": "Musical",
+      "EventDescription": "a description 7",
+      "Likes": 15,
+      "ArtistID": 1,
+      "id": 6
     }
   ],
   "Event_Fanatic": [

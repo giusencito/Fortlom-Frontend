@@ -5,6 +5,8 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgForm} from "@angular/forms";
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EventComponent } from '../event/event.component';
 
 @Component({
   selector: 'app-event-create',
@@ -13,6 +15,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EventCreateComponent implements OnInit {
   eventdata!: Event;
+  eventcomponent !: EventComponent;
+  idevent!:number;
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild('EventForm', {static: false})
@@ -23,15 +27,16 @@ export class EventCreateComponent implements OnInit {
 
   constructor(private eventService: EventService,private dialog:MatDialog) { 
     this.eventdata = {} as Event;
+    this.eventcomponent = {} as EventComponent;
     this.dataSource = new MatTableDataSource<any>();  
   }
 
 
-  ngOnInit():void {
+  ngOnInit() :void{
     this.dataSource.paginator = this.paginator;
-    this.getAllEvents();
+    this.idevent = this.eventcomponent.idevent;
+    console.log(this.idevent)
   }
-
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
@@ -43,6 +48,8 @@ export class EventCreateComponent implements OnInit {
   }
 
   addEvent() {
+    this.eventdata.ArtistID = this.idevent;
+    console.log(this.eventdata)
     this.eventService.create(this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });

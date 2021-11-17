@@ -7,6 +7,7 @@ import {NgForm} from "@angular/forms";
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EventCreateComponent } from '../event-create/event-create.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -16,6 +17,7 @@ import { EventCreateComponent } from '../event-create/event-create.component';
 export class EventComponent implements OnInit {
 
   eventdata!: Event;
+  idevent!:number;
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
   arrayevents!: any;
@@ -33,7 +35,7 @@ export class EventComponent implements OnInit {
 
   showeventartist = false;
 
-  constructor(private eventService: EventService,private dialog:MatDialog) {
+  constructor(private eventService: EventService,private dialog:MatDialog, private route:ActivatedRoute) {
     this.eventdata = {} as Event;
     this.dataSource = new MatTableDataSource<any>();
   }
@@ -41,9 +43,10 @@ export class EventComponent implements OnInit {
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
     this.getAllEvents();
-    console.log(this.events);
-    console.log(this.displayedColumns);
-    console.log(this.isEditMode)
+    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let id = pod;
+    this.idevent=id;
+    console.log(this.idevent)
   }
 
   getAllEvents() {
@@ -172,5 +175,4 @@ export class EventComponent implements OnInit {
     this.showeventartist = false;
     console.log(this.showeventartist)
   }
-
 }
