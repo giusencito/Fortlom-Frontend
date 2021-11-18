@@ -9,7 +9,7 @@ import {Report} from "../../models/report";
 })
 export class ReportService {
 
-basePath = 'http://localhost:3000/Report';
+basePath = 'http://localhost:8080/api/v1/report';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -22,13 +22,13 @@ constructor(private http: HttpClient) { }
 handleError(error: HttpErrorResponse) {
   if (error.error instanceof ErrorEvent) {
     console.log(`An error occurred: ${error.error.message} `);
-  } 
+  }
   else {
     console.error(
       `Backend returned code ${error.status}, body was: ${error.error}`
     );
   }
-  
+
   return throwError('Something happened with request, please try again later');
 }
 

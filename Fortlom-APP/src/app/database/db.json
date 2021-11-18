@@ -109,17 +109,45 @@
       "ReportDescription": "Insultos frecuentes",
       "UserMain:": 1,
       "UserReported": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 1,
+      "apiId": "v1",
+      "id": 2
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 1,
+      "apiId": "v1",
+      "id": 3
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 2,
+      "apiId": "v1",
+      "id": 4
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 4,
+      "PostReported": 2,
+      "apiId": "v1",
+      "id": 5
     }
   ],
   "Multimedia": [
     {
       "id": 1,
-      "MultimediaLink": "http://mimultimedia.com/",
+      "MultimediaLink": "https://www.gettyimages.es/gi-resources/images/500px/983794168.jpg",
       "PublicationCode": 1
     },
     {
       "id": 2,
-      "MultimediaLink": "http://mimultimedia2.com/",
+      "MultimediaLink": "https://vinusimages.co/wp-content/uploads/2018/10/EG7A2390.jpgA_.jpg",
       "PublicationCode": 2
     }
   ],
@@ -316,7 +344,7 @@
       "id": 1,
       "PublicationName": "New Music",
       "PublicationDescription": "my new music is out",
-      "Likes": 20,
+      "Likes": 26,
       "Date": "30/8/2020",
       "UserID": 1
     },
@@ -324,7 +352,7 @@
       "PublicationName": "Viaje a Miami",
       "PublicationDescription": "Se fue a Miami",
       "UserID": "4",
-      "Likes": "15",
+      "Likes": 151112,
       "id": 2
     }
   ],

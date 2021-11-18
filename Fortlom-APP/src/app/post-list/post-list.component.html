@@ -12,8 +12,9 @@
     <app-post
       [titlePart]="a.UserID"
       [textPart]="a.PublicationDescription"
+      [fullPost]="a"
     >
     </app-post>
-    <app-comment-form></app-comment-form>
+    <app-comment-form [postId]="a.id"></app-comment-form>
   </div>
 </div>
