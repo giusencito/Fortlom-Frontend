@@ -263,7 +263,7 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 1,
-      "Likes": 47
+      "Likes": 48
     },
     {
       "id": 2,
@@ -296,9 +296,23 @@
     {
       "EventName": "Musical",
       "EventDescription": "a description 7",
-      "Likes": 15,
+      "Likes": 18,
       "ArtistID": 1,
       "id": 6
+    },
+    {
+      "EventName": "faefae",
+      "EventDescription": "a new description",
+      "Likes": 20,
+      "ArtistID": 1,
+      "id": 7
+    },
+    {
+      "EventName": "Pop",
+      "EventDescription": "new description pop",
+      "Likes": 3,
+      "ArtistID": 1,
+      "id": 8
     }
   ],
   "Event_Fanatic": [

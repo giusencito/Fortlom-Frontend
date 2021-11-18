@@ -41,6 +41,8 @@ export class EventComponent implements OnInit {
 
   showeventartist = false;
 
+  showformevent = false;
+
   constructor(private eventService: EventService,private userService: UsuarioService,private dialog:MatDialog, private route:ActivatedRoute) {
     this.eventdata = {} as Event;
     this.userdata = {} as Usuario;
@@ -99,6 +101,9 @@ export class EventComponent implements OnInit {
   }
 
   addEvent() {
+    console.log(this.idevent);
+    this.eventdata.ArtistID = this.idevent;
+    console.log(this.eventdata);
     this.eventService.create(this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
@@ -151,14 +156,6 @@ export class EventComponent implements OnInit {
       }
   }
 
-  openDialog() {
-    const dialogRef = this.dialog.open(EventCreateComponent);
-    
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
   getEventsById(id:number){
     this.eventService.getById(id).subscribe((response: any) => {
       this.dataSource.data = response;
@@ -199,5 +196,19 @@ export class EventComponent implements OnInit {
   NotShowEventsArtist(){
     this.showeventartist = false;
     console.log(this.showeventartist)
+  }
+
+  ShowFormEvent(){
+    this.showformevent = true;
+    console.log(this.showformevent)
+  }
+
+  NotShowFormEvent(){
+    this.showformevent = false;
+    console.log(this.showformevent)
+  }
+
+  ClearForm(){
+    this.EventForm.resetForm();
   }
 }
