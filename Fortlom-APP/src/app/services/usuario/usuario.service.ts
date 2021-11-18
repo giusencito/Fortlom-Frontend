@@ -10,6 +10,7 @@ import {Usuario} from "../../models/usuario";
 export class UsuarioService {
 
 basePath = 'http://localhost:8080/api/v1/users';
+basePath2 = 'http://localhost:3000/Usuario';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -35,7 +36,7 @@ handleError(error: HttpErrorResponse) {
 // Create Usuario
 create(item: any): Observable<Usuario> {
   console.log(JSON.stringify(item))
-  return this.http.post<Usuario>(this.basePath, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Usuario>(this.basePath2, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -43,7 +44,7 @@ create(item: any): Observable<Usuario> {
 
 // Get Usuario by id
 getById(id: any): Observable<Usuario> {
-  return this.http.get<Usuario>(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.get<Usuario>(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -51,7 +52,7 @@ getById(id: any): Observable<Usuario> {
 
 // Get All Usuarios
  getAll(): Observable<Usuario> {
-  return this.http.get<Usuario>(this.basePath, this.httpOptions)
+  return this.http.get<Usuario>(this.basePath2, this.httpOptions)
   .pipe(
     retry(2),
     catchError(this.handleError));
@@ -59,7 +60,7 @@ getById(id: any): Observable<Usuario> {
 
 // Update Usuario
 update(id: any, item: any): Observable<Usuario> {
-  return this.http.post<Usuario>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Usuario>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
   .pipe(
     retry(2),
     catchError(this.handleError));
@@ -67,7 +68,7 @@ update(id: any, item: any): Observable<Usuario> {
 
 // Delete Usuario
 delete(id: any) {
-  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

@@ -10,6 +10,7 @@ import {Fanatic} from "../../models/fanatic";
 export class FanaticService {
 
 basePath = 'http://localhost:8080/api/v1/fanatics';
+basePath2 ='http://localhost:3000/Fanatic';
 
 httpOptions = {
   headers: new HttpHeaders({
@@ -34,7 +35,7 @@ handleError(error: HttpErrorResponse) {
 
 // Create Fanatic
 create(item: any): Observable<Fanatic> {
-  return this.http.post<Fanatic>(this.basePath, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Fanatic>(this.basePath2, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -42,7 +43,7 @@ create(item: any): Observable<Fanatic> {
 
 // Get Fanatic by id
 getById(id: any): Observable<Fanatic> {
-  return this.http.get<Fanatic>(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.get<Fanatic>(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -50,7 +51,7 @@ getById(id: any): Observable<Fanatic> {
 
 // Get All Fanatics
 getAll(): Observable<Fanatic> {
-  return this.http.get<Fanatic>(this.basePath, this.httpOptions)
+  return this.http.get<Fanatic>(this.basePath2, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -58,7 +59,7 @@ getAll(): Observable<Fanatic> {
 
 // Update Fanatic
 update(id: any, item: any): Observable<Fanatic> {
-  return this.http.post<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Fanatic>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -66,7 +67,7 @@ update(id: any, item: any): Observable<Fanatic> {
 
 // Delete Fanatic
 delete(id: any) {
-  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

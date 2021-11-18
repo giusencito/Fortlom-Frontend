@@ -10,11 +10,11 @@
     },
     {
       "id": 2,
-      "Name": "Juan",
-      "LastName": "Perez",
-      "Email": "PJ@hotmail.com",
-      "Password": "noches",
-      "Registration": "15/9/2021"
+      "name": "Juan",
+      "lastName": "Perez",
+      "email": "PJ@hotmail.com",
+      "password": "noches",
+      "registration": "15/9/2021"
     },
     {
       "Email": "giusencito@hotmail.com",
@@ -25,18 +25,18 @@
       "id": 3
     },
     {
-      "Email": "Flavio@hotmail.com",
-      "Password": "contraseña",
-      "Name": "Flavio ",
-      "LastName": "bustamante",
+      "email": "Flavio@hotmail.com",
+      "password": "contraseña",
+      "name": "Flavio ",
+      "lastName": "bustamante",
       "Registration": "2021-10-15T03:55:35.808Z",
       "id": 4
     },
     {
-      "Email": "fanatico@hotmail.com",
-      "Password": "contraseña",
-      "Name": "fanatico",
-      "LastName": "fanaticoapellido",
+      "email": "fanatico@hotmail.com",
+      "password": "contraseña",
+      "name": "fanatico",
+      "lastName": "fanaticoapellido",
       "Registration": "2021-10-22T01:48:53.953Z",
       "id": 5
     },
