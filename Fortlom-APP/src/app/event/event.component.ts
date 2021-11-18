@@ -7,6 +7,9 @@ import {NgForm} from "@angular/forms";
 import * as _ from 'lodash';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EventCreateComponent } from '../event-create/event-create.component';
+import { ActivatedRoute } from '@angular/router';
+import { Usuario } from '../models/usuario';
+import { UsuarioService } from '../services/usuario/usuario.service';
 
 @Component({
   selector: 'app-event',
@@ -16,9 +19,18 @@ import { EventCreateComponent } from '../event-create/event-create.component';
 export class EventComponent implements OnInit {
 
   eventdata!: Event;
+  idevent !:number;
+  userdata!: Usuario;
+  cont : number = 0;
+  listusers : Usuario[] = [];
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes','actions'];
+  dataSource2!: MatTableDataSource<any>;
+  arrayusers !: any;
+  arrayevents!: any;
+  eventbyid!:any;
+  conditionaltype : string = "Test";
+  displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
 
   @ViewChild('EventForm', {static: false})
   EventForm!: NgForm;
@@ -28,39 +40,72 @@ export class EventComponent implements OnInit {
 
   isEditMode = false;
 
-  constructor(private eventService: EventService,private dialog:MatDialog) {
+  showeventartist = false;
+
+  showformevent = false;
+
+  constructor(private eventService: EventService,private userService: UsuarioService,private dialog:MatDialog, private route:ActivatedRoute) {
     this.eventdata = {} as Event;
+    this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
+    this.dataSource2 = new MatTableDataSource<any>();
   }
 
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
     this.getAllEvents();
-    console.log(this.events);
-    console.log(this.displayedColumns);
-    console.log(this.isEditMode)
+    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let id = pod;
+    this.idevent=id;
+    console.log(this.idevent);
+    this.getListArtist();
   }
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
       this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
-
-      console.log(response)
+      this.arrayevents = response;
+      console.log(this.arrayevents)
     });
   }
 
+  getListArtist(){
+    this.eventService.getAll().subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      this.arrayevents = response;
+      
+      let n = this.arrayevents.length;
+      
+      this.userService.getAll().subscribe((response: any) => {
+        this.dataSource2.data = response;
+        this.dataSource2.paginator=this.paginator;
+        this.arrayusers = response;
+        console.log(this.arrayusers)
+        
+        let n2 = this.arrayusers.length;
 
+        for(let i = 0; i<n2;i++){
+          if(this.arrayevents[0].ArtistID == this.arrayusers[i].id){
+            this.listusers.push(this.arrayusers[i]);
+          }
+        }
 
-  getArtistId(id :number){
+        for(let i = 0; i<n;i++){
+          for(let j = 0; j<n2;j++){
+            if(this.arrayevents[i].ArtistID == this.arrayusers[j].id){
+              if(this.listusers[j] != this.arrayusers[j])this.listusers.push(this.arrayusers[j]);
+            }
+          }
+        }
+        
+      });
+      console.log(this.listusers)
+    });
+  }
 
-
-    return this.dataSource.data[id-1].artist.id
-
-
-    }
-
-deleteItem(id: number) {
+  deleteItem(id: number) {
     this.eventService.delete(id).subscribe((response: any) => {
       this.dataSource.data = this.dataSource.data.filter((o: Event) => {
         return o.id !== id ? o : false;
@@ -70,6 +115,9 @@ deleteItem(id: number) {
   }
 
   addEvent() {
+    console.log(this.idevent);
+    this.eventdata.ArtistID = this.idevent;
+    console.log(this.eventdata);
     this.eventService.create(this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
@@ -85,7 +133,7 @@ deleteItem(id: number) {
     this.isEditMode = false;
     this.EventForm.resetForm();
   }
-
+  
   deleteEdit(id:number){
     console.log(id);
     this.eventdata.id = _.cloneDeep(id);
@@ -102,7 +150,7 @@ deleteItem(id: number) {
 
   updateEvent() {
     this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.map((o: Event) => {
+      this.arrayevents = this.arrayevents.map((o: Event) => {
         if (o.id === response.id) {
           o = response;
         }
@@ -113,7 +161,6 @@ deleteItem(id: number) {
   }
 
   onSubmit() {
-    if(this.EventForm.form.valid){
       console.log(this.eventdata);
       if (this.isEditMode) {
         this.updateEvent();
@@ -121,9 +168,61 @@ deleteItem(id: number) {
       } else {
         this.addEvent();
       }
-    }else{
-      console.log('Invalid data');
-    }
   }
 
+  getEventsById(id:number){
+    this.eventService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      
+      console.log(response)
+    });
+  }
+
+  Increasinglikes(id:number){
+    this.eventService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.dataSource.paginator=this.paginator;
+      this.eventdata = response
+
+      var presentlikes = this.eventdata.Likes;
+      var finalLikes = presentlikes + 1;
+      this.eventdata.Likes = finalLikes
+
+      this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
+        this.arrayevents = this.arrayevents.map((o: Event) => {
+          if (o.id === response.id) {
+            o = response;
+          }
+          return o;
+        });
+      });
+
+    });
+    
+  }
+
+  ShowEventsArtist(){
+    this.showeventartist = true;
+    console.log(this.showeventartist)
+  }
+
+  NotShowEventsArtist(){
+    this.showeventartist = false;
+    console.log(this.showeventartist)
+  }
+
+  ShowFormEvent(){
+    this.showformevent = true;
+    console.log(this.showformevent)
+  }
+
+  NotShowFormEvent(){
+    this.showformevent = false;
+    console.log(this.showformevent)
+  }
+
+  ClearForm(){
+    this.EventForm.resetForm();
+  }
 }
