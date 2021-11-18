@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DemoMaterialModule } from './material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
 import { FanaticForumComponent } from './Fanatic-Forum/Fanatic-Forum.component';
 import { MatInputModule } from '@angular/material/input';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms'
@@ -40,12 +40,12 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 
 @NgModule({
-  declarations: [												
+  declarations: [
     AppComponent,
     HomeComponent,
 
     FanaticForumComponent,
-    
+
     EventComponent,
     EventCreateComponent,
     FanaticForumcommentComponent,
@@ -71,7 +71,8 @@ import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
       UserInformationforForumComponent,
       Posts2Component,
       CommentTableComponent,
-      ArtistForumsComponent
+      ArtistForumsComponent,
+      ConfigurationFanaticComponent
    ],
   imports: [
     BrowserModule,

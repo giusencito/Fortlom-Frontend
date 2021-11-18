@@ -1,3 +1,4 @@
+import { ConfigurationFanaticComponent } from './configuration-fanatic/configuration-fanatic.component';
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { PostComponent } from './post/post.component';
 import { ForumPageComponent } from './ForumPage/ForumPage.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
 {path:'HomeArtist/:id/ArtistForum',component:ArtistForumsComponent},
 {path:'HomeArtist/:id/ArtistForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeArtist/:id/ArtistForum/ForumPage/:forumid',component:ForumPageComponent},
+{path:'HomeFanatic/:fanaticid/ConfigureFanatic',component:ConfigurationFanaticComponent},
 {path:'HomeFanatic/:id',component:HomeFanaticComponent},
 {path:'HomeFanatic/:id/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},

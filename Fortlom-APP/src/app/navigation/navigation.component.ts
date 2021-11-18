@@ -46,5 +46,12 @@ enterHome(){
   this.cd.navigate(['/HomeFanatic',this.idnumber])
 }
 
+enterConfigurationFanatic(){
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'ConfigureFanatic']);
+}
+
+
+
+
 
 }
