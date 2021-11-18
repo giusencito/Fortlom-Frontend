@@ -21,6 +21,7 @@ import { ArtistForumComponent } from './artist-forum/artist-forum.component';
 import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { Posts2Component } from "./posts2/posts2.component";
 import {CommentTableComponent} from "./comment-table/comment-table.component";
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
@@ -41,7 +42,7 @@ const routes: Routes = [
 {path:'HomeFanatic/:id/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeFanatic/:id/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
-{path:'HomeFanatic/:id/Event',component:EventComponent},
+{path:'HomeFanatic/:id/Event',component:EventFanaticComponent},
 {path:'HomeArtist/:artistid/Event',component:EventComponent},
 {path: 'HomeArtist/:artistid/ConfigureArtist',component:ConfigurationComponent}
 ];

@@ -39,9 +39,10 @@ import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
+import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     HomeComponent,
 
@@ -74,7 +75,8 @@ import { ConfigurationComponent } from './configuration/configuration.component'
       CommentTableComponent,
       ArtistForumsComponent,
       ConfigurationFanaticComponent,
-      ConfigurationComponent
+      ConfigurationComponent,
+      EventFanaticComponent
    ],
   imports: [
     BrowserModule,
