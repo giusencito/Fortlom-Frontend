@@ -26,6 +26,7 @@ export class EventComponent implements OnInit {
   events:Event[]=[];
   dataSource!: MatTableDataSource<any>;
   dataSource2!: MatTableDataSource<any>;
+  arrayusers !: any;
   arrayevents!: any;
   eventbyid!:any;
   conditionaltype : string = "Test";
@@ -77,16 +78,29 @@ export class EventComponent implements OnInit {
       
       let n = this.arrayevents.length;
       
-        for(let i = 0; i<n;i++){
-            
-          this.userService.getById(this.arrayevents[i].ArtistID).subscribe((response: any) => {
-            this.dataSource2.data = response;
-            this.dataSource.paginator=this.paginator;
-            if(i == 0)this.listusers.push(response);
-            if(this.arrayevents[i].ArtistID != this.arrayevents[i+1].ArtistID && i+1<n) this.listusers.push(response);
-          });
+      this.userService.getAll().subscribe((response: any) => {
+        this.dataSource2.data = response;
+        this.dataSource2.paginator=this.paginator;
+        this.arrayusers = response;
+        console.log(this.arrayusers)
+        
+        let n2 = this.arrayusers.length;
+
+        for(let i = 0; i<n2;i++){
+          if(this.arrayevents[0].ArtistID == this.arrayusers[i].id){
+            this.listusers.push(this.arrayusers[i]);
+          }
         }
-      
+
+        for(let i = 0; i<n;i++){
+          for(let j = 0; j<n2;j++){
+            if(this.arrayevents[i].ArtistID == this.arrayusers[j].id){
+              if(this.listusers[j] != this.arrayusers[j])this.listusers.push(this.arrayusers[j]);
+            }
+          }
+        }
+        
+      });
       console.log(this.listusers)
     });
   }
