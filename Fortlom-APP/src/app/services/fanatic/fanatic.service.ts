@@ -59,7 +59,11 @@ getAll(): Observable<Fanatic> {
 
 // Update Fanatic
 update(id: any, item: any): Observable<Fanatic> {
+<<<<<<< HEAD
   return this.http.post<Fanatic>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
+=======
+  return this.http.put<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+>>>>>>> origin/feature/feature-US09A
     .pipe(
       retry(2),
       catchError(this.handleError));

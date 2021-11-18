@@ -58,7 +58,7 @@ getAll(): Observable<Rate> {
 
 // Update Rate
 update(id: any, item: any): Observable<Rate> {
-  return this.http.post<Rate>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Rate>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

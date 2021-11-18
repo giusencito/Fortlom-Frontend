@@ -5,7 +5,7 @@
       "Name": "Guillermo",
       "LastName": "Maduro",
       "Email": "Gui@hotmail.com",
-      "Password": "buenas",
+      "Password": "buenas noches",
       "Registration": "12/9/2021"
     },
     {
@@ -33,6 +33,7 @@
       "id": 4
     },
     {
+<<<<<<< HEAD
       "email": "fanatico@hotmail.com",
       "password": "contraseña",
       "name": "fanatico",
@@ -47,23 +48,42 @@
       "LastName": "artistaapellido",
       "Registration": "2021-10-22T01:49:49.702Z",
       "id": 6
+=======
+      "Email": "artistcarmelo@hotmail.com",
+      "Password": "123456",
+      "Name": "Carmelo",
+      "LastName": "Valencia",
+      "Registration": "2021-10-20T02:05:57.649Z",
+      "id": 5
+>>>>>>> origin/feature/feature-US09A
     }
   ],
   "Artist": [
     {
       "id": 1,
       "Tag": 0,
+<<<<<<< HEAD
       "Followers": 0
     },
     {
       "Followers": 0,
       "Tag": 0,
       "id": 3
+=======
+      "Followers": 0,
+      "description": "a description 1"
+>>>>>>> origin/feature/feature-US09A
     },
     {
-      "Followers": 0,
+      "id": 3,
       "Tag": 0,
+<<<<<<< HEAD
       "id": 6
+=======
+      "Followers": 0,
+      "description": "a description 3"
+      
+>>>>>>> origin/feature/feature-US09A
     }
   ],
   "Fanatic": [
@@ -76,7 +96,11 @@
       "id": 4
     },
     {
+<<<<<<< HEAD
       "alias": "elfanatico",
+=======
+      "alias": "VCalias",
+>>>>>>> origin/feature/feature-US09A
       "id": 5
     }
   ],

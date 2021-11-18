@@ -58,7 +58,7 @@ getAll(): Observable<Multimedia> {
 
 // Update Multimedia
 update(id: any, item: any): Observable<Multimedia> {
-  return this.http.post<Multimedia>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Multimedia>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

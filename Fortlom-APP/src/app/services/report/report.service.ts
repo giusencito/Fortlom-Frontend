@@ -58,7 +58,7 @@ getAll(): Observable<Report> {
 
 // Update Report
 update(id: any, item: any): Observable<Report> {
-  return this.http.post<Report>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Report>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

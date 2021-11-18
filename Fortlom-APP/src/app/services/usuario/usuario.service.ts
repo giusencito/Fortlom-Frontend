@@ -60,10 +60,17 @@ getById(id: any): Observable<Usuario> {
 
 // Update Usuario
 update(id: any, item: any): Observable<Usuario> {
+<<<<<<< HEAD
   return this.http.put<Usuario>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
   .pipe(
     retry(2),
     catchError(this.handleError));
+=======
+  return this.http.put<Usuario>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+    .pipe(
+      retry(2),
+      catchError(this.handleError));
+>>>>>>> origin/feature/feature-US09A
 }
 
 // Delete Usuario
