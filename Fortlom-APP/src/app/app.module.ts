@@ -38,6 +38,7 @@ import { UserInformationforForumComponent } from './UserInformationforForum/User
 import { Posts2Component } from './posts2/posts2.component';
 import { CommentTableComponent } from './comment-table/comment-table.component';
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
+import { ConfigurationComponent } from './configuration/configuration.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
       Posts2Component,
       CommentTableComponent,
       ArtistForumsComponent,
-      ConfigurationFanaticComponent
+      ConfigurationFanaticComponent,
+      ConfigurationComponent
    ],
   imports: [
     BrowserModule,

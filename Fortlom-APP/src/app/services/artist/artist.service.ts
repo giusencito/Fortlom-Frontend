@@ -58,11 +58,8 @@ getAll(): Observable<Artist> {
 
 // Update Artist
 update(id: any, item: any): Observable<Artist> {
-<<<<<<< HEAD
-  return this.http.post<Artist>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
-=======
-  return this.http.put<Artist>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
->>>>>>> origin/feature/feature-US09A
+
+  return this.http.put<Artist>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
