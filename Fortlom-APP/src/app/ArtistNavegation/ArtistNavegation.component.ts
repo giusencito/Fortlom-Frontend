@@ -51,7 +51,12 @@ enterForum(){
 
   }
 
+  enterEvent(){
 
+    this.cd.navigate(['/HomeArtist',this.idnumber,'Event'])
+
+
+  }
 
 
 
