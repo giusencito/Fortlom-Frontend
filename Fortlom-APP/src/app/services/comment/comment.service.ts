@@ -9,8 +9,8 @@ import {Comment} from "../../models/comment";
 })
 export class CommentService {
 
-basePath = 'http://localhost:8080/api/v1/comment';
-basePath2=' http://localhost:8080/api/v1/usuario'
+basePath = 'http://localhost:3000/Comment';
+basePath2= 'http://localhost:3000/Usuario'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',

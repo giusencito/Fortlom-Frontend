@@ -33,7 +33,7 @@ export class ConfigurationComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private artistService: ArtistService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) { 
+  constructor(private artistService: ArtistService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) {
     this.artistdata = {} as Artist;
     this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -45,7 +45,7 @@ export class ConfigurationComponent implements OnInit {
     this.getAllArtists();
     this.getAllUsers();
 
-    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
 
@@ -130,7 +130,7 @@ export class ConfigurationComponent implements OnInit {
         this.dataSource.paginator=this.paginator;
         this.artistdata = response;
         console.log(this.artistdata);
-        
+
         this.userService.getById(this.artistdata.id).subscribe((response: any) => {
           this.dataSource.data = response;
           this.dataSource.paginator=this.paginator;

@@ -9,7 +9,7 @@ import {Multimedia} from "../../models/multimedia";
 })
 export class MultimediaService {
 
-basePath = 'http://localhost:8080/api/v1/Multimedia';
+basePath = 'http://localhost:3000/Multimedia';
 
 httpOptions = {
   headers: new HttpHeaders({

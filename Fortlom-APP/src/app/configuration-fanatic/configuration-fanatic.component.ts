@@ -23,7 +23,7 @@ export class ConfigurationFanaticComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   arraygenders : string[] = [];
   aleatorygender: string[] = ["Progresive Rock","Sound Engineering","2000 Wave","Complex","2010 Wave","Hard Rock","Classic Metal"]
-  
+
   @ViewChild('UserForm', {static: false})
   UserForm!: NgForm;
 
@@ -33,7 +33,7 @@ export class ConfigurationFanaticComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private fanaticService: FanaticService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) { 
+  constructor(private fanaticService: FanaticService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) {
     this.fanaticdata = {} as Fanatic;
     this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -45,7 +45,7 @@ export class ConfigurationFanaticComponent implements OnInit {
     this.getAllFanatics();
     this.getAllUsers();
 
-    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
 
@@ -130,7 +130,7 @@ export class ConfigurationFanaticComponent implements OnInit {
       this.dataSource.paginator=this.paginator;
       this.fanaticdata = response;
       console.log(this.fanaticdata);
-      
+
         this.userService.getById(this.fanaticdata.id).subscribe((response: any) => {
           this.dataSource.data = response;
           this.dataSource.paginator=this.paginator;

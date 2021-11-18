@@ -9,7 +9,7 @@ import {Report} from "../../models/report";
 })
 export class ReportService {
 
-basePath = 'http://localhost:8080/api/v1/report';
+basePath = 'http://localhost:3000/Report';
 
 httpOptions = {
   headers: new HttpHeaders({

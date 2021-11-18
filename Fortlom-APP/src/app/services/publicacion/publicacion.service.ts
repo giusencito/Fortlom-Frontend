@@ -9,7 +9,7 @@ import {Publicacion} from "../../models/publicacion";
 })
 export class PublicacionService {
 
-basePath = 'http://localhost:8080/api/v1/publicacion';
+basePath = 'http://localhost:3000/Publicacion';
 basepath2='http://localhost:8080/api/v1/artist';
 httpOptions = {
   headers: new HttpHeaders({

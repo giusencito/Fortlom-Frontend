@@ -33,7 +33,6 @@
       "id": 4
     },
     {
-
       "email": "fanatico@hotmail.com",
       "password": "contraseña",
       "name": "fanatico",
@@ -48,28 +47,23 @@
       "LastName": "artistaapellido",
       "Registration": "2021-10-22T01:49:49.702Z",
       "id": 6
-
     }
   ],
   "Artist": [
     {
       "id": 1,
       "Tag": 0,
-
       "Followers": 0
     },
     {
       "Followers": 0,
       "Tag": 0,
       "id": 3
-
     },
     {
       "id": 3,
       "Tag": 0,
-
       "Followers": 6
-
     }
   ],
   "Fanatic": [
@@ -82,9 +76,7 @@
       "id": 4
     },
     {
-
       "alias": "elfanatico",
-
       "id": 5
     }
   ],
@@ -137,6 +129,18 @@
       "PostReported": 2,
       "apiId": "v1",
       "id": 5
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 1,
+      "id": 6
+    },
+    {
+      "ReportDescription": "Insultos frecuentes",
+      "UserMain": 1,
+      "PostReported": 2,
+      "id": 7
     }
   ],
   "Multimedia": [
@@ -362,7 +366,7 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes rock music",
       "ArtistID": 1,
-      "Likes": 30
+      "Likes": 33
     },
     {
       "id": 2,

@@ -35,7 +35,7 @@ handleError(error: HttpErrorResponse) {
 
 // Create Fanatic
 create(item: any): Observable<Fanatic> {
-  return this.http.post<Fanatic>(this.basePath2, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Fanatic>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -43,7 +43,7 @@ create(item: any): Observable<Fanatic> {
 
 // Get Fanatic by id
 getById(id: any): Observable<Fanatic> {
-  return this.http.get<Fanatic>(`${this.basePath2}/${id}`, this.httpOptions)
+  return this.http.get<Fanatic>(`${this.basePath}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -51,7 +51,7 @@ getById(id: any): Observable<Fanatic> {
 
 // Get All Fanatics
 getAll(): Observable<Fanatic> {
-  return this.http.get<Fanatic>(this.basePath2, this.httpOptions)
+  return this.http.get<Fanatic>(this.basePath, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -60,7 +60,7 @@ getAll(): Observable<Fanatic> {
 // Update Fanatic
 update(id: any, item: any): Observable<Fanatic> {
 
-  return this.http.put<Fanatic>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Fanatic>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
 
 }
 

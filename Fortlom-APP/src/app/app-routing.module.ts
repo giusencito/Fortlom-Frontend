@@ -36,14 +36,16 @@ const routes: Routes = [
 {path:'HomeArtist/:id/ArtistForum',component:ArtistForumsComponent},
 {path:'HomeArtist/:id/ArtistForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeArtist/:id/ArtistForum/ForumPage/:forumid',component:ForumPageComponent},
-{path:'HomeFanatic/:fanaticid/ConfigureFanatic',component:ConfigurationFanaticComponent},
+{path:'HomeFanatic/:id/ConfigureFanatic',component:ConfigurationFanaticComponent},
 {path:'HomeFanatic/:id',component:HomeFanaticComponent},
 {path:'HomeFanatic/:id/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeFanatic/:id/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
 {path:'HomeFanatic/:id/Event',component:EventComponent},
 {path:'HomeArtist/:artistid/Event',component:EventComponent},
-{path: 'HomeArtist/:artistid/ConfigureArtist',component:ConfigurationComponent}
+{path: 'HomeArtist/:id/ConfigureArtist',component:ConfigurationComponent},
+{path: 'artist/:artistid/posts', component:PostPageComponent},
+{path:'Comments',component:CommentTableComponent},
 ];
 
 @NgModule({
