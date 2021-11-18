@@ -34,7 +34,7 @@ const routes: Routes = [
 {path:'HomeFanatic/:fanaticid/FanaticForum',component:FanaticForumComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeFanatic/:fanaticid/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
-{path:'ConfigureFanatic',component:ConfigurationFanaticComponent}
+{path:'HomeFanatic/:fanaticid/ConfigureFanatic',component:ConfigurationFanaticComponent}
 ];
 
 @NgModule({

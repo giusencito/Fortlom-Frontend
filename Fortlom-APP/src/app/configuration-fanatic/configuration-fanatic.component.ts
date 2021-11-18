@@ -7,6 +7,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator";
 import {NgForm} from "@angular/forms";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-configuration-fanatic',
@@ -17,6 +18,7 @@ export class ConfigurationFanaticComponent implements OnInit {
 
   fanaticdata!: Fanatic;
   userdata!: Usuario;
+  idnumber!:number;
   numberuser : number = 5;
   dataSource!: MatTableDataSource<any>;
   arraygenders : string[] = [];
@@ -31,7 +33,7 @@ export class ConfigurationFanaticComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private fanaticService: FanaticService,private userService: UsuarioService,private dialog:MatDialog) { 
+  constructor(private fanaticService: FanaticService,private userService: UsuarioService,private dialog:MatDialog,private route:ActivatedRoute) { 
     this.fanaticdata = {} as Fanatic;
     this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -42,6 +44,11 @@ export class ConfigurationFanaticComponent implements OnInit {
     console.log(this.arraygenders);
     this.getAllFanatics();
     this.getAllUsers();
+
+    let pod=parseInt(this.route.snapshot.paramMap.get('fanaticid')!);
+    let id= pod;
+    this.idnumber=id;
+
     this.getFanaticByUserId();
   }
 
@@ -117,7 +124,8 @@ export class ConfigurationFanaticComponent implements OnInit {
   }
 
   getFanaticByUserId(){
-    this.fanaticService.getById(this.numberuser).subscribe((response: any) => {
+    console.log(this.idnumber)
+    this.fanaticService.getById(this.idnumber).subscribe((response: any) => {
       this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
       this.fanaticdata = response;

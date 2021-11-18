@@ -19,11 +19,15 @@ export class NavigationComponent implements OnInit {
 
   }
 
-enterfanaticforum(){
+  enterfanaticforum(){
 
-  this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
+    this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum']);
 
 
-}
+  }
+
+  enterConfigurationFanatic(){
+    this.cd.navigate(['/HomeFanatic',this.idnumber,'ConfigureFanatic']);
+  }
 
 }
