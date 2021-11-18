@@ -263,19 +263,19 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 1,
-      "Likes": 35
+      "Likes": 47
     },
     {
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
       "ArtistID": 1,
-      "Likes": 29
+      "Likes": 30
     },
     {
       "EventName": "Musical",
       "EventDescription": "a description 3",
-      "Likes": 18,
+      "Likes": 19,
       "ArtistID": 1,
       "id": 3
     },

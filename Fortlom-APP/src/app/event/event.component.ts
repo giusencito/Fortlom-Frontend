@@ -131,7 +131,7 @@ export class EventComponent implements OnInit {
 
   updateEvent() {
     this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
-      this.dataSource.data = this.dataSource.data.map((o: Event) => {
+      this.arrayevents = this.arrayevents.map((o: Event) => {
         if (o.id === response.id) {
           o = response;
         }
@@ -174,18 +174,12 @@ export class EventComponent implements OnInit {
       this.dataSource.paginator=this.paginator;
       this.eventdata = response
 
-      console.log(this.eventdata)
-      
-      console.log(typeof(this.eventdata.Likes))
-
       var presentlikes = this.eventdata.Likes;
       var finalLikes = presentlikes + 1;
       this.eventdata.Likes = finalLikes
-      
-      console.log(this.eventdata)
 
       this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
-        this.dataSource.data = this.dataSource.data.map((o: Event) => {
+        this.arrayevents = this.arrayevents.map((o: Event) => {
           if (o.id === response.id) {
             o = response;
           }
