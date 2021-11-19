@@ -25,10 +25,10 @@ export class EventCreateComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private eventService: EventService,private dialog:MatDialog) { 
+  constructor(private eventService: EventService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.eventcomponent = {} as EventComponent;
-    this.dataSource = new MatTableDataSource<any>();  
+    this.dataSource = new MatTableDataSource<any>();
   }
 
 
@@ -47,9 +47,9 @@ export class EventCreateComponent implements OnInit {
     });
   }
 
-  addEvent() {
+  addEvent(id:number) {
     console.log(this.eventdata)
-    this.eventService.create(this.eventdata).subscribe((response: any) => {
+    this.eventService.create(id,this.eventdata).subscribe((response: any) => {
       this.dataSource.data.push( {...response});
       this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
     });

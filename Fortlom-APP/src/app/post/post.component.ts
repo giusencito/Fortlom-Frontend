@@ -1,3 +1,4 @@
+import { UsuarioService } from './../services/usuario/usuario.service';
 import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {CommentService} from "../services/comment/comment.service";
@@ -7,7 +8,10 @@ import {PublicacionService} from "../services/publicacion/publicacion.service";
 import {ReportService} from "../services/report/report.service";
 import {MultimediaService} from "../services/multimedia/multimedia.service";
 import {ActivatedRoute} from "@angular/router";
-import  {UsuarioService} from "../services/usuario/usuario.service";
+import { Usuario } from '../models/usuario';
+import { Publicacion } from '../models/publicacion';
+import { Report } from '../models/report';
+
 
 @Component({
   selector: 'app-post',
@@ -21,8 +25,9 @@ export class PostComponent implements OnInit {
   dataSource: MatTableDataSource<any>;
   haveInfo = false;
   havePosts = false;
+  report!:Report
   orderedMultimedia:any = [];
-  relatedUser: any;
+  relatedUser!: Usuario;
 
   @Input()
   textPart = "...";
@@ -35,8 +40,9 @@ export class PostComponent implements OnInit {
               private postService: PublicacionService,
               private reportService: ReportService,
               private multimediaService: MultimediaService,
-              private artistService: UsuarioService,
+              private usuarioservice: UsuarioService,
               private $route: ActivatedRoute) {
+    this.report={}as Report
     this.studentData = {}
     this.dataSource = new MatTableDataSource<any>();
     this.haveInfo = false;
@@ -44,21 +50,22 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.multimediaService.getById(this.fullPost.id) //changed
+    this.multimediaService.getallmultimediabypublication(this.fullPost.id) //changed
       .subscribe((response: any) => {
-        this.orderedMultimedia = response;
+        this.orderedMultimedia = response.content;
         console.log(this.orderedMultimedia);
         this.haveInfo = true;
       })
-    this.artistService.getById(this.fullPost.UserID)
+    this.usuarioservice.getById(this.fullPost.artist.id)
       .subscribe((response: any) => {
         this.relatedUser = response;
+        console.log("artista")
         console.log(this.relatedUser);
       })
   }
 
   likePost(): void {
-    this.fullPost.Likes += 1;
+    this.fullPost.likes += 1;
     this.postService.update(this.fullPost.id, this.fullPost)
       .subscribe((response: any) => {
         console.log(response);
@@ -67,8 +74,8 @@ export class PostComponent implements OnInit {
 
   getComments(id:any): void {
     id = Number(id);
-    this.commentService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+    this.commentService.getallcommentsbypublication(id).subscribe((response: any) => {
+      this.dataSource.data = response.content;
       this.studentData = this.dataSource.data;
       //this.haveInfo = true;
       this.havePosts = true;
@@ -78,10 +85,11 @@ export class PostComponent implements OnInit {
   flagPost(): void {
     this.aux = {
       ReportDescription: "Insultos frecuentes",
-      UserMain: +this.$route.snapshot.params['artistid'],
+      UserMain: +this.$route.snapshot.params['id'],
       PostReported: this.fullPost.id
     }
-    this.reportService.create(this.aux)
+    this.report.reportDescription="publicacion inapropiada"
+    this.reportService.create(this.report,+this.$route.snapshot.params['id'],this.relatedUser.id)
       .subscribe((response: any) => {
         console.log(response);
       });

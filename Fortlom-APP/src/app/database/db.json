@@ -366,14 +366,14 @@
       "EventName": "RockMusicEvent",
       "EventDescription": "An incredible event for those who likes rock music",
       "ArtistID": 1,
-      "Likes": 33
+      "Likes": 48
     },
     {
       "id": 2,
       "EventName": "PopMusicEvent",
       "EventDescription": "An incredible event for those who likes pop music",
-      "ArtistID": "3",
-      "Likes": "24"
+      "ArtistID": 3,
+      "Likes": 26
     }
   ],
   "Event_Fanatic": [

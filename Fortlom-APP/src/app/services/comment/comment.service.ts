@@ -9,8 +9,9 @@ import {Comment} from "../../models/comment";
 })
 export class CommentService {
 
-basePath = 'http://localhost:3000/Comment';
-basePath2= 'http://localhost:3000/Usuario'
+basePath = 'http://localhost:8080/api/v1/comments';
+basePath2= 'http://localhost:8080/api/v1/users'
+basePath3='http://localhost:8080/api/v1/publications'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -63,7 +64,14 @@ update(id: any, item: any): Observable<Comment> {
       retry(2),
       catchError(this.handleError));
 }
+getallcommentsbypublication(id:number){
 
+  return this.http.get<Comment>(`${this.basePath3}/${id}/comments`, this.httpOptions)
+  .pipe(
+    retry(2),
+    catchError(this.handleError));
+
+}
 // Delete Comment
 delete(id: any) {
   return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)

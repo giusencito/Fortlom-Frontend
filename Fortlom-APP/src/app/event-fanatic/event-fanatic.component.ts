@@ -39,7 +39,7 @@ export class EventFanaticComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})
   paginator!: MatPaginator;
 
-  constructor(private eventService: EventService,private userService: UsuarioService,private dialog:MatDialog) { 
+  constructor(private eventService: EventService,private userService: UsuarioService,private dialog:MatDialog) {
     this.eventdata = {} as Event;
     this.userdata = {} as Usuario;
     this.dataSource = new MatTableDataSource<any>();
@@ -55,27 +55,27 @@ export class EventFanaticComponent implements OnInit {
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.paginator=this.paginator;
-      this.arrayevents = response;
+      this.arrayevents = response.content;
       console.log(this.arrayevents)
     });
   }
 
   getListArtist(){
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.paginator=this.paginator;
-      this.arrayevents = response;
-      
+      this.arrayevents = response.content;
+
       let n = this.arrayevents.length;
-      
+
       this.userService.getAll().subscribe((response: any) => {
         this.dataSource2.data = response;
         this.dataSource2.paginator=this.paginator;
-        this.arrayusers = response;
+        this.arrayusers = response.content;
         console.log(this.arrayusers)
-        
+
         let n2 = this.arrayusers.length;
 
         for(let i = 0; i<n2;i++){
@@ -91,7 +91,7 @@ export class EventFanaticComponent implements OnInit {
             }
           }
         }
-        
+
       });
       console.log(this.listusers)
     });
@@ -103,9 +103,9 @@ export class EventFanaticComponent implements OnInit {
       this.dataSource.paginator=this.paginator;
       this.eventdata = response
 
-      var presentlikes = this.eventdata.Likes;
+      var presentlikes = this.eventdata.likes;
       var finalLikes = presentlikes + 1;
-      this.eventdata.Likes = finalLikes
+      this.eventdata.likes = finalLikes
 
       this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
         this.arrayevents = this.arrayevents.map((o: Event) => {
@@ -117,7 +117,7 @@ export class EventFanaticComponent implements OnInit {
       });
 
     });
-    
+
   }
 
   ShowEventsArtist(){

@@ -37,7 +37,7 @@ enterfanaticforum(){
 enterPublication(){
 
  console.log(this.idnumber)
-this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
+this.cd.navigate(['/HomeFanatic',this.idnumber,'posts'])
 
 
 }

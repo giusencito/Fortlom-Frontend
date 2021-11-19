@@ -43,9 +43,11 @@ const routes: Routes = [
 {path:'HomeFanatic/:id/FanaticForum/CreateForum',component:FanaticForumCreateComponent},
 {path:'HomeFanatic/:id/FanaticForum/ForumPage/:forumid',component:ForumPageComponent},
 {path:'HomeFanatic/:id/Event',component:EventFanaticComponent},
-{path:'HomeArtist/:artistid/Event',component:EventComponent},
+{path:'HomeArtist/:id/Event',component:EventComponent},
 {path: 'HomeArtist/:id/ConfigureArtist',component:ConfigurationComponent},
 {path: 'artist/:artistid/posts', component:PostPageComponent},
+{path: 'HomeArtist/:id/posts',component:PostPageComponent},
+{path: 'HomeFanatic/:id/posts',component:PostPageComponent},
 {path:'Comments',component:CommentTableComponent},
 ];
 

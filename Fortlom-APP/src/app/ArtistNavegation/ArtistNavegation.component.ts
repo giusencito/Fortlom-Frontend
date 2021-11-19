@@ -37,13 +37,18 @@ enterhome(){
 
 enterForum(){
     this.cd.navigate(['/HomeArtist',this.idnumber,'ArtistForum'])
-    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id= pod;
     this.idnumber=id;
 
   }
 
-  enterposts(){}
+  enterposts(){
+
+    this.cd.navigate(['/HomeArtist',this.idnumber,'posts'])
+
+
+  }
   enterEvents(){}
   enterConfigurationArtist(){
 

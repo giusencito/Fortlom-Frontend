@@ -29,6 +29,8 @@ export class EventComponent implements OnInit {
   arrayusers !: any;
   arrayevents!: any;
   eventbyid!:any;
+  name!:string;
+  lastname!:string;
   conditionaltype : string = "Test";
   displayedColumns: string[] = ['id','EventName','EventDescription','ArtistID','Likes'];
 
@@ -54,36 +56,43 @@ export class EventComponent implements OnInit {
   ngOnInit():void{
     this.dataSource.paginator = this.paginator;
     this.getAllEvents();
-    let pod=parseInt(this.route.snapshot.paramMap.get('artistid')!);
+    let pod=parseInt(this.route.snapshot.paramMap.get('id')!);
     let id = pod;
     this.idevent=id;
     console.log(this.idevent);
     this.getListArtist();
+  this.getByIdUser(1)
   }
 
   getAllEvents() {
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.paginator=this.paginator;
-      this.arrayevents = response;
+      this.arrayevents = response.content;
+      console.log("array")
       console.log(this.arrayevents)
     });
   }
 
+
+
+
+
   getListArtist(){
     this.eventService.getAll().subscribe((response: any) => {
-      this.dataSource.data = response;
+      this.dataSource.data = response.content;
       this.dataSource.paginator=this.paginator;
-      this.arrayevents = response;
-      
+      this.arrayevents = response.content;
+
       let n = this.arrayevents.length;
-      
+
       this.userService.getAll().subscribe((response: any) => {
         this.dataSource2.data = response;
         this.dataSource2.paginator=this.paginator;
-        this.arrayusers = response;
+        this.arrayusers = response.content;
+        console.log("arreglo")
         console.log(this.arrayusers)
-        
+
         let n2 = this.arrayusers.length;
 
         for(let i = 0; i<n2;i++){
@@ -99,7 +108,7 @@ export class EventComponent implements OnInit {
             }
           }
         }
-        
+
       });
       console.log(this.listusers)
     });
@@ -116,11 +125,10 @@ export class EventComponent implements OnInit {
 
   addEvent() {
     console.log(this.idevent);
-    this.eventdata.ArtistID = this.idevent;
     console.log(this.eventdata);
-    this.eventService.create(this.eventdata).subscribe((response: any) => {
-      this.dataSource.data.push( {...response});
-      this.dataSource.data = this.dataSource.data.map((o: any) => { return o; });
+    this.eventService.create(this.idevent,this.eventdata).subscribe((response: any) => {
+      this.arrayevents.push( {...response});
+      this.arrayevents = this.arrayevents.map((o: any) => { return o; });
     });
   }
 
@@ -133,7 +141,7 @@ export class EventComponent implements OnInit {
     this.isEditMode = false;
     this.EventForm.resetForm();
   }
-  
+
   deleteEdit(id:number){
     console.log(id);
     this.eventdata.id = _.cloneDeep(id);
@@ -174,7 +182,7 @@ export class EventComponent implements OnInit {
     this.eventService.getById(id).subscribe((response: any) => {
       this.dataSource.data = response;
       this.dataSource.paginator=this.paginator;
-      
+
       console.log(response)
     });
   }
@@ -185,9 +193,9 @@ export class EventComponent implements OnInit {
       this.dataSource.paginator=this.paginator;
       this.eventdata = response
 
-      var presentlikes = this.eventdata.Likes;
+      var presentlikes = this.eventdata.likes;
       var finalLikes = presentlikes + 1;
-      this.eventdata.Likes = finalLikes
+      this.eventdata.likes = finalLikes
 
       this.eventService.update(this.eventdata.id, this.eventdata).subscribe((response: any) => {
         this.arrayevents = this.arrayevents.map((o: Event) => {
@@ -199,7 +207,7 @@ export class EventComponent implements OnInit {
       });
 
     });
-    
+
   }
 
   ShowEventsArtist(){
@@ -225,4 +233,31 @@ export class EventComponent implements OnInit {
   ClearForm(){
     this.EventForm.resetForm();
   }
+
+  getuserinformation(id:number){
+    this.userService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.userdata = response;
+      this.name=this.userdata.name
+      this.lastname=this.userdata.lastName
+      return this.name
+    });
+
+
+
+  }
+
+
+getByIdUser(id:number) {
+    this.userService.getById(id).subscribe((response: any) => {
+      this.dataSource.data = response;
+      this.userdata = response;
+      this.name=this.userdata.name
+      this.lastname=this.userdata.lastName
+      console.log(this.userdata);
+    });
+  }
+
+
+
 }

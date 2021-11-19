@@ -9,8 +9,8 @@ import {Report} from "../../models/report";
 })
 export class ReportService {
 
-basePath = 'http://localhost:3000/Report';
-
+basePath = 'http://localhost:8080/api/v1/reports';
+basePath2='http://localhost:8080/api/v1/usersmains'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -33,8 +33,8 @@ handleError(error: HttpErrorResponse) {
 }
 
 // Create Report
-create(item: any): Observable<Report> {
-  return this.http.post<Report>(this.basePath, JSON.stringify(item), this.httpOptions)
+create(item: any,UserMainId:number,UserReportedId:number): Observable<Report> {
+  return this.http.post<Report>(`${this.basePath2}/${UserMainId}/usersreports/${UserReportedId}/reports`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

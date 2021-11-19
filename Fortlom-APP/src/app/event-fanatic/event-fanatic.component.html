@@ -20,8 +20,8 @@
   <mat-grid-list cols="1" rowHeight="1:0.5">
     <mat-grid-tile *ngFor ="let arr of arrayevents" class="spaceshort">
         <mat-card class="example-card-event">
-          <mat-card-header *ngFor ="let arr2 of listusers">
-            <div *ngIf = "arr.ArtistID == arr2.id">
+          <mat-card-header *ngFor ="let arr2 of arrayusers">
+            <div *ngIf = "arr.artist.id == arr2.id">
               <table class = "table">
                 <tr>
                   <td class = "withoutborder">
@@ -38,8 +38,8 @@
             </div>
           </mat-card-header>
           <mat-card-content>
-            <mat-card-title><h1>{{arr.EventName}}</h1></mat-card-title>
-            <p>{{arr.EventDescription}}</p>
+            <mat-card-title><h1>{{arr.eventName}}</h1></mat-card-title>
+            <p>{{arr.eventDescription}}</p>
           </mat-card-content>
           <mat-card-actions>
             <table>
@@ -53,7 +53,7 @@
                 </td>
                 <td>
                   <div class = "minipadding"></div>
-                  <p>{{arr.Likes}}</p>
+                  <p>{{arr.likes}}</p>
                 </td>
               </tr>
             </table>
