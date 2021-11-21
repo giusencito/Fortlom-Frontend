@@ -53,17 +53,17 @@
     {
       "id": 1,
       "Tag": 0,
-      "Followers": 0
-    },
-    {
-      "Followers": 0,
-      "Tag": 0,
-      "id": 3
+      "followers": 12
     },
     {
       "id": 3,
       "Tag": 0,
-      "Followers": 6
+      "followers": 15
+    },
+    {
+      "id": 5,
+      "Tag": 0,
+      "followers": 4
     }
   ],
   "Fanatic": [
@@ -141,6 +141,14 @@
       "UserMain": 1,
       "PostReported": 2,
       "id": 7
+    },
+    {
+      "reportDescription": "HOLA",
+      "id": 8
+    },
+    {
+      "reportDescription": "HOLA!\"",
+      "id": 9
     }
   ],
   "Multimedia": [

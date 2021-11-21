@@ -40,9 +40,13 @@ import { CommentTableComponent } from './comment-table/comment-table.component';
 import { ArtistForumsComponent } from './ArtistForums/ArtistForums.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
+import {FraudReportComponent, FraudReportDialog} from "./fraud-report/fraud-report.component";
+import { RateComponent } from './rate/rate.component';
+import { FollowComponent } from './follow/follow.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     HomeComponent,
 
@@ -76,7 +80,12 @@ import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
       ArtistForumsComponent,
       ConfigurationFanaticComponent,
       ConfigurationComponent,
-      EventFanaticComponent
+      EventFanaticComponent,
+      FraudReportComponent,
+      FraudReportDialog,
+      RateComponent,
+      FollowComponent,
+      ArtistListComponent
    ],
   imports: [
     BrowserModule,

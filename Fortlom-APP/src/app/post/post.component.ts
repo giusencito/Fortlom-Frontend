@@ -2,14 +2,11 @@ import { UsuarioService } from './../services/usuario/usuario.service';
 import { Component, OnInit, Input } from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {CommentService} from "../services/comment/comment.service";
-import {CommentComponent} from "../comment/comment.component";
-import {CommonModule} from "@angular/common";
 import {PublicacionService} from "../services/publicacion/publicacion.service";
 import {ReportService} from "../services/report/report.service";
 import {MultimediaService} from "../services/multimedia/multimedia.service";
 import {ActivatedRoute} from "@angular/router";
 import { Usuario } from '../models/usuario';
-import { Publicacion } from '../models/publicacion';
 import { Report } from '../models/report';
 
 

@@ -22,6 +22,7 @@ import { HomeFanaticComponent } from './HomeFanatic/HomeFanatic.component';
 import { Posts2Component } from "./posts2/posts2.component";
 import {CommentTableComponent} from "./comment-table/comment-table.component";
 import { EventFanaticComponent } from './event-fanatic/event-fanatic.component';
+import { ArtistListComponent } from './artist-list/artist-list.component';
 
 const routes: Routes = [
 {path:'',component:LoginComponent},
@@ -49,6 +50,7 @@ const routes: Routes = [
 {path: 'HomeArtist/:id/posts',component:PostPageComponent},
 {path: 'HomeFanatic/:id/posts',component:PostPageComponent},
 {path:'Comments',component:CommentTableComponent},
+{path:'HomeFanatic/:id/artists',component:ArtistListComponent},
 ];
 
 @NgModule({

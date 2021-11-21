@@ -1,25 +1,25 @@
 <app-navigation></app-navigation>
 <table class = "table">
-  <tr> 
-    <td class = "withoutborder">   
+  <tr>
+    <td class = "withoutborder">
     <mat-card class="example-card">
       <table class = "table">
       <tr class = "textstyle">
-        <td class = "withoutborder">  
+        <td class = "withoutborder">
         <mat-card-header class = "centeravatar">
           <div mat-card-avatar class="example-header-image"></div>
         </mat-card-header>
         <mat-card-content>
-        <div class ="minipadding"></div>  
+        <div class ="minipadding"></div>
         <mat-card-title class = "buttoncenter">{{userdata.name}}</mat-card-title>
-        <div class ="minipadding"></div> 
+        <div class ="minipadding"></div>
         <mat-card-title class = "buttoncenter">{{userdata.lastName}}</mat-card-title>
         </mat-card-content>
         </td>
-        <td class = "withoutborder">  
+        <td class = "withoutborder">
           <mat-card-header>
             <mat-card-title>Genders</mat-card-title>
-          </mat-card-header>   
+          </mat-card-header>
           <mat-card-content>
             <div *ngFor = "let arr of arraygenders">
               <button mat-raised-button class = "button">{{arr}}</button>
@@ -27,7 +27,7 @@
             </div>
             <button mat-raised-button class = "button" (click) = "AddGenders()">Add</button>
           </mat-card-content>
-        </td>  
+        </td>
       </tr>
       </table>
     </mat-card>
@@ -43,15 +43,15 @@
               <mat-selection-list>
                 <mat-list-option>Off</mat-list-option>
                 <mat-list-option>From people I follow</mat-list-option>
-                <mat-list-option>From everyone</mat-list-option>  
+                <mat-list-option>From everyone</mat-list-option>
               </mat-selection-list>
               <div class ="minipadding"></div>
               <h2>Comments</h2>
               <mat-selection-list>
                 <mat-list-option>Off</mat-list-option>
                 <mat-list-option>From people I follow</mat-list-option>
-                <mat-list-option>From everyone</mat-list-option>  
-              </mat-selection-list>  
+                <mat-list-option>From everyone</mat-list-option>
+              </mat-selection-list>
           </td>
           <td class = "withoutborder">
             <h1>Change Password</h1>
@@ -75,8 +75,8 @@
                 <mat-error>Is required</mat-error>
               </mat-form-field>
               <mat-divider></mat-divider>
-              <button mat-raised-button class="button" (click) = "updateUser()">Change password</button>    
-            </form>  
+              <button mat-raised-button class="button" (click) = "updateUser()">Change password</button>
+            </form>
           </td>
           <td class = "withoutborder">
             <h1>Edit Profile</h1>
@@ -102,11 +102,11 @@
                 <mat-error>Is required</mat-error>
               </mat-form-field>
               <mat-divider></mat-divider>
-              <button mat-raised-button class="button" (click) = "updateUser()">Change profile</button>    
-            </form>  
+              <button mat-raised-button class="button" (click) = "updateUser()">Change profile</button>
+            </form>
           </td>
-        </tr>  
+        </tr>
       </table>
     </td>
   </tr>
-</table>  
+</table>

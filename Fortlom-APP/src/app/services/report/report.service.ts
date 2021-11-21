@@ -10,7 +10,7 @@ import {Report} from "../../models/report";
 export class ReportService {
 
 basePath = 'http://localhost:8080/api/v1/reports';
-basePath2='http://localhost:8080/api/v1/usersmains'
+basePath2='http://localhost:3000/Report'
 httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ handleError(error: HttpErrorResponse) {
 
 // Create Report
 create(item: any,UserMainId:number,UserReportedId:number): Observable<Report> {
-  return this.http.post<Report>(`${this.basePath2}/${UserMainId}/usersreports/${UserReportedId}/reports`, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Report>(`${this.basePath2}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -42,7 +42,7 @@ create(item: any,UserMainId:number,UserReportedId:number): Observable<Report> {
 
 // Get Report by id
 getById(id: any): Observable<Report> {
-  return this.http.get<Report>(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.get<Report>(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -50,7 +50,7 @@ getById(id: any): Observable<Report> {
 
 // Get All Reports
 getAll(): Observable<Report> {
-  return this.http.get<Report>(this.basePath, this.httpOptions)
+  return this.http.get<Report>(this.basePath2, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -58,7 +58,7 @@ getAll(): Observable<Report> {
 
 // Update Report
 update(id: any, item: any): Observable<Report> {
-  return this.http.put<Report>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Report>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -66,7 +66,7 @@ update(id: any, item: any): Observable<Report> {
 
 // Delete Report
 delete(id: any) {
-  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath2}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

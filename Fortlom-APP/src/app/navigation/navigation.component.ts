@@ -28,6 +28,11 @@ enterevent(){
 
 }
 
+enterartists(){
+  console.log(this.idnumber)
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'Artists'])
+}
+
 enterfanaticforum(){
   console.log(this.idnumber)
   this.cd.navigate(['/HomeFanatic',this.idnumber,'FanaticForum'])
@@ -49,9 +54,5 @@ enterHome(){
 enterConfigurationFanatic(){
   this.cd.navigate(['/HomeFanatic',this.idnumber,'ConfigureFanatic']);
 }
-
-
-
-
 
 }

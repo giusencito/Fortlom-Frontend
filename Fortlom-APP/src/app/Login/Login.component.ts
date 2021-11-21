@@ -122,10 +122,6 @@ getAllUsers(){
           console.log(a.id)
           console.log('requerido')
           console.log(this.iddepaso)
-          return  a.id === this.iddepaso
-
-
-
       })
 
       if(ap){
