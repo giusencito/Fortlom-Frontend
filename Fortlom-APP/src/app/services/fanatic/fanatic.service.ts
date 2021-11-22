@@ -66,7 +66,7 @@ update(id: any, item: any): Observable<Fanatic> {
 
 // Delete Fanatic
 delete(id: any) {
-  return this.http.delete(`${this.basePath2}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

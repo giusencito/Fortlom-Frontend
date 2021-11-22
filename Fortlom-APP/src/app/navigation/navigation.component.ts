@@ -30,7 +30,7 @@ enterevent(){
 
 enterartists(){
   console.log(this.idnumber)
-  this.cd.navigate(['/HomeFanatic',this.idnumber,'Artists'])
+  this.cd.navigate(['/HomeFanatic',this.idnumber,'artists'])
 }
 
 enterfanaticforum(){

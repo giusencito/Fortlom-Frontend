@@ -34,7 +34,7 @@ handleError(error: HttpErrorResponse) {
 
 // Create Artist
 create(item: any): Observable<Artist> {
-  return this.http.post<Artist>(this.basePath2, JSON.stringify(item), this.httpOptions)
+  return this.http.post<Artist>(this.basePath, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -42,7 +42,7 @@ create(item: any): Observable<Artist> {
 
 // Get Artist by id
 getById(id: any): Observable<Artist> {
-  return this.http.get<Artist>(`${this.basePath2}/${id}`, this.httpOptions)
+  return this.http.get<Artist>(`${this.basePath}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -50,7 +50,7 @@ getById(id: any): Observable<Artist> {
 
 // Get All Artists
 getAll(): Observable<Artist> {
-  return this.http.get<Artist>(this.basePath2, this.httpOptions)
+  return this.http.get<Artist>(this.basePath, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -58,7 +58,7 @@ getAll(): Observable<Artist> {
 
 // Update Artist
 update(id: any, item: any): Observable<Artist> {
-  return this.http.put<Artist>(`${this.basePath2}/${id}`, JSON.stringify(item), this.httpOptions)
+  return this.http.put<Artist>(`${this.basePath}/${id}`, JSON.stringify(item), this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));
@@ -66,7 +66,7 @@ update(id: any, item: any): Observable<Artist> {
 
 // Delete Artist
 delete(id: any) {
-  return this.http.delete(`${this.basePath2}/${id}`, this.httpOptions)
+  return this.http.delete(`${this.basePath}/${id}`, this.httpOptions)
     .pipe(
       retry(2),
       catchError(this.handleError));

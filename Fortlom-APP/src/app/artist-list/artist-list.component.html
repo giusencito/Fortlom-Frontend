@@ -1,9 +1,9 @@
 <app-navigation></app-navigation>
 <div class="basic-container">
   <h1 style="padding-left: 40px;padding-top: 10px; font-size: 38px">ARTISTS</h1>
-  <mat-grid-list cols="2" rowHeight="1.6:1">
+  <mat-grid-list cols="2" rowHeight="500px">
     <mat-grid-tile *ngFor="let i of artistList">
-      <mat-card [style.width]="'60%'">
+      <mat-card [style.width]="'50%'">
         <div fxLayout="row">
           <div fxFlex="10">
             <img src="https://www.cultura.gob.ar/media/uploads/musicos2.jpg"
@@ -21,16 +21,9 @@
               <mat-icon [style.color]="'orange'">star_half</mat-icon>
             </div>
 
-            <mat-slider
-              color="warn"
-              thumbLabel
-              [displayWith]="formatLabel"
-              (click)="new_rate(i.id)"
-              tickInterval="1000"
-              step="0.5"
-              min="0"
-              max="5"
-              aria-label="units"></mat-slider>
+
+
+              <app-rate [idcomment]="i.id"></app-rate>
 
           </div>
             {{i['followers']}}
@@ -41,7 +34,9 @@
 
         </div>
       </mat-card>
+
     </mat-grid-tile>
   </mat-grid-list>
 </div>
+
 

@@ -15,7 +15,9 @@ export class ArtistListComponent implements OnInit {
   artistList!: any;
   rate!:Rate
   val!: number
+  value = 0;
   constructor(private artistService: ArtistService, private rateService:RateService) {
+    this.rate={}as Rate;
    }
 
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class ArtistListComponent implements OnInit {
 
   getArtists(){
     this.artistService.getAll().subscribe((response: any) => {
-      this.artistList = response;
+      this.artistList = response.content;
       console.log("Artistas")
       console.log(this.artistList)
     });
@@ -47,13 +49,11 @@ export class ArtistListComponent implements OnInit {
   }
 
   new_rate( aId: number){
-    console.log('rate:' + this.val)
-    // this.rate.artist = aId;
-    // this.rate.fanatic = fId;
-    // this.rate.rate=this.val;
-    // this.rateService.create(this.rate).subscribe((response: any) => {
-    //   console.log(response.content);
-    // });
+    console.log('rate:' + aId)
+    this.rate.rates=aId;
+
+
+
   }
 
 
